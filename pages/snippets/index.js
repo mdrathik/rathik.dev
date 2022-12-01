@@ -13,7 +13,11 @@ export async function getStaticProps() {
 export default function Snippet({ snippets }) {
   return (
     <>
-      <PageSEO title={`Snippets - ${siteMetadata.author}`} description={siteMetadata.snippets} />
+      '
+      <PageSEO
+        title={`Snippets - ${siteMetadata.author}`}
+        description="Perfect Collection of Javascript & Laravel snippets"
+      />
       <SnippetsLayout snippets={snippets} title="Snippets" />
     </>
   )
