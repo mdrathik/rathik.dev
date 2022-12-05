@@ -45,8 +45,8 @@ export default function PostPage({ posts, initialDisplayPosts, pagination }) {
   return (
     <>
       <PageSEO
-        title={"Md Rathik's Blog"}
-        description={'Rathik write about many programming stuff from experinace'}
+        title={"Md Rathik's Blog List"}
+        description={'Knowledge Sharing about Technology and Ideas'}
       />
       <ListLayout
         posts={posts}
