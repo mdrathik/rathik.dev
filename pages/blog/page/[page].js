@@ -47,6 +47,7 @@ export default function PostPage({ posts, initialDisplayPosts, pagination }) {
       <PageSEO
         title={"Md Rathik's Blog List"}
         description={'Knowledge Sharing about Technology and Ideas'}
+        canonicalUrl={'http://localhost:3000/blog/'}
       />
       <ListLayout
         posts={posts}
