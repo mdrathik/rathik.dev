@@ -8,6 +8,8 @@ draft: false
 
 I was Looking for a Quick solution to get mongoDB data Backup and notification in telegam.
 
+Got many awesome tutorial, but my needs is bit different. So i solved it and sharing with you , so that you can use if its match with you.
+
 First, let's start by creating a new Bash script file. You can use any text editor you prefer, but for this tutorial, we'll use the nano editor. Open your terminal and run the following command
 
 This will create a new file called backup_script.sh and open it in the nano editor. Now, copy and paste the following code into the file:
