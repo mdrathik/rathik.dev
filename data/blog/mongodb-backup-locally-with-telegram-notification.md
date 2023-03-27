@@ -6,7 +6,7 @@ summary: You can easily use this code and send notification to telegram after cr
 draft: false
 ---
 
-I was looking for a quick solution to get mongoDB data Backup and notification in telegam.
+I was Looking for a Quick solution to get mongoDB data Backup and notification in telegam.
 
 First, let's start by creating a new Bash script file. You can use any text editor you prefer, but for this tutorial, we'll use the nano editor. Open your terminal and run the following command
 
