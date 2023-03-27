@@ -1,6 +1,6 @@
 ---
 date: '2023-03-28'
-title: Create Local Backup of MongDB and Send Telegram Notification
+title: Create Local Backup of MongoDB and Send Telegram Notification
 tags: ['ubuntu', 'devops', 'bash']
 summary: You can easily use this code and send notification to telegram after create backup.
 draft: false
