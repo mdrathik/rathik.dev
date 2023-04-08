@@ -10,16 +10,18 @@ export default function AuthorLayout({ children, frontMatter }) {
       <div className="divide-y">
         <div className="space-y-2 pt-6 pb-8 md:space-y-5">
           <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
-            what is do ?
+            What i do ?
           </h1>
         </div>
         <div className="prose prose-lg max-w-none pb-8 dark:prose-dark xl:col-span-2 xl:pl-8">
           {children}
           <p className="mt-10">
-            More than 5 years of experience developing software. International working experience,
-            mainly in the full-stack development, problem architecture and solver. Full-Stack
-            knowledge with a focus on web development. Interested in new technologies and
-            cybersecurity.
+            Hey there! I'm a software developer with over 5 years of experience in full-stack
+            development and web development. I love solving problems, building things, and staying
+            up-to-date with the latest technologies. I pass my leisure time with learning something
+            on CyberSecurity. I'm passionate about innovation and strive for excellence in
+            everything I do. Looking forward to connecting with like-minded developers and making
+            great things together!
           </p>
 
           <div className="space-y-8">
