@@ -31,7 +31,7 @@ export default function AuthorLayout({ children, frontMatter }) {
             </p>
             <div>
               <h5 className="text-lg font-bold text-gray-700 dark:text-white">Frontend</h5>
-              <ul className="grid grid-cols-3  sm:grid-cols-4">
+              <ul className="grid grid-cols-3 sm:grid-cols-4">
                 <li className="flex items-center space-x-2 dark:text-white">
                   <span>
                     <svg
@@ -51,6 +51,16 @@ export default function AuthorLayout({ children, frontMatter }) {
                     </svg>
                   </span>
                   <span>VueJs</span>
+                </li>
+
+                <li className="flex items-center space-x-2 dark:text-white">
+                  <span>
+                    <svg width="30" height="30" viewBox="0 0 256 118">
+                      <path fill="#000" d="M199.111 0L256 56.639l-56.889 56.64l-56.889-56.64z" />
+                      <path fill="#2D3441" d="m56.889 0l117.938 117.421H61.049L0 56.639z" />
+                    </svg>
+                  </span>
+                  <span>AlpineJS</span>
                 </li>
 
                 <li className="flex items-center space-x-2 dark:text-white">
@@ -86,7 +96,7 @@ export default function AuthorLayout({ children, frontMatter }) {
 
             <div>
               <h5 className="text-lg font-bold text-gray-700 dark:text-white">Backend</h5>
-              <ul className="grid grid-cols-3  sm:grid-cols-4">
+              <ul className="grid grid-cols-3 sm:grid-cols-4">
                 <li className="flex items-center space-x-2 dark:text-white">
                   <span>
                     <svg
@@ -154,10 +164,13 @@ export default function AuthorLayout({ children, frontMatter }) {
               </ul>
               <h5 className="mt-10 text-lg font-bold text-gray-700 dark:text-white">Pet Skills</h5>
               <ul>
-                <li>us English</li>
-                <li>🤹🏼&zwj;♂️ Project Management</li>
-                <li>🔍 SEO</li>
-                <li>📊 Google Workspace & Data Engineering</li>
+                <li>🚥Virtualization (ESXI,Hyper-V)</li>
+                <li>☁ AWS Cloud (Lightsail,S3,EC2, Routing)</li>
+                <li>🤹🏼&zwj;♂️ Project Management Tools (Trello, Clickup)</li>
+                <li>📊 Google Workspace + Data Engineering</li>
+                <li>🔍 Basic SEO Practise</li>
+                <li>🧑‍🔬 Continous Learner</li>
+                <li>👨‍💻 Tech Enthusiast</li>
               </ul>
             </div>
           </div>
