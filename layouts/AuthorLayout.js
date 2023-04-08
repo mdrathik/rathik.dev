@@ -15,13 +15,15 @@ export default function AuthorLayout({ children, frontMatter }) {
         </div>
         <div className="prose prose-lg max-w-none pb-8 dark:prose-dark xl:col-span-2 xl:pl-8">
           {children}
-          <p className="mt-10">
-            Hey there! I'm a software developer with over 5 years of experience in full-stack
-            development and web development. I love solving problems, building things, and staying
-            up-to-date with the latest technologies. I pass my leisure time with learning something
-            on CyberSecurity. I'm passionate about innovation and strive for excellence in
-            everything I do. Looking forward to connecting with like-minded developers and making
-            great things together!
+          <p className="mt-10">Hi there!🖐️</p>
+
+          <p>
+            I'm a software developer with over 5 years of experience in full-stack development and
+            web development. I love solving problems, building things, and staying up-to-date with
+            the latest technologies. I pass my leisure time with learning something on
+            CyberSecurity. I'm passionate about innovation and strive for excellence in everything I
+            do. Looking forward to connecting with like-minded developers and making great things
+            together!
           </p>
 
           <div className="space-y-8">
