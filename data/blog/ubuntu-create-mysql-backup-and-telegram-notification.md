@@ -1,6 +1,6 @@
 ---
 date: '2023-04-30'
-title: Automate MySQL Backup on ubuntu and Send Them to Telegram with Notification
+title: Automate MySQL Backup on ubuntu and Send a Telegram with Notification
 tags: ['ubuntu', 'devops', 'bash', 'mysql']
 summary: You can easily use this code and send notification with backup-file to telegram after create backup.
 draft: false
