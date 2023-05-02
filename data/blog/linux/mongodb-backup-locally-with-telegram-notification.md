@@ -50,7 +50,25 @@ sudo usermod -L username
 
 Replace "username" with the name of the user you want to disable. This will lock the user's account and prevent them from logging in.
 
-## 5. How to delete a user in Ubuntu:
+## 5. How to enable user in Ubuntu
+
+Copy this command , and paste in your terminal to eanble user.
+
+```bash
+sudo usermod -U username
+```
+
+This will unlock the user's account and allow them to log in again.
+
+Note that if you want to enable a user account that has been locked due to too many failed login attempts, you may need to reset the account's failed login count using the `pam_tally2` command. Here is an example command:
+
+```bash sudo pam_tally2 --reset --user=username
+
+```
+
+Replace "username" with the name of the user whose failed login count you want to reset. This will clear the user's failed login count and allow them to log in again
+
+## 6. How to delete a user in Ubuntu:
 
 If you need to delete a user account in Ubuntu, you can do so using the `deluser` command. To get started, open up a terminal window and type in the following command:
 
