@@ -47,7 +47,7 @@ Add a new route in the **`routes/web.php`** file for the SMS functionality:
 ```php
 use App\Http\Controllers\SmsController;
 
-Route::get('sms-send', [SmsController::class, 'sendText']);
+Route::get('sms-text', [SmsController::class, 'sendText']);
 ```
 
 ## Step 5: Build a Controller
