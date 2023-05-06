@@ -7,12 +7,12 @@ const ContentSecurityPolicy = `
   default-src 'self';
   script-src 'self' 'unsafe-eval' 'unsafe-inline' utteranc.es https://www.googletagmanager.com 'unsafe-inline';
   object-src 'self';
-  style-src 'self' 'unsafe-inline' *.googleapis.com cdn.jsdelivr.net  ;
+  style-src 'self' 'unsafe-inline' *.googleapis.com cdn.jsdelivr.net;
   img-src * blob: data:;
   media-src 'none';
   connect-src *;
   font-src 'self' fonts.gstatic.com cdn.jsdelivr.net;
-  frame-src utteranc.es
+  frame-src utteranc.es www.youtube.com
 `
 
 const securityHeaders = [
