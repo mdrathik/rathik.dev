@@ -10,7 +10,7 @@ draft: false
 
 Adding an SSH key in GitHub from Ubuntu- Open your terminal and generate a new SSH key by running the following command:
 
-![ubuntu firewall](/static/images/add-ssh-key-into-github.jpg)
+![add ssh key into github](/static/images/add-ssh-key-into-github.jpg)
 
 ```bash
 ssh-keygen -t ed25519 -C "your_email@example.com"
