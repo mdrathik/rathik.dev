@@ -32,6 +32,12 @@ const CommonSEO = ({ title, description, ogType, ogImage, twImage, canonicalUrl 
         name="linksindexer-site-verification"
         content="6836b751f248e10592f7bd4cd60e3ae9b237ec9762915ec853c64671dc6ac17e"
       ></meta>
+
+      <script
+        async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9583661339866748"
+        crossOrigin="anonymous"
+      ></script>
     </Head>
   )
 }
