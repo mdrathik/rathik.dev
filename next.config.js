@@ -6,7 +6,7 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 const ContentSecurityPolicy = `
   default-src 'self';
   script-src 'self' 'unsafe-eval' 'unsafe-inline' utteranc.es https://www.googletagmanager.com 'unsafe-inline';
-  script-src 'self' 'unsafe-eval' *.googletagmanager.com pagead2.googlesyndication.com 'unsafe-inline';
+  script-src 'self' 'unsafe-eval' pagead2.googlesyndication.com 'unsafe-inline';
   object-src 'self';
   style-src 'self' 'unsafe-inline' *.googleapis.com cdn.jsdelivr.net;
   img-src * blob: data:;
