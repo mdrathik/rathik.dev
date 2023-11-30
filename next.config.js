@@ -5,15 +5,16 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 // You might need to insert additional domains in script-src if you are using external services
 const ContentSecurityPolicy = `
   default-src 'self';
-  script-src 'self' 'unsafe-eval' 'unsafe-inline' utteranc.es https://www.googletagmanager.com https://pagead2.googlesyndication.com https://googleads.g.doubleclick.net 'unsafe-inline';
+  script-src 'self' 'unsafe-eval' 'unsafe-inline' utteranc.es *.googletagmanager.com *.googlesyndication.com *.g.doubleclick.net *.google.com 'unsafe-inline';
   object-src 'self';
-  style-src 'self' 'unsafe-inline' *.googleapis.com cdn.jsdelivr.net;
+  style-src 'self' 'unsafe-inline' *.googleapis.com cdn.jsdelivr.net *.google.com;
   img-src * blob: data:;
   media-src 'none';
   connect-src *;
-  font-src 'self' fonts.gstatic.com cdn.jsdelivr.net googleads.g.doubleclick.net;
-  frame-src utteranc.es www.youtube.com googleads.g.doubleclick.net
+  font-src 'self' fonts.gstatic.com cdn.jsdelivr.net *.g.doubleclick.net pagead2.googlesyndication.com *.google.com;
+  frame-src utteranc.es www.youtube.com *.g.doubleclick.net *.google.com ;
 `
+//https://pagead2.googlesyndication.com/
 
 const securityHeaders = [
   // https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP
