@@ -11,8 +11,8 @@ const ContentSecurityPolicy = `
   img-src * blob: data:;
   media-src 'none';
   connect-src *;
-  font-src 'self' fonts.gstatic.com cdn.jsdelivr.net;
-  frame-src utteranc.es www.youtube.com
+  font-src 'self' fonts.gstatic.com cdn.jsdelivr.net googleads.g.doubleclick.net;
+  frame-src utteranc.es www.youtube.com googleads.g.doubleclick.net
 `
 
 const securityHeaders = [
