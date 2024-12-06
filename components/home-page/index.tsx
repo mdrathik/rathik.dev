@@ -25,10 +25,21 @@ export function Home({
             <Intro />
             <TypedBios />
             <div className="mb-6 mt-4 md:mb-8">
-              <p>I started learning to code in 2016 and have been hooked ever since.</p>
-              <p>I landed my first job as a Python coding mentor in 2017.</p>
-              <p>I have a passion for JS/TS, web dev, and eCommerce.</p>
-              <p>I started this blog to document and share my knowledge & experience.</p>
+              <p>
+                I started learning to code in 2016, and it has been an exciting journey ever since.
+              </p>
+              <p>
+                I landed my first role in tech as a PHP developer, where I discovered my love for
+                problem-solving & Many others stuff.
+              </p>
+              <p>
+                I have a passion for web development, Laravel, and exploring secure software
+                solutions.
+              </p>
+              <p>
+                I started this platform to document and share my knowledge, experiences, and
+                insights.
+              </p>
             </div>
             <BlogLinks />
             <p className="my-6 flex md:my-8">

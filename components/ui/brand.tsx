@@ -44,6 +44,12 @@ import Env from '~/icons/env.svg'
 import Html from '~/icons/html5.svg'
 import Postcss from '~/icons/postcss.svg'
 import Commitlint from '~/icons/commitlint.svg'
+import Laravel from '~/icons/laravel.svg'
+import jQuery from '~/icons/jquery.svg'
+import Bootstrap from '~/icons/bootstrap.svg'
+import Wix from '~/icons/wix.svg'
+import NuxtJS from '~/icons/nuxt.svg'
+import VueJs from '~/icons/vue.svg'
 
 export let BrandsMap: Record<
   string,
@@ -246,6 +252,34 @@ export let BrandsMap: Record<
   Pnpm: {
     Icon: Pnpm,
     url: 'https://pnpm.io/',
+  },
+  Laravel: {
+    Icon: Laravel,
+    url: 'https://laravel.com/',
+  },
+
+  jQuery: {
+    Icon: jQuery,
+    url: 'https://jquery.com/',
+  },
+
+  Bootstrap: {
+    Icon: Bootstrap,
+    url: 'https://getbootstrap.com/',
+  },
+
+  Wix: {
+    Icon: Wix,
+    url: 'https://wix.com/',
+  },
+
+  NuxtJS: {
+    Icon: NuxtJS,
+    url: 'https://nuxt.com/',
+  },
+  VueJS: {
+    Icon: VueJs,
+    url: 'https://vue.com/',
   },
 }
 

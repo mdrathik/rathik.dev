@@ -34,20 +34,43 @@ export function AuthorLayout({ children }: Props) {
                 Hi there <Twemoji emoji="waving-hand" />
               </h2>
               <p>
-                I'm <strong>Tuan Anh Huynh</strong> (alias <strong>Leo</strong> at work), a software
-                engineer from <strong>Vietnam</strong>. I have a passion for all things{' '}
-                <strong>Javascript</strong>. I enjoy building eCommerce software and stuff related
-                to web dev. I work mainly with <strong>Typescript</strong>, <strong>React</strong>,{' '}
-                <strong>NodeJS</strong>, <strong>Remix</strong>, and <strong>TailwindCSS</strong>.
+                I'm <strong>Md Solaiman Hossain</strong> (alias <strong>Rathik</strong> at work), a
+                software developer with over 7+ years of experience in full-stack and web
+                development. I love solving problems, building innovative solutions, and staying
+                updated with the latest technologies.
               </p>
               <p>
-                This blog serves as a journal for documenting and sharing the insights and knowledge
-                I've gained as a software engineer. Building, writing, and sharing things is a great
-                way for me to solidify my understanding of new concepts and ideas.
+                In my leisure time, I enjoy learning about <strong>CyberSecurity</strong> and
+                exploring technologies that drive innovation. I'm passionate about creating
+                impactful solutions and connecting with like-minded developers to build amazing
+                things.
               </p>
+              <h3>Technologies 💻</h3>
+              <p>I use a wide range of tools depending on the problem 🚀:</p>
+              <ul>
+                <li>
+                  <strong>Frontend:</strong> Vue.js, Alpine.js, Tailwind CSS
+                </li>
+                <li>
+                  <strong>Backend:</strong> Laravel
+                </li>
+                <li>
+                  <strong>Others:</strong> LAMP, Git
+                </li>
+              </ul>
+              <h3>Pet Skills 🐾</h3>
+              <ul>
+                <li>🚥 Virtualization (ESXi, Hyper-V)</li>
+                <li>☁ AWS Cloud (Lightsail, S3, EC2, Routing)</li>
+                <li>🤹🏼‍♂️ Project Management Tools (Trello, ClickUp)</li>
+                <li>📊 Google Workspace + Data Engineering</li>
+                <li>🔍 Basic SEO Practices</li>
+                <li>🧑‍🔬 Continuous Learner</li>
+                <li>👨‍💻 Tech Enthusiast</li>
+              </ul>
               <p>
-                I would greatly appreciate any comments and thoughts on my posts{' '}
-                <Twemoji emoji="clinking-beer-mugs" />.
+                I'm excited to connect and collaborate with developers who share a passion for
+                technology and innovation <Twemoji emoji="clinking-beer-mugs" />.
               </p>
             </div>
             <div>
@@ -61,9 +84,9 @@ export function AuthorLayout({ children }: Props) {
               <CareerTimeline />
             </div>
             <div>
-              <h2>Tech stack</h2>
+              <h2>This Blog Tech stack</h2>
               <p>
-                This blog is hosted on{' '}
+                Hosted on{' '}
                 <a href="https://vercel.com/" target="_blank">
                   Vercel
                 </a>
@@ -77,6 +100,14 @@ export function AuthorLayout({ children }: Props) {
                 </a>{' '}
                 using <strong>Tailwind Nextjs Starter Blog</strong>.
               </p>
+
+              <p>
+                This Website is built by{' '}
+                <a href="https://x.com/hta218_" target="_blank">
+                  Leo Huynh 🇻🇳
+                </a>
+              </p>
+
               <p>
                 A huge thanks to{' '}
                 <a href="https://twitter.com/timlrxx" target="_blank">
@@ -85,48 +116,6 @@ export function AuthorLayout({ children }: Props) {
                 for the minimal, lightweight, and super easy-to-customize blog starter.
               </p>
               <p>A few major over-engineering-changes from the original repo:</p>
-              <ul>
-                <li>
-                  <Twemoji emoji="atom-symbol" /> Upgrading to <strong>React v18</strong>,{' '}
-                  <strong>Next v14</strong>
-                  (Using App router)
-                </li>
-                <li>
-                  <Twemoji emoji="party-popper" /> Adopting <strong>Typescript</strong>, committing
-                  with{' '}
-                  <a href="https://www.conventionalcommits.org/" target="_blank">
-                    Conventional Commits
-                  </a>
-                </li>
-                <li>
-                  <Twemoji emoji="bar-chart" /> Monitoring site with{' '}
-                  <a href="https://umami.is/" target="_blank">
-                    Umami
-                  </a>{' '}
-                  website analytics
-                </li>
-                <li>
-                  <Twemoji emoji="eyes" /> Theming in dark mode with{' '}
-                  <a
-                    href="https://github.blog/changelog/2021-04-14-dark-and-dimmed-themes-are-now-generally-available/"
-                    target="_blank"
-                  >
-                    Github dark dimmed
-                  </a>{' '}
-                  colors for better contrast
-                </li>
-                <li>
-                  <Twemoji emoji="man-technologist" /> Making a lot of changes to the UI, new
-                  homepage design, adding <code>ProfileCard</code>, <code>CareerTimeline</code>{' '}
-                  components, adding <code>/snippets</code>, <code>/books</code>,{' '}
-                  <code>/movies</code> page, etc.
-                </li>
-                {/* <li>
-                  <Twemoji emoji="inbox-tray" /> Bumping up <code>mdx-bundler</code>,{' '}
-                  <code>rehype</code>/<code>remark</code> plugins and dependencies to the latest
-                  version
-                </li> */}
-              </ul>
               <p>
                 See my{' '}
                 <a href="https://github.com/hta218/leohuynh.dev" target="_blank">
@@ -134,27 +123,6 @@ export function AuthorLayout({ children }: Props) {
                 </a>{' '}
                 for this blog.
               </p>
-              <div>
-                <h3>Legacy versions</h3>
-                <p>I started this blog since 2019 and up until now it has 2 legacy versions:</p>
-                <ul>
-                  <li>
-                    <code>v1</code> built with <strong>NextJS v13</strong> using Page router:{' '}
-                    <a
-                      href="https://leohuynhdev-git-v1-leo-huynhs-projects.vercel.app/"
-                      target="_blank"
-                    >
-                      https://leohuynhdev-git-v1-leo-huynhs-projects.vercel.app/
-                    </a>
-                  </li>
-                  <li>
-                    <code>v0</code> built with <strong>Gatsby</strong>:{' '}
-                    <a href="https://leo-blog-legacy.vercel.app/" target="_blank">
-                      https://leo-blog-legacy.vercel.app/
-                    </a>
-                  </li>
-                </ul>
-              </div>
             </div>
             <div>
               <h2>Assets</h2>
@@ -186,7 +154,7 @@ export function AuthorLayout({ children }: Props) {
               </p>
               <SocialAccounts />
             </div>
-            <div>
+            {/* <div>
               <h2>Support</h2>
               <p>If you appreciate my work, consider supporting me:</p>
               <div className="flex flex-col gap-4">
@@ -230,7 +198,7 @@ export function AuthorLayout({ children }: Props) {
                   />
                 </a>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

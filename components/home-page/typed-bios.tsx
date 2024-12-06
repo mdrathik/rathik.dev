@@ -42,41 +42,29 @@ export function TypedBios() {
     >
       <ul id="bios" className="hidden">
         <li>
-          I'm aliased as <span className="font-medium">Leo</span> at work.
+          I'm aliased as <span className="font-medium">Rathik</span> at work, but my full name is Md
+          Solaiman Hossain.
         </li>
-        <li>I'm a learner, builder, and freedom seeker.</li>
-        <li>I live in Ha Noi, Viet Nam.</li>
-        <li>I was born in the beautiful Moc Chau plateau.</li>
-        <li>My first programming language I learned was Pascal.</li>
-        <li>I love web development.</li>
-        <li>I'm focusing on building eCommerce software.</li>
-        <li>I work mostly with JS/TS technologies.</li>
-        <li>I'm Tu Le's husband.</li>
+        <li>I'm a learner, builder, and visionary thinker.</li>
+        <li>I live in Dhaka, Bangladesh.</li>
+        <li>I was born in the beautiful city of Tangail.</li>
+        <li>My first programming language I learned was "C".</li>
+        <li>I love web development and DevOps technologies.</li>
+        <li>I'm focusing on building software and ensuring security.</li>
+        <li>I work mostly with Laravel, Tailwind, and Alpine.js.</li>
+        <li>I enjoy spending time on Reddit and exploring computer games.</li>
         <li>
-          I'm a dog-person. <Twemoji emoji="dog" />
-        </li>
-        <li>
-          I'm a sport-guy. I love
-          <span className="ml-1">
-            <Twemoji emoji="soccer-ball" />,
-            <Twemoji emoji="man-swimming" />,
-            <Twemoji emoji="ping-pong" />,
-            <Twemoji emoji="volleyball" />
-          </span>
-        </li>
-        <li>I love watching football.</li>
-        <li>
-          I love playing piano & guitar. <Twemoji emoji="musical-keyboard" /> &{' '}
-          <Twemoji emoji="guitar" />
-        </li>
-        <li>I love rock music.</li>
-        <li>
-          I love playing chess. <Twemoji emoji="chess-pawn" />
+          I love listening to songs. <Twemoji emoji="musical-note" />
         </li>
         <li>
-          I love playing video games, PES is my favorite one. <Twemoji emoji="video-game" />.
+          I'm not into outdoor games, but I enjoy staying engaged with technology and creativity.
         </li>
+        <li>Love to Redditing a Lot !</li>
+        <li>I'm the CTO of CODECONY, driving innovation and growth.</li>
+        <li>I aim to accelerate the impact of Industry 4.0</li>
+        <li>My vision is to make CODECONY a top outsourcing brand in South Asia.</li>
       </ul>
+
       <span ref={el} className="text-neutral-900 dark:text-neutral-200" />
     </div>
   )

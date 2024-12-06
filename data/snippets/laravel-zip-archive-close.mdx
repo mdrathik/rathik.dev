@@ -1,0 +1,31 @@
+---
+heading: 'ZipArchive::close(): Failure to create temporary file: Permission denied '
+title: 'ZipArchive::close(): Failure to create temporary file: Permission denied '
+date: '2023-04-09'
+icon: 'Laravel'
+draft: false
+summary: 'How to fix ZipArchive::close(): Failure to create temporary file: Permission denied'
+tags: ['Laravel']
+---
+
+## In Bitnami Lampp : ZipArchive::close()
+
+- If storage directory is already owned by the bitnami user and has group ownership set to daemon, which is likely the web server user group. However, we may need to ensure that the group has write permissions to the storage directory and its subdirectories.
+
+- Run the following commands to grant write permissions to the daemon group for the storage directory and its subdirectories:
+
+```bash
+cd /path/to/your/laravel_project
+sudo chgrp -R daemon storage
+sudo chmod -R 775 storage
+```
+
+## In Ubuntu apache
+
+```bash
+cd /path/to/your/laravel_project
+sudo chown -R www-data:www-data storage
+sudo chmod -R 775 storage
+```
+
+Make sure you restart the apache/bitnami after this command.

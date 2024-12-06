@@ -1,0 +1,58 @@
+---
+heading: 'Deploy Laravel Project via SSH'
+title: 'Deploy Laravel Project via SSH'
+date: '2022-09-29'
+icon: 'Laravel'
+draft: false
+summary: 'How to deploy Laravel Project via SSH'
+tags: ['Laravel']
+---
+
+- Firstly you need to clone the project via SSH to your site location.Cause you can be confirmed that your ssh is working or not. Which will also easy to understand the process. I use snippets for quick. You can follow this one for better solution :
+- https://gist.github.com/cagartner/27052b0bccb99c74d8616a943426b390
+- https://github.com/marketplace/actions/laravel-deploy
+
+- A Github action workflow is a set of instructions that consists different jobs and steps that can be triggered on events we mentioned above.
+
+- Workflows for a repository are stored inside .github/workflows in the root directory of your applications.
+
+Usage
+
+```yml
+name: deploy
+on:
+  push:
+    branches:
+      - main
+      - master
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install SSH Key
+        uses: shimataro/ssh-key-action@v2
+        with:
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          known_hosts: unnecessary
+
+      - name: Adding Known Hosts
+        run: ssh-keyscan -p ${{ secrets.SSH_PORT}} -H ${{ secrets.SSH_HOST }}  >> ~/.ssh/known_hosts
+
+      - name: Start Deploying
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: ${{ secrets.SSH_PORT }}
+          passphrase: ${{ secrets.PASSPHRASE }}
+          script: |
+            ls
+            cd domain.com/public_html/
+            php82 artisan down || true
+            git pull
+            composer install
+            php82 artisan migrate
+            php82 artisan optimize:clear
+            php82 artisan up
+```
