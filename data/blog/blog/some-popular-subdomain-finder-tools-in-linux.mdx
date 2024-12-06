@@ -1,0 +1,94 @@
+---
+title: 'Some Popular Subdomain Finder Tools in Linux'
+date: '2024-12-07'
+tags: ['linux', 'security']
+summary: 'In this article, we explore some of the most popular and effective Linux-based tools for discovering hidden subdomains.'
+images: ['/static/images/subdomain.jpg']
+authors: ['default']
+---
+
+# Discover Hidden Subdomains with These Popular Linux Tools
+
+Are you looking for a way to find subdomains of a website? There are several powerful tools available in Linux that can help you uncover subdomains. In this article, we will explore some popular subdomain finder tools and guide you through the installation and usage of each one.
+
+## Step 1: Install Sublist3r
+
+[Sublist3r](https://github.com/aboul3la/Sublist3r) is a popular Python-based tool designed for subdomain discovery. It is simple to use and efficient.
+
+### Installation
+
+To install Sublist3r, run the following command:
+
+```bash
+pip install sublist3r
+```
+
+## Step 2: Use Sublist3r to Find Subdomains
+
+Once installed, you can use Sublist3r to find subdomains of a website. To discover the subdomains of a website, run the following command:
+
+```bash
+sublist3r -d example.com
+```
+
+This will fetch all the subdomains of `example.com` and display them in the terminal.
+
+## Step 3: Install Amass
+
+[Amass](https://github.com/OWASP/Amass) is another highly regarded tool for subdomain enumeration. It provides more advanced features for discovering subdomains and mapping attack surfaces.
+
+### Installation
+
+To install Amass, use the following command:
+
+```bash
+sudo apt-get install amass
+```
+
+## Step 4: Use Amass to Find Subdomains
+
+Once Amass is installed, you can use it to find subdomains by running the following command:
+
+```bash
+amass enum -d example.com
+```
+
+This will search for and list all the subdomains of `example.com`.
+
+## Step 5: Install Knockpy
+
+[Knockpy](https://github.com/guelfoweb/knockpy) is a Python-based tool that also helps in discovering subdomains. It has a wordlist-based approach and is very effective in brute-forcing subdomains.
+
+### Installation
+
+You can install Knockpy using pip:
+
+```bash
+pip install knockpy
+```
+
+## Step 6: Use Knockpy to Find Subdomains
+
+After installation, you can use Knockpy to identify subdomains. Simply run:
+
+```bash
+knockpy example.com
+```
+
+This will initiate a scan for all subdomains of `example.com`.
+
+## Other Useful Tools
+
+Apart from the tools mentioned above, there are several other popular subdomain discovery tools available for Linux, including:
+
+- **dnsrecon**: A DNS reconnaissance tool for finding subdomains.
+- **theHarvester**: A tool for gathering information about domains and emails.
+- **subbrute**: A fast subdomain brute-forcing tool.
+
+These tools can be installed via `pip` or `apt-get` and provide additional methods to find subdomains.
+
+## Conclusion
+
+Subdomain discovery is a crucial step in security assessments, penetration testing, and bug bounty hunting. The tools mentioned above are some of the best options available on Linux for discovering hidden subdomains.
+
+Thanks for reading! If you encounter any issues or have suggestions for improving this article, feel free to leave a comment or contact me via email at [hello@rathik.dev](mailto:hello@rathik.dev).
