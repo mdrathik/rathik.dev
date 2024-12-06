@@ -5,7 +5,7 @@ export function Signature(props: SVGProps<SVGSVGElement>) {
     <svg
       version="1.0"
       xmlns="http://www.w3.org/2000/svg"
-      width="150.000000pt"
+      width="140.000000pt"
       height="70.000000pt"
       viewBox="0 0 333.000000 232.000000"
       preserveAspectRatio="xMidYMid meet"
