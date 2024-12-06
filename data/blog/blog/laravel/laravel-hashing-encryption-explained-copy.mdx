@@ -1,0 +1,61 @@
+---
+title: 'Laravel Hashing, Encryption and How its works '
+date: '2023-12-01'
+tags: ['php', 'laravel']
+summary: 'Today, we are on a simple quest to figure out hashing, encryption, and what makes Laravel the security superhero.'
+images:
+  [
+    '/static/images/banners/white-and-black-one-way-printed-road-signages__bdchu614__pKeF6Tt3c08.jpeg',
+  ]
+authors: ['default']
+---
+
+Today, we're on a simple quest to figure out hashing, encryption, and what makes Laravel the security superhero. Picture this: we'll walk through the digital land, break down these techie things, and see how Laravel's got our back with super-strong data shields.
+
+![add ssh key into github](/static/images/rathik-laravel.jpg)
+
+## Hashing: The One-Way Street 🚗
+
+Imagine you have a magical code machine. You feed it your data, and voila! It spits out a secret code. But here's the twist – once it's coded, there's no magic machine to turn it back. It's like sending your data on a one-way trip with no return ticket.
+
+## Encryption: Safe and Key Combo 🗝️🔒
+
+Now, picture a digital safe. You toss in your secrets, lock it up, and keep the key safe. When you want your secrets back, you use the key to unlock the safe. It's like having a super-secure digital vault with a key that only you (or your trusted sidekicks) have.
+
+In simple terms, hashing is like turning your info into a secret language that only tech wizards understand. Encryption is like storing your secrets in a digital safe, and only those with the right key can unlock the treasure chest.
+
+## Laravel Hashing
+
+Now that we've got the lowdown on hashing and encryption, let's talk about how Laravel steps in as the superhero of our digital secrets. Laravel is all about keeping things secure, especially when it comes to passwords. It's like having a trusty sidekick called the Hash facade that helps us with digital security.
+
+### Implementing Hashing in Laravel: A Walk in the Park
+
+In real-life tech terms, Laravel makes hashing super easy. Check out this example:
+
+```php
+use Illuminate\Support\Facades\Hash;
+
+$password = 'secret';
+$hashedPassword = Hash::make($password);
+
+// Storing $hashedPassword in the database
+
+// Checking if a password is correct
+if (Hash::check($userEnteredPassword, $hashedPasswordFromDatabase)) {
+    // Passwords match
+    echo "Password is correct!";
+} else {
+    // Passwords do not match
+    echo "Invalid password!";
+}
+```
+
+Here, we're using Laravel to turn a password into a hashed version with `Hash::make($password)`. Later on, we're making sure the entered password matches the stored hashed version with `Hash::check($userEnteredPassword, $hashedPasswordFromDatabase)`. Laravel makes sure this whole process is super secure.
+
+## Decrypting Laravel Hashes
+
+Now, here's the kicker: Can you decrypt Laravel hashes? Nope, not happening. Laravel is serious about security, using strong, one-way hashing methods like Bcrypt. Decrypting these hashes is like trying to un-bake a cake – once it's done, there's no going back.
+
+### Hope we are very clear about the hasing in laravel
+
+So, lets wrapping up hashing, encryption, and how Laravel throws on a digital superhero cape. It's like we've given our data a cool cyber-armor upgrade. But, you know what? I'm still in learning , so if you've got some genius way to explain all this, hit me up!

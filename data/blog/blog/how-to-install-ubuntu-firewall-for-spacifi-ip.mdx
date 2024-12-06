@@ -1,0 +1,72 @@
+---
+title: 'Secure Your Ubuntu Server with UFW and Allow Specific IP Access'
+date: '2023-04-18'
+tags: ['ubuntu', 'security', 'ufw', 'firewall']
+summary: 'Learn how to install and configure UFW on your Ubuntu server to restrict access to specific IP addresses for better security.'
+images:
+  [
+    '/static/images/banners/selective-focus-photography-of-yellow-and-orange-post-it-notes-on-wall__whmii__S3JdHNXSfnA.jpeg',
+  ]
+authors: ['default']
+---
+
+I was trying with securing my server and preventing unauthorized access to my Apache server on ports 80 and 443. After scouring the internet for tutorials and helpful resources, I finally found the solution. In this tutorial, I will share the steps I took to secure my server using the Uncomplicated Firewall (UFW) on Ubuntu and allow SSH access for specific IP addresses. Let's start
+
+![ubuntu firewall](/static/images/ubuntu-ufw.jpg)
+
+## Update your package list:
+
+```
+sudo apt update
+```
+
+## Install UFW:
+
+```
+sudo apt install ufw
+```
+
+## Enable UFW:
+
+```
+sudo ufw enable
+```
+
+## Deny all incoming traffic by default:
+
+```
+sudo ufw default deny incoming
+```
+
+## Allow all outgoing traffic by default:
+
+```
+sudo ufw default allow outgoing
+```
+
+## To allow SSH access for a specific IP address (e.g., 192.168.1.10), run the following command:
+
+```
+sudo ufw allow from 192.168.1.10 to any port 22 proto tcp
+```
+
+Replace 192.168.1.10 with the actual IP address you want to allow SSH access from. If you want to allow multiple IP addresses, repeat this step for each IP address.
+
+### Restrict access to Apache server on ports 80 and 443 to specific IP addresses or subnets. For example, if you want to allow access only from the IP address 192.168.1.20, run the following commands:
+
+```
+sudo ufw allow proto tcp from 192.168.1.20 to any port 80
+sudo ufw allow proto tcp from 192.168.1.20 to any port 443
+```
+
+Replace 192.168.1.20 with the actual IP address or subnet you want to allow access from. If you want to allow multiple IP addresses or subnets, repeat this step for each one.
+
+## Verify your UFW configuration:
+
+```
+sudo ufw status
+```
+
+This command should display the current UFW rules. Make sure that the SSH rule(s) you added in step 6 and the Apache rules you added in step 7 are listed.
+
+That's it! By following these steps, I was able to secure my server, restrict access to my Apache server on ports 80 and 443, and allow SSH access for specific IP addresses. Remember to update your UFW rules whenever you need to grant or revoke access to your server.

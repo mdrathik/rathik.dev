@@ -1,0 +1,184 @@
+---
+title: 'Drag and Drop File Upload via FilePond in Laravel'
+date: '2022-11-13'
+tags: ['laravel']
+summary: 'Hi Folks, Today You will learn about laravel file drag and drop file upload via filepond. Please see the process and checkout'
+images:
+  [
+    '/static/images/banners/black-iphone-5-beside-brown-framed-eyeglasses-and-black-iphone-5-c__danny144__ah-HeguOe9k.jpeg',
+  ]
+authors: ['default']
+---
+
+![Drag and Drop File Upload via FilePond in Laravel](/static/images/laravel/laravel-drag-and-drop-file-upload-via-file-pong.jpg)
+
+I was looking for a Drag and Drop file upload in Laravel. So i tried some of them and found
+
+<a target="_blank" href="https://pqina.nl/filepond/" rel="nofollow">
+  filepond
+</a>{' '}
+
+is much effective and customizable from others.
+
+Basically filepond is javascript library to drag and drop file. Its has supports of many javascript framework like Jquery, React, Vue, Svelte & Many more. But I am really grateful that it has also support vanilla javaScript as well. So in this tutorial you need to follow the every process to complete it. Ti be honest it has very butter-smoth ui. You will love it when once impalemented.
+
+They have really well
+
+<a target="_blank" href="https://pqina.nl/filepond/docs/" rel="nofollow">
+  documentation
+</a>
+to impalement and add more feature according to your needs. You can read that as well.{' '}
+
+## Steps for Drag and Drop upload via filepond in laravel
+
+### 1. Install FilePond Via CDN in your Laravel Blade
+
+Add this two css link in your application `head` section. If you want, you can download every cdn from `unpkg` and directly use that.
+
+```html
+<link href="https://unpkg.com/filepond/dist/filepond.css" rel="stylesheet" />
+<link
+  href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css"
+  rel="stylesheet"
+/>
+```
+
+Add this javaScript Library to your bottom of the page body.
+
+```html
+<script src="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.js"></script>
+<script src="https://unpkg.com/filepond@^4/dist/filepond.js"></script>
+```
+
+### 2. File upload via input in form
+
+In this part, you can define some validation in input box as well. See, there i define the some validation like max size file upload 3mb. If you want you can change this according to your needs.
+
+```html
+<input
+  type="file"
+  id="filePond"
+  accept="image/*"
+  data-max-file-size="3MB"
+  class="my-pond"
+  name="images"
+/>
+```
+
+### 3. File upload via input in form
+
+This below code should be added bottom of the body of the page, below to the JavaScript cdn. What we did here ? first look at the code, first we catch the input box via id. The we defined two process in server. One is `process` & another one is `revert` . Process is use for upload the file and rever is for delete the file from the drag and drop option. Besides the they accept post & delete method as well to upload and delete.
+
+'`x-CSRF-TOKEN': '{{ csrf_token() }}'` You know laravel need csrf_token for `post` method. So we add that.
+
+```jsx
+const inputElement = document.querySelector('input[id="filePond"]')
+FilePond.registerPlugin(FilePondPluginImagePreview)
+const pond = FilePond.create(inputElement)
+pond.setOptions({
+  server: {
+    process: {
+      url: '/temp-upload',
+      method: 'POST',
+      headers: {
+        'x-CSRF-TOKEN': '{{ csrf_token() }}',
+      },
+    },
+    revert: {
+      url: '/temp-delete',
+      method: 'DELETE',
+      headers: {
+        'x-CSRF-TOKEN': '{{ csrf_token() }}',
+      },
+      onload: (response) => {
+        console.log(response)
+      },
+    },
+  },
+})
+```
+
+### 4. Define route upload and delete route in web.php for filepond
+
+According to the last step, in filepond we need two thing to do. One is upload and one is Delete. You can use this with new Controller or any existing controller.
+
+```php
+Route::post('/temp-upload', [FilePondController::class, 'uploadTemporary']);
+Route::delete('/temp-delete', [FilePondController::class, 'deleteTemporary']);
+```
+
+### 5. Make database migration to following this schema
+
+We need to store the data in database to trace the upload and delete. Now create model and schema with this command.
+
+```php
+php artisan make:TempFileUplaodModel ModelName -m
+```
+
+The add folder and file as a string.
+
+```php
+public function up()
+    {
+        Schema::create('temporary_files', function (Blueprint $table) {
+            $table->id();
+            $table->string('folder');
+            $table->string('file');
+            $table->timestamps();
+        });
+    }
+```
+
+### 6. Write Two function for that Route.
+
+We need to go in defined controller and make two function for upload and delete. I am giving the sample Code. But make sure you have own validation for your security.
+
+```php
+public function uploadTemporary(Request $request)
+    {
+        if ($request->hasFile('images')) {
+            $image = $request->file('images');
+            $fileName = $image->getClientOriginalName();
+            $folder = uniqid('post', true);
+            $image->storeAs('public/temp/' . $folder, $fileName);
+            TemporaryFile::create([
+                'folder' => $folder,
+                'file' => $fileName
+            ]);
+            return $folder;
+        }
+        return '';
+    }
+```
+
+Now add this function for delete/revert. In this function we find that folder id by `request()->getContent())` and check if its exists we delete the folder with that data.
+
+```php
+public function deleteTemporary(Request $request)
+    {
+        $id = $request->getContent();
+        return $id;
+        $tempFile = TemporaryFile::where('folder', request()->getContent())->first();
+        if ($tempFile) {
+            Storage::deleteDirectory('public/temp' . $tempFile->folder);
+            $tempFile->delete();
+            return response();
+        }
+    }
+```
+
+Make sure you already have `public/temp/` folder in storage. Since i am using laravel `storage` filesystem with symblink. You can create `symblink` by this command. You can skip this section if you want to use public folder.
+
+```bash
+php artisan storage:link
+```
+
+### 5. Final results to check filepond file upload and download
+
+Now try to upload and download image by select or drag and drop.
+
+![Drag and Drop File Upload via FilePond in Laravel](/static/images/laravel/laravel-file-upload-via-filepond-laravel.jpg)
+
+Your might be interested to know
+
+- [To learn about Cache Clear in Laravel](https://www.rathik.dev/blog/laravel/best-ways-to-use-clear-cache-command-in-laravel)

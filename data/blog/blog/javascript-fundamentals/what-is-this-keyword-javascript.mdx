@@ -1,0 +1,97 @@
+---
+title: 'Use of `this` Keyword in Javascript.'
+date: '2022-05-15'
+tags: ['Javascript']
+summary: 'This is one of the most common questions in Javascript interviews. In general, the “this” keyword refers to an object depending on the situation and its uses.'
+images:
+  ['/static/images/banners/assorted-reading-books-on-table__morganharpernichols__OMXPrCAhxrE.jpeg']
+authors: ['default']
+---
+
+![Javascript this](https://images.unsplash.com/photo-1507652955-f3dcef5a3be5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80)
+
+<p class="text-center text-sm">
+  <em>Img Credit : [sydney Rae](https://unsplash.com/@srz)</em>
+</p>
+
+This is one of the most common questions in Javascript interviews. In general, the “this” keyword refers to an object depending on the situation and its uses.
+
+- `this` refers to an object when it’s into the object method.
+- `this` refers to the global object when it’s alone.
+- `this` with strict mode, its “undefined”
+- `this` refers to the element as this when receiving the event.
+- `this` refers to any object when use methods like `call()` , `apply()` & `bind()` can refer
+
+## Use in Method
+
+```jsx
+let Country = {
+  name: 'Bangladesh',
+  sayName: function () {
+    console.log(this.name) //Bangladesh
+  },
+}
+Country.sayName()
+```
+
+Copy the code and run,
+
+You will see, that its prints the country name, which is the property of the Country object. That means in the method this will reference its object.
+
+## Use `this`in Global Scope or in function alone
+
+```jsx
+console.log(this) //widnow object
+function getThis() {
+  console.log(this) //widnow object
+}
+getThis()
+```
+
+If you run this code, you will see both of them are referring to the global/`window` object.
+
+## Use `this` in “Strict” Mode.
+
+```jsx
+'use strict'
+console.log(this) //widnow object
+
+function myFunction() {
+  return this
+}
+console.log(myFunction()) //undefined
+```
+
+In Strict mode when `this` assign in global scope, it will refer to the global object.
+
+But when its assign in function with strict mode, it will `undefined`.
+
+## `This` with event handler
+
+```jsx
+button onclick="this.style.display='none'">Click to Remove Me!</button>
+```
+
+Just run this code and click on button, it will remove as display none. that means when the event happening this is referring to itself.
+
+## `This` with `call()` function
+
+```jsx
+const person1 = {
+  fullName: function () {
+    return this.firstName + ' ' + this.lastName
+  },
+}
+
+const person2 = {
+  firstName: 'John',
+  lastName: 'Doe',
+}
+
+let x = person1.fullName.call(person2)
+console.log(x) //John Doe
+```
+
+In this example, we can see in person1 `this` working as persob2 object. cause when we call the fullname from person1 , we call person2 to as this. That’s why person is reffer to the this.
+
+`apply()` & `bind()` are works also similar to `call()`. if you are clear with this example, hope you will try these function yourself.

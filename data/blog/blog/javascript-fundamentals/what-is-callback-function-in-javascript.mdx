@@ -1,0 +1,53 @@
+---
+title: 'What is Javascript CallBack function and how it works ?'
+date: '2022-04-24'
+tags: ['Javascript']
+summary: 'Callback function is that function where the function pass as a argument in another function'
+images: ['/static/images/banners/houses-near-valley-with-trees__timtrad__BYPMtjYMEyk.jpeg']
+authors: ['default']
+---
+
+![Javascript CallBacks](https://images.unsplash.com/photo-1516984300013-acce0937113d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80)
+
+<p class="text-center text-sm">
+  <em>Img Credit : [@hiteshchoudhary](https://unsplash.com/@hiteshchoudhary)</em>
+</p>
+
+Now we have a function which will take a variable as argument & that will modify the value. In this case we can sum 10 and return it.
+
+```javascript
+function ModifyValue(x) {
+  return x + 10
+}
+const getModifyValue = ModifyValue(10)
+console.log(getModifyValue) // 20
+```
+
+Now if you want to do some other things like subtraction, multiplication & division. Then you have to write three separate function.
+
+what if we can tell the function to modify the value according to our needs. Like we will pass the logic what we need instead of write same code multiple times.
+
+```javascript
+function ModifyValue(x, callback) {
+  return callback(x)
+}
+
+function sum(elem) {
+  return elem + 10
+}
+
+function sub(elem) {
+  return elem - 10
+}
+
+const getSumValue = ModifyValue(50, sum)
+const getSubValue = ModifyValue(50, sub)
+console.log(getSumValue) // 60
+console.log(getSubValue) // 40
+```
+
+wow ! Now we can add our different Login in different function. So now the function is pass with argument thats call <strong>Callback</strong> function.
+
+---
+
+If there has any issues or wrong instruction, please feel free to contact with me by comments or mail: hello@rathik.dev

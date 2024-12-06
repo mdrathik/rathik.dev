@@ -1,0 +1,64 @@
+---
+title: 'Playing with Laravel Arrays and Collection'
+date: '2023-10-30'
+tags: ['php', 'laravel']
+summary: 'Hello, fellow developers! Today, we’re going to talk about a common task in Laravel - converting arrays to collections and vice versa. Let’s dive right in!'
+images: ['/static/images/banners/closeup-photo-of-white-petaled-flowers__kalljet__m8ayci69oWw.jpeg']
+authors: ['default']
+---
+
+## What are Arrays and Collections?
+
+In PHP, an array is a data structure that allows us to store multiple values in a single variable. It's super handy, but it can be a bit limited when we want to perform complex manipulations or transformations on the data.
+
+That's where Laravel collections come in. A collection is a more powerful version of an array. It provides a ton of methods that make it easy to work with your data.
+
+##Converting Arrays to Laravel Collections
+![play with laravel array and collection](/static/images/rathik-laravel.jpg)
+
+## Converting Arrays to Collections
+
+Let's start with converting an array to a collection. Laravel makes this super easy with the `collect()` helper function. Here's an example:
+
+```php
+// Create an array of names
+$names = ['Rathik', 'John', 'Mary', 'Jane'];
+
+// Convert the array to a collection
+$collection = collect($names);
+
+// Print the collection
+print_r($collection);
+```
+
+In this code snippet, we first create an array of names. We then convert this array into a Laravel collection using the `collect()` function.
+
+## Working with Collections
+
+One of the great things about collections is that they provide a ton of methods for manipulating and transforming your data. Let's take a look at some examples:
+
+```php
+// Use the map method to append the last name 'Smith' to each name
+$collection = $collection->map(function ($name) {
+    return $name . ' Smith';
+});
+
+// Print the updated collection
+print_r($collection);
+```
+
+In this example, we use the `map()` method to append the last name 'Smith' to each name in our collection.
+
+## Converting Collections back to Arrays
+
+Sometimes, you might need to convert your collection back into an array. This is easy to do with the `toArray()` method:
+
+```php
+// Convert the collection back to an array
+$array = $collection->toArray();
+
+// Print the array
+print_r($array);
+```
+
+And there you have it! We've covered how to convert arrays to collections and back again in Laravel. I hope you found this helpful. If you have any questions or feedback, feel free to leave them in the comments below.

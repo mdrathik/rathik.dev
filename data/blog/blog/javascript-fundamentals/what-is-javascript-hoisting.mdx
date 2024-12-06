@@ -1,0 +1,91 @@
+---
+title: 'What is Javascript Hoisting ?'
+date: '2022-04-24'
+lastmod: '2024-11-07'
+tags: ['Javascript']
+summary: 'To quick ans Javascript Hoisting moves the  Variable and function declaration to the top. Lets drive into deep'
+images: ['/static/images/banners/macbook-pro-on-brown-wooden-table__vinayak_125__AWSHg2mK-Ho.jpeg']
+authors: ['default']
+---
+
+![Javascript Hoisting](https://images.unsplash.com/photo-1615544983150-0760f39857f5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1162&q=80)
+
+<p class="text-center text-sm">
+  <em>Img Credit : [Vitolda Klein](https://unsplash.com/@little_klein)</em>
+</p>
+
+## Introduction
+
+When you load your javascript to browser, javascript engine executes it and create global execution context. That has two phases.
+
+- Creation
+- Execution
+
+Hosting happens on when the phase on creation mode, the javascript engine moves the Variable and Function declaration to the top of the scope.
+
+## Variable Hoisting
+
+Lets run the Example : 1 code first.
+
+Example : 1
+
+```Javascript
+console.log(name);   // undefined
+var name = "JavaScript";
+```
+
+Hope it doesn't make an error and showing <em><strong>"undefined"</strong></em>. Cause Javascript moves the Variable declaration top of the scope.
+
+okay, just run Example : 2 code
+
+Example : 2
+
+```Javascript
+var name;
+console.log(name);   // undefined
+var name = "JavaScript";
+```
+
+I think , still you got the same result on example two.
+
+Its meaning during the creation phase, <em><strong>var name </strong></em> automatically declare to the top & initialize value <em><strong>"undefined"</strong></em>
+
+## Function Hoisting
+
+Lets run the Example : 1 code first.
+
+Example : 1
+
+```Javascript
+let result = add(20, 30);
+console.log(result);
+
+function add(a, b) {
+  return a + b;
+}
+```
+
+Like as Variable Javascript engine hoisted the function to the top.
+
+Example : 2
+
+```Javascript
+function add(a, b) {
+  return a + b;
+}
+let result = add(30, 30);
+console.log(result);
+```
+
+If you compare the output both are giving same result. During the creating phase the <strong>function add</strong> automatically move to the top of scope.
+
+Note :
+
+- Unlike var, they are not initialized with a default value while hoisting.
+- They cannot be read/written until they have been fully initialized.
+- Javscript hoisting not working
+  arrow function and expression.
+
+---
+
+If there has any issues or wrong instruction, please feel free to contact with me by comments or mail: hello@rathik.dev

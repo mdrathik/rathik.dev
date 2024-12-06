@@ -1,0 +1,109 @@
+---
+title: 'Best Ways to Use Clear Cache Command in Laravel'
+date: '2022-11-09'
+tags: ['laravel']
+summary: 'There are many ways to clear laravel cache, in this post we will see some ways to clear laravel cache'
+images:
+  [
+    '/static/images/banners/a-laptop-computer-sitting-on-top-of-a-wooden-desk__douglasamarelo__ehyV_XOZ4iA.jpeg',
+  ]
+authors: ['default']
+---
+
+![Best Ways to Use Clear Cache Command in Laravel](/static/images/laravel/best-ways-to-use-clear-cache-command-in-laravel.jpg)
+
+Hello Folks, In recent time Laravel has many update to make this framework more efficient. That’s a nice part, but many developers when developing the application on local or live server faces different types of problem with cache. In this case, when you need to clear application cache for some specific reason. My GOD ! I remembered that, one day i reload a page 20+ time just to find the changes. So it wasn’t easy to see changes when the cache wasn’t cleared. So today I am going to help you know how to clear the cache properly in different types of cases.
+
+# Lets see some methods now to clear Laravel cache
+
+Just for your information Laravel supports some others cache system like memcache or redis. You will get your the configuration file on `config/cache.php`
+
+## 1. Laravel Route cache
+
+When you need to clear laravel route cache, please enter this into your application directory via CMD or terminal.
+
+```php
+php artisan route:cache
+```
+
+## 2. How to clear Laravel Compiled View Cache
+
+With this artisan command you are able to clear laravel View cache, please enter this into your application directory via CMD or terminal.
+
+```php
+php artisan view:clear
+```
+
+## 3. How to clear Laravel Configuration Cache
+
+With this artisan command you are able to clear laravel config cache, please enter this into your application directory via CMD or terminal.
+
+```php
+php artisan config:cache
+php artisan config:clear
+```
+
+## 4. How to clear Laravel compiled classes and services
+
+With this artisan command you are able to clear Laravel compiled classes and services, please enter this into your application directory via CMD or terminal.
+
+```php
+php artisan clear-compiled
+```
+
+To be more specified, this complied cache files keep on **`bootstrap/cache/`** with the name of `complied.php` and `services.php`
+
+## 5. How to clear Laravel Event cache
+
+With this artisan command you are able to clear event cache, please enter this into your application directory via CMD or terminal.
+
+```php
+php artisan event:clear
+```
+
+## 6. How to clear Laravel Event cache
+
+With this artisan command you are able to clear event cache, please enter this into your application directory via CMD or terminal.
+
+```php
+php artisan event:clear
+```
+
+## 7. How to clear multiple cache with single command
+
+I really love this, With this artisan command you are able to various types of command like config, views, cache files etc., please enter this into your application directory via CMD or terminal.
+
+```php
+php artisan optimize:clear
+```
+
+## 8. How to clear cache with Schedule
+
+```php
+$schedule->command('clear:data')->dailyAt('08:00');
+```
+
+## 9. Clear Laravel cache from Routes
+
+```php
+
+Route::get('/clear-cache-from-route', function() {
+    $clearCache = Artisan::call('cache:clear');
+    return "clear";
+});
+
+Route::get('/optimize-call', function() {
+    $clearCache = Artisan::call('optimize:clear');
+    return "clear";
+});
+```
+
+i just gave two example, according to your need you can add more artisan command in routes `web.php`
+
+This method is very fine when you haven’t ssh access to your server. In this case just add your specific command in route. Even you can add any artisan command in routes like above example.
+
+Your might be interested to know
+
+- [How to change laravel Fortify default login url](https://www.rathik.dev/blog/laravel/laravel-fortify-login-url-change)
+
+Dont forget to comment if need any help

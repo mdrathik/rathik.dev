@@ -1,0 +1,173 @@
+---
+title: 'Use Laravel withCount, withSum, withAvg, and withExists Methods in Eloquent'
+date: '2023-05-09'
+tags: ['laravel']
+summary: 'Drive into four super useful Eloquent methods in Laravel: withCount, withSum, withAvg, and withExists'
+images: ['/static/images/banners/black-network-switch-with-cables__thomasjsn__ISG-rUel0Uw.jpeg']
+authors: ['default']
+---
+
+Hello everyone!
+Um Rathik! I've been knee-deep in PHP & Laravel for the last 5 years, exploring, learning, and growing every single day. Now, I want to share some of that knowledge with you.We're going to dive into four super useful Eloquent methods in Laravel: `withCount`, `withSum`, `withAvg`, and `withExists`. These methods are handy tools. What is the best part? These methods work seamlessly with Laravel 6, Laravel 7, Laravel 8, Laravel 9, and even the latest Laravel 10 version.
+
+![Laravel's Optional Helper Function](/static/images/laravel/laravel.jpg)
+
+So, buckle up and let's get started!
+
+**Creating our Eloquent Models**
+
+Before we proceed, let's define the structure of our application. We will be working with two models, **`Book`** and **`Author`**. Each **`Author`** can have multiple **`Books`**.
+
+**Creating our Eloquent Models**
+
+Before we proceed, let's define the structure of our application. We will be working with two models, **`Book`** and **`Author`**. Each **`Author`** can have multiple **`Books`**.
+
+_Author Model:_
+
+```php
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class Author extends Model
+{
+    use HasFactory;
+
+    public function books()
+    {
+        return $this->hasMany(Book::class);
+    }
+}
+
+```
+
+_Book Model:_
+
+```php
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class Book extends Model
+{
+    use HasFactory;
+
+    protected $fillable = [
+        'title', 'price'
+    ];
+}
+```
+
+**Using Laravel's withCount Method**
+
+The **`withCount`** method in Laravel allows you to count the number of related records for each model without executing N+1 queries. This method enhances the performance of your Laravel application by reducing the overall number of queries made to the database. Here's how you can use it:
+
+```php
+namespace App\Http\Controllers;
+
+use App\Models\Author;
+
+class BookController extends Controller
+{
+    public function index()
+    {
+        $authors = Author::select("id", "name")
+                        ->withCount('books')
+                        ->get()
+                        ->toArray();
+
+        dd($authors);
+    }
+}
+```
+
+The output will be an array that includes the count of books each author has written.
+
+**Using Laravel's withCount Method with Where Clause**
+
+The **`withCount`** method also allows for the application of conditions using the **`where`** clause.
+
+```php
+$authors = Author::withCount(['books' => function ($query) {
+            $query->where('published', 1);
+        }])->get();
+```
+
+This example counts only the books that have been published (**`published = 1`**).
+
+**Leveraging Laravel's withSum Method**
+
+In a similar fashion, Laravel's **`withSum`** method allows us to sum a particular column's value in a related model. In this example, we'll sum the prices of all books each author has written.
+
+```php
+namespace App\Http\Controllers;
+
+use App\Models\Author;
+
+class BookController extends Controller
+{
+    public function index()
+    {
+        $authors = Author::select("id", "name")
+                        ->withSum('books', 'price')
+                        ->get()
+                        ->toArray();
+
+        dd($authors);
+    }
+}
+```
+
+The output will be an array that includes the sum of the prices of all books each author has written.
+
+**Understanding Laravel's withAvg Method**
+
+```php
+namespace App\Http\Controllers;
+
+use App\Models\Author;
+
+class BookController extends Controller
+{
+    public function index()
+    {
+        $authors = Author::select("id", "name")
+                        ->withAvg('books', 'price')
+                        ->get()
+                        ->toArray();
+
+        dd($authors);
+    }
+}
+```
+
+This code will work assuming that your **`Author`** model has a **`books`** relationship defined and the **`Book`** model has a **`price`** field.
+
+**Using Laravel's withExists Method**
+
+```php
+namespace App\Http\Controllers;
+
+use App\Models\Author;
+
+class BookController extends Controller
+{
+    public function index()
+    {
+        $authors = Author::select("id", "name")
+                        ->withExists('books')
+                        ->get()
+                        ->toArray();
+
+        dd($authors);
+    }
+}
+```
+
+This code will work if your **`Author`** model has a **`books`** relationship defined.
+
+Laravel's Eloquent ORM is jam-packed with features that make database wrangling feel less like a chore and more like a walk in the park. The **`withCount`**, **`withSum`**, **`withAvg`**, and **`withExists`** methods are just a sneak peek into how Eloquent can take the complexity out of managing database relationships.
+
+Feel free to knock me if this code is not working or any help regarding this. hello@rathik.dev

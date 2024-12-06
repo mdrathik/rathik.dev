@@ -1,0 +1,86 @@
+---
+title: 'Laravel Eager Loading: Lets Supercharge Query Performance'
+date: '2023-05-03'
+tags: ['laravel']
+summary: 'Laravel Eager Loading" which is a great way to improve query performance in your Laravel apps. '
+images:
+  [
+    '/static/images/banners/black-iphone-5-beside-brown-framed-eyeglasses-and-black-iphone-5-c__danny144__ah-HeguOe9k.jpeg',
+  ]
+authors: ['default']
+---
+
+Hello everyone! Today we are going to talk about "Laravel Eager Loading" which is a great way to improve query performance in your Laravel apps. Are you ready to make your Laravel app super fast? Let's get started!
+
+![Laravel's Optional Helper Function](/static/images/laravel/laravel.jpg)
+
+## **Setting Up Our Models**
+
+Before we dive into eager loading, let's first set up our models. In our Laravel application, we have two models - **`Post`** and **`Category`**. Here's how they look:
+
+### **The Post Model**
+
+```php
+class Post extends Model
+{
+    use HasFactory;
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
+}
+```
+
+This is our Post model. Each post belongs to a category.
+
+### **The Category Model**
+
+```php
+class Category extends Model
+{
+    use HasFactory;
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
+    }
+}
+```
+
+And this is our Category model. A category can have many posts.
+
+Now, let's say we want to display all our posts along with their respective categories.
+
+## **The Problem with Lazy Loading**
+
+If we use the following code to get all our posts:
+
+```php
+phpCopy code
+$posts = Post::get();
+//retrive all post
+```
+
+Although this code gets all the posts, it's not very efficient. It's like loading each category seprately . This is called "Lazy Loading." Laravel loads the category for each post individually when it's accessed.
+
+## **Boosting Performance with Eager Loading**
+
+Eager loading in Laravel means that instead of getting related data separately for each post, Laravel can get everything at once. This makes the query more efficient and improves performance.
+
+Here's how to implement eager loading in Laravel:
+
+```php
+phpCopy code
+$posts = Post::with('category')->get();
+// Retrieve all posts with their category information
+```
+
+By using the **`with`** method, we're telling Laravel to load all related categories at the same time when retrieving the posts. This results in a more efficient query and a noticeable performance improvement for your application.
+Please check the video below :
+
+<iframe
+  width="90%"
+  height="400"
+  src="https://www.youtube.com/embed/0POww1Pika4"
+  frameborder="0"
+  allowfullscreen
+></iframe>

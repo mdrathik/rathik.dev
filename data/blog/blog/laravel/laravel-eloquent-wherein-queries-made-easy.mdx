@@ -1,0 +1,112 @@
+---
+title: 'Laravel Eloquent WhereIn Queries Made Easy'
+date: '2023-05-07'
+tags: ['laravel']
+summary: 'Learn how to use the WhereIn query in Laravel Eloquent with our simple, step-by-step guide. Boost your Laravel skills with this SEO-friendly tutorial.'
+images:
+  [
+    '/static/images/banners/a-laptop-computer-sitting-on-top-of-a-wooden-desk__douglasamarelo__ehyV_XOZ4iA.jpeg',
+  ]
+authors: ['default']
+---
+
+![Laravel's Optional Helper Function](/static/images/laravel/laravel.jpg)
+
+Today we will learn `WhereIn` query in Laravel. With a focus on unique examples, we'll explore how Laravel's Model `WhereIn` array query works, and give you practical guidance for implementing it in your applications. This tutorial is suitable for developers working with Laravel 6, Laravel 7, Laravel 8, Laravel 9, and Laravel 10.
+
+By the end of this tutorial, you'll be well-equipped to use the `WhereIn` query in Laravel applications confidently. Let's get started!
+
+Table of Contents:
+
+1. Understanding the WhereIn Query in Laravel
+2. Syntax for WhereIn Query in Laravel
+3. Example 1: Retrieving Blog Posts with Specific Tags
+4. Example 2: Filtering Products by Multiple Categories
+5. Example 3: Selecting Users with Specific Roles
+6. Example 4: Filtering Books by Multiple Authors
+7. Conclusion
+
+## Understanding the WhereIn Query in Laravel
+
+The WhereIn query in Laravel is a powerful tool for filtering results based on an array of values. It is an efficient way to manage data in your applications. Laravel provides the **`whereIn()`** method to use SQL WhereIn queries, allowing you to pass two arguments: column name and an array of values.
+
+## Syntax for WhereIn Query in Laravel
+
+The WhereIn query in Laravel is a powerful tool for filtering results based on an array of values. It is an efficient way to manage data in your applications. Laravel provides the **`whereIn()`** method to use SQL WhereIn queries, allowing you to pass two arguments: column name and an array of values.
+
+The basic syntax for the WhereIn query in Laravel is:
+
+```php
+whereIn(Column_name, Array);
+```
+
+## Example 1: Retrieving Blog Posts with Specific Tags
+
+In this example, we will retrieve blog posts that have specific tags associated with them. We will assume that there is a many-to-many relationship between the **`Post`** and **`Tag`** models using a pivot table.
+
+```php
+public function getBlogPostsByTags()
+{
+    $tags = ['Laravel', 'PHP', 'Eloquent'];
+
+    $posts = Post::whereHas('tags', function ($query) use ($tags) {
+        $query->whereIn('name', $tags);
+    })->get();
+
+    return view('posts.index', compact('posts'));
+}
+```
+
+## Example 2: Filtering Products by Multiple Categories
+
+In this example, we will filter products based on multiple categories. We will assume that there is a one-to-many relationship between the **`Category`** and **`Product`** models, where each product belongs to a category.
+
+```php
+public function getProductsByCategories()
+{
+    $categories = ['Electronics', 'Clothing', 'Books'];
+
+    $products = Product::whereHas('category', function ($query) use ($categories) {
+        $query->whereIn('name', $categories);
+    })->get();
+
+    return view('products.index', compact('products'));
+}
+```
+
+## Example 3: Selecting Users with Specific Roles
+
+In this example, we will retrieve users who have specific roles in the application. We will assume that there is a one-to-many relationship between the **`Role`** and **`User`** models, where each user has a role.
+
+```php
+public function getUsersByRoles()
+{
+    $roles = ['Admin', 'Editor', 'Author'];
+
+    $users = User::whereHas('role', function ($query) use ($roles) {
+        $query->whereIn('name', $roles);
+    })->get();
+
+    return view('users.index', compact('users'));
+}
+```
+
+## Example 4: Filtering Books by Multiple Authors
+
+In this example, we will filter books based on the author names. We will assume that there is a one-to-many relationship between the **`Author`** and **`Book`** models, where each book has an author.
+
+```php
+
+public function getBooksByAuthors()
+{
+    $authors = ['George Orwell', 'J.K. Rowling', 'Stephen King'];
+
+    $books = Book::whereHas('author', function ($query) use ($authors) {
+        $query->whereIn('name', $authors);
+    })->get();
+
+    return view('books.index', compact('books'));
+}
+```
+
+Finally, we have covered the use of the `WhereIn` query in Laravel Eloquent in-depth. By providing unique examples, we have shown you various practical ways to implement the `WhereIn` query in Laravel applications. With this knowledge, you can now confidently use the `WhereIn` query in your projects.

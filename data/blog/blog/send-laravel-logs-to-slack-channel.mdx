@@ -1,0 +1,48 @@
+---
+title: 'How to get laravel Logs in instantly in Slack Channel'
+date: '2022-09-25'
+tags: ['laravel', 'slack']
+summary: 'The simplest way to get triggered error log instantly via Slack Channel.'
+images:
+  ['/static/images/banners/brown-paper-with-silver-round-pendant__i_am_simoesse__hETJ5PBJDKw.jpeg']
+authors: ['default']
+---
+
+![laravel logs into Slack](/static/images/laravel-slack-rathik-dev.jpg)
+
+When you have an laravel application with many users & get report frequently about error. So in that case you have to check the logs mannully and fix the issues of user. But before get a complain from user you have the opportunity to know where issue/error triggerd, that would be great. WSo i will help you to know when any error trigger on your application, the error log automatically send to your slack channel.
+
+## Step 1 : Create a webhook URL on slack
+
+For this you need to go https://api.slack.com/ and select create an app option. Please enter your app name (anything) and select the slack workspace.
+
+![create slack app](/static/images/laravel-log-slack/laravel-log-slack-1.jpg)
+
+## Step 2 : Select Incoming webhook and Turn on
+
+Turn on the slack webhook service and you will get option below the page to add your app into channel where you want to get the notication.
+
+![create slack app](/static/images/laravel-log-slack/laravel-log-slack-2.jpg)
+
+![create slack app](/static/images/laravel-log-slack/laravel-log-slack-3.jpg)
+
+## Step 3 : Test the webhook URL
+
+Now you will get a webhook url and CURL command to test. So before setup into laravel you can copy the curl code and paste into Termial to check.
+
+![create slack app](/static/images/laravel-log-slack/laravel-log-slack-4.jpg)
+
+if eveything is fine you will get notication into slack like this.
+![create slack app](/static/images/laravel-log-slack/laravel-log-slack-5.jpg)
+
+## Step 4 : setup .env
+
+Just go into your laravel project and setup the .env files like this.
+
+![create slack app](/static/images/laravel-log-slack/laravel-log-slack-6.jpg)
+
+## Step 4 : Test from your application
+
+This time, you can produce a error, then you will see that application automatically send the error logs to your slack.
+
+![create slack app](/static/images/laravel-log-slack/laravel-log-slack-6.jpg)

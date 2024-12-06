@@ -1,0 +1,89 @@
+---
+title: 'How to add & auto mount EBS drive into EC2'
+date: '2021-5-17'
+lastmod: '2024-11-11'
+tags: ['Linux', 'AWS']
+summary: 'EBS means Elastic block Store and its available to use in EC2 instance. For
+  EBS you are only able to increase the volume, generally is not able decrease.'
+images:
+  [
+    '/static/images/banners/long-straight-road-with-trees-on-the-side__karsten_wuerth__rafblRbne3o.jpeg',
+  ]
+authors: ['default']
+---
+
+Before going ahead with this, you have to be connected to your EC2 via SSH, you can check from this [link](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AccessingInstances.html 'link') how to connect. Also need to create an EBS volume and [attach it to the EC2 instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-attaching-volume.html 'How to Attach ebs Volume to Ec2 ').
+
+## How to Mount EBS on EC2
+
+**Step 1**: Let's check if the attached volume on ec2 by this
+
+    lsblk
+
+It will return like this output
+
+    NAME    MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
+    xvda    202:0    0    8G  0 disk
+    -xvda1  202:1    0    8G  0 part /
+    xvdf    202:80   0   10G  0 disk
+
+**Step 2:** so now need to check the volume if there has any data.
+`sudo file -s /dev/xvdf `
+
+If the output looks like this “`/dev/xvdf: data`“, its meaning your volume is empty.
+
+**Step 3**: Now we need to format it with ex4
+`sudo mkfs -t ext4 /dev/xvdf`
+**Step 4:** Create a directory where you want to mount and the mount command
+
+```
+    sudo mkdir /yournewvolume
+
+    sudo mount /dev/xvdf /yournewvolume/`
+```
+
+**Step 5:** change the directory to yournewvolume by
+
+```
+    cd yournewvolume
+
+    df -h .
+```
+
+by entering df -h . will show you the volume space on that directory.
+
+If once the ec2 instance stop/restart it will unmount again, so if need auto-mount when the ec2 restart, follow this command below.
+
+## Auto Mount EBS on EC2
+
+**Step 1:** For security, please Back up the /etc/fstab file.
+
+```
+sudo cp /etc/fstab /etc/fstab.bak
+```
+
+**Step 2:** open with nano or vim to this now
+
+```
+  sudo nano /etc/fstab
+```
+
+Now add this line at the end.
+
+```
+/dev/xvdf       /yournewvolume   ext4    defaults,nofail        0       0
+```
+
+**Step 3:** Run this command below to check any errors found to not. if there is no error, that means its finally done.
+
+    sudo mount -a
+
+Now you can reboot the instance and check.
+
+## How many EBS can attach to EC2?
+
+The answer is 20. This the max number you are able to add.
+
+**_If you face any issues or anything wrong please feel free to comment._**
+
+_Banner image credit goes to_ [_Markus Spiske_](https://unsplash.com/photos/hL8slYnc-bM)

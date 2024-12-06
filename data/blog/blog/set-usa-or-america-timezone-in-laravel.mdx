@@ -1,0 +1,69 @@
+---
+title: 'Configuring Different or America Time Zone in Laravel'
+date: '2023-10-25'
+tags: ['php', 'laravel']
+summary: 'Setting America Time Zone in Laravel with Step-by-Step Guide'
+images:
+  [
+    '/static/images/banners/shallow-focus-photography-of-potted-plants__fredmarriage__UcfKYTan-LU.jpeg',
+  ]
+authors: ['default']
+---
+
+Are you working on a Laravel project and need to set the America time zone for your application? Laravel's default timezone is UTC, but you can easily adjust it to match the time zone you need. In this guide, we'll walk you through the process step by step, ensuring your Laravel application displays and processes time according to the `America/New_York` time zone.
+
+![add ssh key into github](/static/images/rathik-laravel.jpg)
+
+**Step 1: Open the Laravel Configuration**
+
+The first step is to open your Laravel project's configuration. You can achieve this in one of three ways: by modifying the `config/app.php` file, using environment variables in the `.env` file, or creating a custom configuration file named `timezone.php`.
+
+**Method 1: Modifying `config/app.php`**
+
+1. Open the `config/app.php` file.
+
+2. Locate the `timezone` option, which is initially set to 'UTC.'
+
+3. Change the timezone to 'America/New_York' (or your preferred America time zone).
+
+4. Save the file.
+
+**Method 2: Using Environment Variables (`.env`)**
+
+1. Open the `.env` file.
+
+2. Find the `APP_TIMEZONE` option, which is initially set to 'UTC.'
+
+3. Update `APP_TIMEZONE` to 'America/New_York' (or your desired America time zone).
+
+4. Save the file.
+
+**Method 3: Creating a Configuration File**
+
+1. Create a new configuration file named `timezone.php` in your `config` directory.
+
+2. Add the following code to the `timezone.php` file:
+
+```php
+<?php
+
+return [
+    'timezone' => 'America/New_York',
+];
+```
+
+3. Save the file.
+
+4. Open the `config/app.php` file and replace the `timezone` option with `'timezone' => config('timezone.timezone')`.
+
+By following these steps, you've successfully changed the timezone of your Laravel application to "America/New_York." Your application will now display and process time according to the desired America time zone.
+
+**Conclusion**
+
+Changing the timezone in Laravel is a straightforward process, whether you prefer to modify the configuration file, use environment variables, or create a custom configuration file. By setting the America time zone, you ensure that your application handles time-related operations accurately and in line with your specific requirements.
+
+For more Laravel tips and tutorials, explore our blog and stay tuned for updates!
+
+---
+
+please feel free to comment or mail me hello@rathik.dev for any queries.

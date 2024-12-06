@@ -1,0 +1,48 @@
+---
+title: 'Laravel Login url Change via Fortify'
+date: '2022-10-27'
+tags: ['laravel']
+summary: 'In this article you will learn how to change laravel fortify /login url'
+images:
+  [
+    '/static/images/banners/a-laptop-computer-sitting-on-top-of-a-wooden-desk__douglasamarelo__ehyV_XOZ4iA.jpeg',
+  ]
+authors: ['default']
+---
+
+![laravel fortify login url change](/static/images/rathik-laravel.jpg)
+
+Hi Fokls,
+This is common asking question when you need to change the laravl login url in fortify. Somedays ago i tried many ways to change the fortify login url. So after i got this method below and its tested. Its Working efficiently, you can check this example.
+
+1. Firstly go to your `FortifyServiceProvider` and now you have add this below code in `boot()` method
+
+```php
+Fortify::ignoreRoutes();
+```
+
+now its look like
+
+```php
+  public function boot()
+    {
+        Fortify::ignoreRoutes(); // <<< ADDED THIS LINE
+
+        // Below is the default configuration that comes with this provider
+        // If you changed it, you can keep your changes
+        Fortify::createUsersUsing(CreateNewUser::class);
+        Fortify::updateUserProfileInformationUsing(UpdateUserProfileInformation::class);
+        Fortify::updateUserPasswordsUsing(UpdateUserPassword::class);
+        Fortify::resetUserPasswordsUsing(ResetUserPassword::class);
+    }
+```
+
+2. Then copy Fortify's routes definitions to your ./routes/web.php file.
+
+3. Then go to web.php, need to keep the controllers imports file and you can make changes accordingly.
+
+Thanks For read please comments if its not solved yet
+
+Read More for different Category
+
+- [Read from differnt category](https://www.rathik.dev/tags)

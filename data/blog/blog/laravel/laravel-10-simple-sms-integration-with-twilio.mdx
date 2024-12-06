@@ -1,0 +1,96 @@
+---
+title: 'Laravel 10 Send SMS with Twilio Integration'
+date: '2023-05-05'
+tags: ['laravel']
+summary: 'Looking to send SMS messages in your Laravel 10 app? I have a straightforward tutorial for you.'
+images:
+  [
+    '/static/images/banners/a-laptop-computer-sitting-on-top-of-a-wooden-desk__douglasamarelo__ehyV_XOZ4iA.jpeg',
+  ]
+authors: ['default']
+---
+
+I'll use Twilio & its a versatile cloud communication tool that enables you to add SMS, voice, and video to your app. In this tutorial, I'll demonstrate how to send SMS messages using Twilio's API credentials in Laravel 10.
+
+![Laravel's Optional Helper Function](/static/images/laravel/laravel.jpg)
+
+Follow these easy steps:
+
+## Step 1: Begin Your Laravel Project
+
+First, create a new Laravel project by running this command in your terminal or command prompt:
+
+```bash
+composer create-project --prefer-dist laravel/laravel projectName
+```
+
+## Step 2: Set Up Twilio Account
+
+Sign up for a Twilio account at **[www.twilio.com](http://www.twilio.com/)**. After creating an account, add a Twilio phone number. Then, find your Account SID, Auth Token, and phone number. Add them to your **`.env`** file like this:
+
+```php
+TWILIO_SID=YOUR_TWILIO_SID
+TWILIO_TOKEN=YOUR_TWILIO_AUTH_TOKEN
+TWILIO_FROM=YOUR_TWILIO_PHONE_NUMBER
+```
+
+## Step 3: Install Twilio SDK
+
+To utilize Twilio's API, install the **`twilio/sdk`** composer package. Run this command:
+
+```bash
+composer require twilio/sdk
+```
+
+## Step 4: Create Your Route
+
+Add a new route in the **`routes/web.php`** file for the SMS functionality:
+
+```php
+use App\Http\Controllers\SmsController;
+
+Route::get('sms-text', [SmsController::class, 'sendText']);
+```
+
+## Step 5: Build a Controller
+
+Create a new **`SmsController`** in the **`app/Http/Controllers`** directory. Add the **`sendText`** method:
+
+```php
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use Twilio\Rest\Client;
+
+class SmsController extends Controller
+{
+    public function sendText()
+    {
+        $recipientNumber = "RECIPIENT_PHONE_NUMBER";
+        $messageContent = "This is a test message from YourWebsite.com";
+
+        try {
+            $accountSid = getenv("TWILIO_SID");
+            $authToken = getenv("TWILIO_TOKEN");
+            $twilioPhoneNumber = getenv("TWILIO_FROM");
+
+            $client = new Client($accountSid, $authToken);
+            $client->messages->create($recipientNumber, [
+                'from' => $twilioPhoneNumber,
+                'body' => $messageContent
+            ]);
+
+            return response('SMS sent successfully.');
+
+        } catch (\Exception $e) {
+            return response("Error: " . $e->getMessage());
+        }
+    }
+}
+```
+
+Now, run the app and test the SMS sending feature.
+
+In this tutorial, I showed you how to easily integrate Twilio SMS into your Laravel 10 app. By following these steps, you can quickly set up and send SMS messages, enhancing communication within your application.
+
+If its not working, please feel free to comments or knock me hello@rathik.dev

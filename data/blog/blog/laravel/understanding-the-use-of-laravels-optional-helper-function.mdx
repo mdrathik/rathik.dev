@@ -1,0 +1,117 @@
+---
+title: 'Understanding the Use of Laravel Optional Helper Function'
+date: '2023-05-01'
+tags: ['laravel']
+summary: 'Laravel provides the optional() helper function, This function allows us to attempt to access properties or call methods on an object that could be null.'
+images:
+  [
+    '/static/images/banners/a-laptop-computer-sitting-on-top-of-a-wooden-desk__douglasamarelo__ehyV_XOZ4iA.jpeg',
+  ]
+authors: ['default']
+---
+
+![Laravel's Optional Helper Function](/static/images/laravel/laravel-optional-helper-function.jpg)
+
+We are going to discuss a handy tool in the Laravel toolkit - the optional() function. If you've ever had to handle data that may or may not be available in your Laravel application, then this tutorial is for you! We'll be using a simple blog post and category relationship to illustrate this.
+
+## What is Laravel's optional() function?
+
+Sometimes, we need to access object properties, but we're not sure if the object actually exists. This is a common scenario when dealing with relationships in Laravel. Trying to access a property of a null object will throw an error. To avoid this, Laravel provides the `optional()` helper function. This function allows us to attempt to access properties or call methods on an object that could be null. If the object turns out to be null, `optional()` returns a new instance of the Optional class, avoiding any null reference errors.
+
+## Let's do Practical Example of Laravel Optional
+
+Consider a typical blog application where a Post may belong to a Category. In our models, we have defined these relationships as follows:
+
+The Post Model
+
+```php
+class Post extends Model
+{
+    use HasFactory;
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
+}
+```
+
+In the Post model, we define a relationship method called `category()`. This method establishes that each Post belongs to a single Category. We use the `belongsTo()` method to define this relationship, which is part of Laravel's Eloquent ORM.
+
+The `Category::class` passed as an argument to the `belongsTo()` method indicates the class name of the related model.
+
+```php
+class Category extends Model
+{
+    use HasFactory;
+
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
+    }
+}
+```
+
+The Category model is defined similarly. Here, we have a `posts()` method that establishes the inverse of the relationship we defined in the Post model.
+
+This method signifies that a Category can have many Posts. We use the `hasMany()` method for this relationship, and as before, we provide the class name of the related model `(Post::class)` as the argument.
+
+Remember, the names of the methods `category()` and `posts()` are not arbitrary. They are used when you need to retrieve the related records. For instance, `$post->category` would give you the category related to the post, and `$category->posts` would give you all the posts under that category.
+
+In our dashboard, we want to display a list of all posts along with their categories. However, not all posts have a category. This is where `optional()` comes into play.
+Let's take a look at our dashboard method:
+
+```php
+public function dashboard()
+{
+    $posts = Post::with('category')->get(); // Retrieve all posts with their category information
+    return view('dashboard')->with(['posts' => $posts]);
+}
+```
+
+We retrieve all posts and their category information using Laravel's eager loading to optimize performance. Now, in our view, we want to display the name of the category for each post. However, if a post doesn't have a category, we don't want our application to break. This is where `optional()` shines.
+
+```html
+<table class="w-full text-left text-sm text-gray-500 dark:text-gray-400">
+  <thead class="bg-gray-50 text-xs uppercase text-gray-700 dark:bg-gray-700 dark:text-gray-400">
+    <tr class="text-xl">
+      <th scope="col" class="px-6 py-3">Title</th>
+      <th scope="col" class="px-6 py-3">Category</th>
+      <th scope="col" class="px-6 py-3">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    @foreach ($posts as $post)
+    <tr class="border-b bg-white dark:border-gray-700 dark:bg-gray-800">
+      <td class="whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white">
+        {{ $post->title }}
+      </td>
+      <td class="px-6 py-4">{{ optional($post->category)->name }}</td>
+      <td class="px-6 py-4">{{ $post->description }}</td>
+    </tr>
+    @endforeach
+  </tbody>
+</table>
+```
+
+In our view, we can do this:
+
+```php
+<td class="px-6 py-4">{{ optional($post->category)->name }}</td>
+```
+
+With `optional()`, we try to access the name property of the category object. If the category object is null, `optional()` prevents an error by returning an instance of the Optional class. This instance can safely have properties accessed or methods called on it, and will just return null.
+
+So there you have it! The `optional()` function is a lifesaver when dealing with potentially null objects in Laravel. It helps us write cleaner, more robust code. Now go ahead, and make your Laravel code more bulletproof with `optional()`!
+
+Don't forget to share this tutorial if you found it helpful, and stay tuned for more Laravel tips and tricks.
+
+Please check the video below :
+
+<iframe
+  width="100%"
+  height="415"
+  src="https://www.youtube.com/embed/fgFUG00u4iE"
+  frameborder="0"
+  allowfullscreen
+></iframe>

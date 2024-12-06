@@ -1,0 +1,48 @@
+---
+title: 'How to Get Json Data From url in Laravel'
+date: '2022-10-31'
+tags: ['laravel']
+summary: 'In this article you will learn how to read json file or call api to get data in laravel'
+images:
+  [
+    '/static/images/banners/a-laptop-computer-sitting-on-top-of-a-wooden-desk__douglasamarelo__ehyV_XOZ4iA.jpeg',
+  ]
+authors: ['default']
+---
+
+![how-to-get-json-data-from-url-in-laravel.jpg](/static/images/laravel/how-to-get-json-data-from-url-in-laravel.jpg)
+
+I'll demonstrate how to retrieve JSON from a URL in a php script in this tutorial. JSON has gained popularity as a format for data sharing and web service outputs. PHP makes it pretty easy to perform an HTTP request and parse a JSON response from a URL, however beginners could find learning how to parse json challenging.
+
+i will use an sample json url to retrive data by using this code.
+
+1.  Its the script that you can copy and return the data. You can directly copy this code and enter your function & run that.
+
+```php
+//set your json url
+$url = "https://jsonplaceholder.typicode.com/todos/1";
+
+//call the api url
+$json = file_get_contents($url);
+$json = json_decode($json);
+dd($json);
+
+```
+
+2.  Now you will get the results like this & you can use this where you need.
+
+```json
+{
+  "userId": 1,
+  "id": 1,
+  "title": "delectus aut autem",
+  "completed": false
+}
+```
+
+Read my others post
+
+- [How to Download Laravel Zip](https://www.rathik.dev/blog/laravel/laravel-zip-file-creating-and-dowload)
+- [Remove Last Item from Laravel Collection](https://www.rathik.dev/blog/laravel/remove-last-item-from-laravel-collection-example)
+
+Dont forget to comment if need any help

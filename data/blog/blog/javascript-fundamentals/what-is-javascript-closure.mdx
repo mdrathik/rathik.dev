@@ -1,0 +1,65 @@
+---
+title: 'Understand Javascript Closure with Example'
+date: '2022-05-14'
+tags: ['Javascript']
+summary: 'To Simply say, Closure is a feature of a function that allows it to remember all the variables in its lexical scope even after the execution of the function'
+images:
+  ['/static/images/banners/assorted-reading-books-on-table__morganharpernichols__OMXPrCAhxrE.jpeg']
+authors: ['default']
+---
+
+![Javascript Hoisting](https://images.unsplash.com/photo-1561736778-92e52a7769ef?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80)
+
+<p class="text-center text-sm">
+  <em>Img Credit : [Caspar Camille Rubin] (https://unsplash.com/@casparrubin)</em>
+</p>
+
+To Simply say, Closure is a feature of a function that allows it to remember all the variables in its lexical scope even after the execution of the function. For an example, When when fire event to access from the DOM , that is also Closure.
+
+Lets a program first.
+
+```Javascript
+function add(a) {
+  return function (b) {
+    return a + b;
+  };
+}
+
+let addTen = add(10);
+let addNine = addTen(9);
+
+console.log(addNine); // 19
+```
+
+What is happening there ? lets break.
+
+- We called a function add and this function returned another function inside.
+- Now when the function run and finished in addTen variable, it will keep remember the value of a.
+- so now we will pass another value 9 as function parameter into AddTen object.
+- Now we can see the value is 19.
+
+Interesting ! so how this is happened ? The Magic is When run AddTen function that looks like.
+
+```Javascript
+function addTen(b) {
+  return 10 + b;
+}
+```
+
+Lets see another example to clear more. We will try count something
+
+```Javascript
+function counter(){
+	let count = 0;
+  return function (counter){
+    return count = count+1;
+  }
+}
+let getcounter = counter();
+
+console.log(getcounter()); //1
+console.log(getcounter()); //2
+console.log(getcounter()); //3
+```
+
+Now you can see getcounter always keep remeber the count value and do the inside function operation when you call it.

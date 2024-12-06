@@ -1,0 +1,47 @@
+---
+title: 'Laravel Sail - SQLSTATE[HY000] [2002] No such file or directory in Docker'
+date: '2022-09-26'
+tags: ['laravel', 'docker']
+summary: 'I was stuck with this problem about 30 minutes. So that i found a solution and sharing'
+images:
+  [
+    '/static/images/banners/aerial-nature-photography-of-green-palms-on-seashore-during-daytime__reallynattu__atSUvc1hMwk.jpeg',
+  ]
+authors: ['default']
+---
+
+![laravel logs into Slack](/static/images/laravel-sail-docker.png)
+
+There are lots of DEV still using xampp for laravel & php development environmemt. To be honest i used that long time.
+
+From few months, have been using laravel sail (WSL2+Docker), its amazing. But i got an issue after first "sail up" command. Somehow i got error when trying to migrate database by sail artisan migrate.
+
+Looking for solution, tried many things. but wasn't success. But also got some solution , dont knwo which is efficiant. Somehow it works. I am not so experined in docker, co acn't suggest you about better.
+
+## Error : SQLSTATE[HY000] [2002] No such file or directory
+
+### first Solution
+
+```bash
+DB_CONNECTION=mysql
+DB_HOST=host.docker.internal
+DB_PORT=3306
+DB_DATABASE=laravel
+DB_USERNAME=sail
+DB_PASSWORD=password
+```
+
+### second Solution
+
+```bash
+DB_CONNECTION=mysql
+DB_HOST=your wsl2 ip
+DB_PORT=3306
+DB_DATABASE=laravel
+DB_USERNAME=sail
+DB_PASSWORD=password
+```
+
+I prefer first solution over second one. Cause you don't need to change the ip manully all the time.
+
+Thanks

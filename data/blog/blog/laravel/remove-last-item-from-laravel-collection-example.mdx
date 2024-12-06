@@ -1,0 +1,80 @@
+---
+title: 'Remove Last Item from laravel Collection Example'
+date: '2022-10-29'
+tags: ['laravel']
+summary: 'In this tutorial, we will go over the demonstration of the laravel collection and remove the last item example'
+images:
+  [
+    '/static/images/banners/a-laptop-computer-sitting-on-top-of-a-wooden-desk__douglasamarelo__ehyV_XOZ4iA.jpeg',
+  ]
+authors: ['default']
+---
+
+![Remove Last Item from laravel Collection Example](/static/images/rathik-laravel.jpg)
+
+Here you will learn how to remove the last element from a collection in laravel. This article will give you a simple example of the laravel collection's last item being removed. This article will give you a simple example of laravel removing the last item from the collection.
+
+You have just to follow the below step and you will get the layout as below:
+
+1.  Setup Laravel
+
+```bash
+composer create-project laravel/laravel example-app
+```
+
+2. Assign a Route in Web.php
+
+```php
+<?php
+
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CollectionRemoveLastController;
+
+Route::get('/index',[CollectionRemoveLastController::class, 'index']);
+
+```
+
+3. Create Controller by enter this in terminal `CollectionRemoveLastController` & now go in that controller to input the code below.
+
+```php
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+
+class CollectionRemoveLastController extends Controller
+{
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+    */
+    public function index()
+    {
+        $Collection = collect(['x','y','z']);
+
+        $newCollection = $Collection->reverse()->slice(1)->reverse();
+
+        dd($newCollection);
+    }
+}
+```
+
+4. Now run your project with this command `php artisan serve` and you will get the result once you are in that route we defined previously.
+
+```json
+#items: array:2 [▼
+    0 => "x"
+    1 => "y"
+]
+```
+
+You can use this example with the versions of laravel 6, laravel 7, laravel 8, and laravel 9.
+
+Read my others post
+
+- [Laravel Fortify Admin URL Change](https://www.rathik.dev/blog/laravel/laravel-fortify-login-url-change)
+- [Read About Javascript Clousre](https://www.rathik.dev/blog/javascript-fundamentals/what-is-javascript-closure)
+
+Dont forget to comment if need any help

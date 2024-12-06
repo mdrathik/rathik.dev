@@ -1,0 +1,51 @@
+---
+title: 'zsh: command not found laravel'
+date: '2022-03-31'
+tags: ['laravel', 'linux']
+summary: 'zsh: command not found laravel'
+images:
+  ['/static/images/banners/man-sitting-on-blue-bean-bag-usinglaptop__helloimnik__73_kRzs9sqo.jpeg']
+authors: ['default']
+---
+
+![server](https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg)
+
+## Fix Laravel Command not found in ZSH or BASH in Ubuntu/WSL2
+
+Make sure you have added laravel via composer. Just Type this command in terminal and hit enter.
+
+```bash
+$ composer global require "laravel/installer"
+```
+
+### For zsh and bash:
+
+```bash
+$ cd ~
+$ export PATH="$HOME/.config/composer/vendor/bin:$PATH"
+$ source ~/.zshrc
+$ source ~/.bashrc
+```
+
+### For bash only:
+
+```bash
+$ cd ~
+$ export PATH=~/.config/composer/vendor/bin:$PATH
+$ source ~/.bashrc
+```
+
+Note :
+if still you are getting that error again, please edit .zshrc/.bashrc and add path manually path.
+
+```bash
+$ nano ~/.zshrc
+```
+
+add this line
+
+```bash
+export PATH=~/.config/composer/vendor/bin:$PATH"
+```
+
+Press 'ctrl+s' for save and 'ctrl+x' to exit.

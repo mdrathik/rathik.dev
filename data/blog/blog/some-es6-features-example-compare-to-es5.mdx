@@ -1,0 +1,190 @@
+---
+title: 'Some ES6 features example compare to ES5'
+date: '2021-7-04'
+lastmod: '2024-11-11'
+tags: ['Javascript']
+summary: 'ES comes from ECMAScript & ES6 stands for ECMAScript 2015. Actually, before
+  ES6 there was a version ES5. Lets jump into it and get to know some coolest things.'
+images: ['/static/images/banners/person-typing-on-apple-keyboard__ilyapavlov__wbXdGS_D17U.jpeg']
+authors: ['default']
+---
+
+![es6-feature](https://images.unsplash.com/photo-1617471346061-5d329ab9c574?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1470&q=80)
+
+Then you can think about ES7, which is a modernized version of ES6 -actually known as ECMAScript 2016. But today we will learn about ES6 (ECMAScript 2015).
+
+## Getting Started
+
+1. **const** and **let** keywords
+2. Template String/Literals
+3. Default Parameter
+4. Arrow Function
+5. Destructuring Array And Object
+
+## const and let keywords
+
+As we are already familiar with javascript, so surely **var** is also familiar to define variables. ES6 has an addition to use **const** and **let** to define variables with a different perspective. Here const stands for constant. if you define a variable (const v), then it will not changeable. **let** use to define as block scope which is blocked by ({}). Besides var is also available in es6, let's see. Confused ?? no worries! going to be more clear by examples.
+
+### var
+
+```
+    var x = 10
+    var x = 20  // var is able to re-Decrelare
+    console.log(x) //output : 20
+
+
+    var a = 10
+    {
+      //defined a block scope to re-declare
+      var a = 20
+    }
+    console.log(a) //output 20
+```
+
+Here **var** is changing the value when is re-declared in globally & block scope
+
+### let
+
+```
+    let x = 10
+    let x = 20  // error
+    console.log(x) //output : let is not able to re-Decrelare
+
+    let z = 10
+    z = 20
+    console.log(z) //output:  20 {its updated}
+
+
+    let b = 10
+    {
+      let b = 20
+    }
+    console.log(b) //output 10
+```
+
+Here **let** is not able to re-declare in the same scope but it can be updated in the same scope. Also, **let** is not changing the value when is re-declared in block scope.
+
+### const
+
+```
+    const x = 10
+    x = 20
+    console.log(x)  // error ' "x" is read-only'
+
+
+    const b = 10
+    {
+      const b = 20
+    }
+    console.log(b) //output 10
+```
+
+Here **const** is not able to re-declare/update.
+
+but **const** is able to re-declare in block-scope. but not able to update.
+
+## How Template Literals makes life easy.
+
+Template literature makes the way easy to write large strings with multiple lines as well. Besides, it's easy to use variables inside that string.
+
+In es5 or back, we have used this.
+
+```
+    let myName = 'Md Rathik';
+    let myRole = 'Software Developer';
+    console.log("i am "+myName+","+" Working as a "+myRole+".");
+    //output : i am Md Rathik, Working as a Software Developer.
+    //For Multiline string we had to use
+    console.log("Welcome! \nMy Name is "+myName+"\nI am a "+myRole);
+    /* Welcome!
+    my name is Md Rathik
+    i am a Software Developer */
+```
+
+Now we can make it easy by ES6.
+
+**Just use ‘’ backticks, just following the example below.**
+
+```
+    let Name = 'Md Rathik';
+    let Role = 'Software Developer';
+    console.log(`I am ${Name}, Working as a ${Role}.`);
+    //output : i am Md Rathik, Working as a Software Developer.
+
+    console.log(`Welcome!
+    my name is ${Name}
+    i am a ${Role}`);
+
+    //Output
+    /* Welcome!
+    my name is Md Rathik
+    i am a Software Developer */
+```
+
+## Default parameters
+
+Default parameters In es6 now, you can use default parameters; in this case, if you call the function without any parameters, the process automatically takes the default value.
+
+```
+    function es6add (firstNum, lastNum=3){ //output : Here you are able to add a default parameter
+        return firstNum+lastNum;
+    }
+    console.log(es6add(7,2)); //output : returns 9
+    console.log(es6add(7));   //output : returns 10
+```
+
+## Arrow Function
+
+Arrow function makes the code more readable and don't need to use return if its in one line.
+
+Let's see the es5 example function first
+
+```
+    function sum(A,B){
+        return A+B;
+    }
+    console.log(sum(2,4));
+    //output : 6
+```
+
+Here you go for the es6 example.
+
+```
+    let sumByArrowFunction = (a,b)=>a+b;
+    console.log(sumByArrowFunction(4,10))
+    //output : 14
+```
+
+## Destructuring Array And Object
+
+In javascript, we may have complex arrays and objects & for breaking down the complex things in an easy way. In a simple way, I can say, it's about to unpack something.
+
+Let's see the example to be more clear about destructing array.
+
+```
+    let person , age;
+    let array = ['Md Rathik',26];
+    [person,age]=array
+    console.log(person,age);
+    output : Md Rathik 26
+```
+
+In that code above we have two variables person & age. Also, have an array. Now we are setting array members into that two variables.
+
+Same as we can Destructure the object as well.
+
+```
+    //Destructuring an object
+    let empName , address;
+    let empObject = {
+        empName : "Md Rathik",
+        address : "Dhaka"
+    };
+    ({empName,address}=empObject);
+    console.log(empName,address);
+    //output : Md Rathik Dhaka
+```
+
+Hope you understand clearly. If not yet please comment below, I would like to happily help you.
+
+_Note: Since I write posts after learn & work. If there have any mistakes, please feel free to help me._

@@ -1,0 +1,63 @@
+---
+title: 'Form Request Has File Check in Laravel'
+date: '2022-10-27'
+tags: ['laravel']
+summary: 'In this article you will learn how to check file request by form submission.  Suppose you will upload a file and submit form then if your form submission has file your output will dd the file.'
+images:
+  [
+    '/static/images/banners/black-iphone-5-beside-brown-framed-eyeglasses-and-black-iphone-5-c__danny144__ah-HeguOe9k.jpeg',
+  ]
+authors: ['default']
+---
+
+![laravel form request has file](/static/images/rathik-laravel.jpg)
+
+In this article you will learn how to check file request by form submission. Suppose you will upload a file and submit form then if your form submission has file your output will dd the file.
+
+1.  Just create a form like this
+
+```html
+<form action="{{route('fileUpload')}}" method="post" enctype="multipart/form-data">
+  <div class="custom-file">
+    <input type="file" name="photo" class="custom-file-input" id="chooseFile" />
+    <label class="custom-file-label" for="chooseFile">Select file</label>
+  </div>
+  <button type="submit" name="submit" class="btn btn-primary btn-block mt-4">Upload Files</button>
+</form>
+```
+
+2.  Make sure your route is matching with form action.
+
+3.  Now check if your request has file.
+
+```php
+<?php
+
+namespace App\Http\Controllers;
+use Illuminate\Http\Request;
+
+class ProfileController extends Controller
+{
+
+    public function ProfilePicture(Request $request)
+    {
+        $request->validate([
+            'name' => 'required',
+            'photo' => 'required',
+        ]);
+
+        if ($request->hasFile('photo')) {
+            dd($request->photo);
+        }
+    }
+}
+```
+
+Read my others post
+
+- [Add SSL in EC2 Instance](https://www.rathik.dev/blog/add-free-ssl-in-ec2-instaces)
+- [Read About Javascript Clousre](https://www.rathik.dev/blog/javascript-fundamentals/what-is-javascript-closure)
+- [Read About Javascript This Keyword](https://www.rathik.dev/blog/javascript-fundamentals/what-is-this-keyword-javascript)
+- [ Read about Sqlstate hy000 1698 access denied for rootuser](https://www.rathik.dev/blog/)
+
+Dont forget to comment if need any help

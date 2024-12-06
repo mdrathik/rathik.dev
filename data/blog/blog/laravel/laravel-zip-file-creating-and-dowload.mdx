@@ -1,0 +1,131 @@
+---
+title: 'Laravel ZIP file Creating and Dowload Example'
+date: '2022-10-29'
+tags: ['laravel']
+summary: 'In this article, you will learn How  to build a zip archive file and download it in response'
+images:
+  [
+    '/static/images/banners/a-close-up-of-a-network-with-wires-connected-to-it__albertstoynov__dyUp7WPu5q4.jpeg',
+  ]
+authors: ['default']
+---
+
+![laravel-zip-file-creating-and-dowload](/static/images/laravel/laravel-zip-file-creating-and-dowload.jpg)
+
+how to make a zip file from a folder and download it in Laravel step by step. In this php laravel  application, we will produce a zip file by utilizing the zip-archive class.
+
+Lets demonstrate how to implement a very simple zip file method in a Laravel application. So let's see a few items steps and consider them as an example. I will show you two method.
+
+## Fist Method which is using ZipArchive Class
+
+1.  Setup Laravel
+
+```bash
+Route::get('download-zip-file', [ZipDownloadController::class, 'downloadZipFile']);
+```
+
+2. The same as with route above, we will add one new route method here. downloadZipFile() will build a new zip file and download it as a response, so Please add this line.
+
+```php
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use File;
+use ZipArchive;
+
+class ZipDownloadController extends Controller
+{
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function downloadZipFile()
+    {
+        $zip = new ZipArchive;
+
+        $fileName = 'myFolder.zip';
+
+        if ($zip->open(public_path($fileName), ZipArchive::CREATE) === TRUE)
+        {
+            $files = File::files(public_path('myFolder'));
+
+            foreach ($files as $key => $value) {
+                $relativeNameInZipFile = basename($value);
+                $zip->addFile($value, $relativeNameInZipFile);
+            }
+            $zip->close();
+        }
+        return response()->download(public_path($fileName));
+    }
+}
+
+```
+
+---
+
+**NOTE** :
+Make sure you have myFolder in your public path/directory.
+
+---
+
+3. Now run your project with this command `php artisan serve` to start developement server.
+
+4. Now please go the route like `http://127.0.0.1:8000/download-zip-file` from your browser, it will make the folder zip and download automatically.
+
+## Second Method : Using open-source Laravel Zip Package
+
+1.  We are keeping same route to make it quick
+
+```bash
+Route::get('download-zip-file', [ZipDownloadController::class, 'downloadZipFile']);
+```
+
+2. Go to controoller and just follow this `downloadZipFile` method.
+
+```php
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use File;
+use ZipArchive;
+
+class ZipDownloadController extends Controller
+{
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function downloadZipFile()
+    {
+        //only add this code.
+       	return Zip::create('myFolder.zip', File::files(public_path('myFolder')));
+    }
+}
+
+```
+
+---
+
+**NOTE** :
+Make sure you have myFolder in your public path/directory.
+
+---
+
+3. Now run your project with this command `php artisan serve` to start developement server again.Go the route, thats will create zip folder at your public path.
+
+From avobe two method i personally prefer 2nd one. Cause thats easy to handle and quick.
+hope both method is working, if not please feel free to comment.
+
+Read my others post
+
+- [How to Destory Developer Career](https://www.rathik.dev/blog/how-to-destroy-dev-career-in-a-short)
+- [How to auto Mount Ebs drive into ec2](https://www.rathik.dev/blog/how-to-auto-mount-ebs-drive-into-ec2)
+- [What I achive in 2021](https://www.rathik.dev/blog/What-I-achieved-in-2021)
+
+Dont forget to comment if need any help

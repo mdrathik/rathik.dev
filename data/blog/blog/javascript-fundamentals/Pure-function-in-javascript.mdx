@@ -1,0 +1,44 @@
+---
+title: 'Pure Function in Javascript'
+date: '2022-05-26'
+lastmod: '2024-09-11'
+tags: ['Javascript']
+summary: 'In JavaScript to understand a pure function is so important to know when you are very dependable in functional programming'
+images: ['/static/images/banners/red-and-white-stop-sign__kommumikation__WOn90Iui_08.jpeg']
+authors: ['default']
+---
+
+![Javascript Pure Function](https://images.unsplash.com/photo-1564419379075-584260fc947b?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170)
+
+<p class="text-center text-sm">
+  <em>Img Credit : [@boxedwater](https://unsplash.com/@boxedwater)</em>
+</p>
+
+In JavaScript to understand a pure function is so important to know when you are very dependable in functional programming. Every pure function is a “Function” but every function is not a “Pure Function”. To be a pure function there should have some characteristics.
+
+- Always depends on own arguments. Like same input, same output.
+- No Side effects & it will not change the variable value outside of own scope.
+
+```jsx
+let val1 = 1
+let val2 = 2
+function pureFunction() {
+  return val1 * val2
+}
+pureFunction()
+```
+
+The above example is an **impure** function & cause this function using outside scope variable. if the val1 or val2 will change the function will give different output. so its not the charateristic of pure function.
+
+```jsx
+function pureFuncion() {
+  let val1 = 6
+  let val2 = 4
+  return val1 * val2
+}
+pureFuncion()
+```
+
+The above example is pure function, cause there is nothing going to change outside of its own scope. It always depends on his own scope.
+
+I just tried to give you the very basic concept what is pure and impure function. To know more, you can search on google for deep-inside.

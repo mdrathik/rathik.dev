@@ -1,0 +1,51 @@
+---
+title: 'Add free Cloudflare SSL in AWS EC2 Instance'
+date: '2022-03-21'
+tags: ['aws', 'devops']
+summary: 'You can easily use a Free SSL at your EC2 with cloudflare.'
+images:
+  [
+    '/static/images/banners/black-iphone-5-beside-brown-framed-eyeglasses-and-black-iphone-5-c__danny144__ah-HeguOe9k.jpeg',
+  ]
+authors: ['default']
+---
+
+There are lots of guyz looking for install ssl for their amazon aws ec2 instance. So in this article i am sharing the easiest and quickest way to solve the issue. Since you are on this article, i know that you already have aws-ec2 service.
+
+## Step 1 : Setup CloudFlare
+
+Sign-up with [cloudflare](https://www.cloudflare.com/) with free plan, and add your site. It will show the example report after adding your website domain.
+![add site](/static/images/ssl-ec2-cloudflare/cloudflare-add-site.png)
+
+## Step 2 : Go to Domain Provider Panel
+
+Add the DNS record to your domain provider panel.
+![add NS record to domain](/static/images/ssl-ec2-cloudflare/ns-record-add.png)
+
+After done this, cloudflare will check the NS record and give you confirmation on your dashboard like this.
+
+_Great news! Cloudflare is now protecting your site_
+
+Even you can also check the NS record update from this link
+https://dnschecker.org/
+
+## Step 3 : Go to EC2
+
+**You don't need to any work there. Just copy the ipv4 public address of your instance.**
+
+Please make sure your ec2 is reachable via http 80 port from security group. If its not there please add the inbound rules to reachable via http method with port 80.
+![copy ec2 public ip](/static/images/ssl-ec2-cloudflare/ec2.png)
+
+## Step 4 : set the "a" Record
+
+Now you have to set the "a" record to cloudflare. Please put the copied ip(ec2 public ipv4) as "a" record like this for domain.com & www.domain.com.
+
+![add "a" record](/static/images/ssl-ec2-cloudflare/a-record.png)
+
+Once the NS record Propagation is finished, it will see, that your site working with Free cloudflare ssl certificate.
+
+---
+
+😊 Thanks for reading.
+
+Note : If you see any issues or wrong instruction with this article, please feel free to contact with me by comments or mail: hello@rathik.dev

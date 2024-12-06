@@ -1,0 +1,64 @@
+---
+title: "SQLSTATE[HY000] [1698] Access denied for user 'root'@'localhost’ : Can’t log into phpMyAdmin"
+date: '2022-09-29'
+tags: ['mysql', 'linux']
+summary: 'This issue comes from some reason. But last time when i tried to setup  ubuntu i see the problem happens frequently.  So i can say most of the case from new linux OS install. Giving you two quick shot method.'
+images: ['/static/images/banners/boy-playing-jenga__mparzuchowski__geNNFqfvw48.jpeg']
+authors: ['default']
+---
+
+![mysql error](/static/images/mysql-error.jpg)
+
+This issue comes from some reason. But last time when i tried to setup ubuntu i see the problem happens frequently. So i can say most of the case from new linux OS install. Giving you two quick shot method.
+
+### Solution 1 :For PHPMyAdmin create a new Superuser
+
+you can run mysql from your terminal with sudo like this below command.
+
+```bash
+sudo mysql -p -u root
+```
+
+Now add a new user with username you want to set. just chaneg the ‘dbuser’ and ‘dbpassword’ as your own choice.
+
+```sql
+CREATE USER 'dbuser'@'localhost' IDENTIFIED WITH mysql_native_password BY 'dbpassword';
+```
+
+Let grant this user as a super user/super privilege's
+
+```sql
+GRANT ALL PRIVILEGES ON *.* TO 'pmauser'@'localhost' WITH GRANT OPTION;
+```
+
+Hope you can login with new username & password you set.
+
+### Solution 2 : Authentication method changing for root
+
+For login into phpmyadmin you have to switch `auth_socket` to `mysql_native_password`.
+
+Open the terminal and run this commands below.
+
+```bash
+sudo mysql -p -u root
+```
+
+by run this command you can see your current plugin(auth_socket).
+
+```sql
+SELECT user,plugin,host FROM mysql.user WHERE user = 'root';
+```
+
+Now change this plugin with a new password. make sure you will change the password ‘dbpassword’ according to your own passwor.
+
+```sql
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'enter_password_here';
+```
+
+nice ! lets flush privilege
+
+```sql
+FLUSH PRIVILEGES;
+```
+
+Now exit the mysql terminal and try login. Hope it will works. If please restart mysql server. Besides you can comment if there any issues still you are facing.

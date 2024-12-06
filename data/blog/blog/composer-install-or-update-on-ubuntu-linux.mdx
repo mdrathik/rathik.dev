@@ -1,0 +1,44 @@
+---
+title: 'Composer install or Update on Ubuntu'
+date: '2021-03-08'
+tags: ['linux', 'php']
+summary: 'Composer is a dependency package manager for PHP. its a open source tools
+  and using for modern development in PHP programming languages.'
+images:
+  [
+    '/static/images/banners/a-laptop-computer-sitting-on-top-of-a-wooden-desk__claybanks__8q6e5hu3Ilc.jpeg',
+  ]
+authors: ['default']
+---
+
+![Composer install or Update on Ubuntu](https://images.unsplash.com/photo-1599507593499-a3f7d7d97667?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80)
+
+If you are already on the LAMP stack, then this post will help to quickly set up the composer. Spacially for the version which hasn't self-update available. Let's get started.
+
+You can check if the composer is already available on your computer by this command,  
+`$ which composer`
+
+in this case, my computer returns**/usr/bin/composer .** if there is nothing return like mine. Don't worry just follow the steps below.
+
+### To download Composer
+
+it will download the composer in current directory.<br />
+
+`php -r "copy('https://getcomposer.org/installer','composer-setup.php');"`
+
+### TO Create composer.phar
+
+it will create this in same (Current) directory.<br />
+`php composer-setup.php`
+
+### Final step to move the composer.phar
+
+Replace **/usr/bin/composer** with the result returned from step 1. after this you are able to run composer globally.<br />
+
+`sudo mv composer.phar /usr/bin/composer`
+
+If it's successfully installed, the output will be the same as the screenshot below.
+
+![composer screenshot](/static/images/composer.jpg 'Composer ')
+
+Banner Image credit:[Ben](https://images.unsplash.com/photo-1599507593499-a3f7d7d97667?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&qscreenshot below.=80 'Ben')

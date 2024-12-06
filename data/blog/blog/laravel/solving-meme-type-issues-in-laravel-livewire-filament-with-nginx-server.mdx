@@ -1,0 +1,67 @@
+---
+title: 'Solving MIME Type Issues in Laravel Livewire, Filament with Nginx Vhost Configuration'
+date: '2023-12-18'
+tags: ['php', 'laravel']
+summary: 'When working on Laravel projects with Livewire and Filament, encountering MIME type issues, particularly with JavaScript files, can be a common challenge.'
+images:
+  [
+    '/static/images/banners/a-laptop-computer-sitting-on-top-of-a-wooden-desk__douglasamarelo__ehyV_XOZ4iA.jpeg',
+  ]
+authors: ['default']
+---
+
+The error message "Refused to execute script because its MIME type ('text/html') is not executable" might be familiar. In this guide, we'll walk through a practical solution to resolve these MIME type issues by fine-tuning the Nginx virtual host (vhost) configuration.
+
+![Laravel Meme Tyle block](/static/images/rathik-laravel.jpg)
+
+i think you have seen this error
+
+```
+Refused to execute script from 'https://localhsot.com/livewire/livewire.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled. laravel filament livewire
+```
+
+Understanding the Problem:
+
+The error indicates that the server is returning HTML content instead of the expected JavaScript file, possibly due to misconfigurations in the Nginx server block or conflicts in how Laravel, Livewire, and Filament handle assets.
+
+Step 1: Locate Your Nginx Vhost Configuration:
+
+Navigate to the directory where your Nginx vhost configurations are stored. This is typically found in the /etc/nginx/sites-available/ directory.
+
+```bash
+cd /etc/nginx/sites-available/
+```
+
+Step 2: Open the Nginx Vhost Configuration File:
+
+Use your preferred text editor to open the Nginx vhost configuration file associated with your Laravel project.
+
+```bash
+nano your_project
+```
+
+Step 3: Review and Edit the Configuration:
+
+Locate the location blocks within your Nginx configuration file. Pay special attention to the blocks handling static assets, such as JavaScript files. Replace any duplicated or conflicting location blocks with a unified rule that covers all necessary file types.
+
+```bash
+location ~* ^.+\.(css|jpg|jpeg|gif|png|ico|gz|svg|svgz|ttf|otf|woff|woff2|eot|mp4|ogg|ogv|webm|webp|zip|swf|map)$ {
+    add_header Access-Control-Allow-Origin "*";
+    expires max;
+    access_log off;
+}
+```
+
+remove the `js` from the list.
+
+Step 4: Save and Exit:
+
+Save the changes to your Nginx configuration file and exit the text editor.
+
+Step 5: Restart Nginx:
+
+Restart the Nginx service to apply the changes.
+
+```bash
+sudo service nginx restart
+```
