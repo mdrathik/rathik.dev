@@ -2,7 +2,7 @@ import 'css/tailwind.css'
 import 'css/twemoji.css'
 import 'react-medium-image-zoom/dist/styles.css'
 import 'remark-github-blockquote-alert/alert.css'
-
+import Script from 'next/script'
 import clsx from 'clsx'
 import type { Metadata } from 'next'
 import { JetBrains_Mono, Nunito, Playpen_Sans } from 'next/font/google'
@@ -80,6 +80,8 @@ export let metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   let basePath = process.env.BASE_PATH || ''
 
+  const websiteId = '3e4c5370-7ba7-4ae7-863d-77d3bafb17d2' // Your Website ID
+  const src = 'https://cloud.umami.is/script.js' // Your Umami script URL
   return (
     <html
       lang={SITE_METADATA.language}
@@ -91,6 +93,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       )}
       suppressHydrationWarning
     >
+      <script async defer data-website-id={websiteId} src={src}></script>
       <link rel="apple-touch-icon" sizes="76x76" href={`${basePath}/static/favicons/favicon.ico`} />
       <link
         rel="icon"
@@ -113,6 +116,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <meta name="msapplication-TileColor" content="#000000" />
       <meta name="theme-color" media="(prefers-color-scheme: light)" content="#fff" />
       <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000" />
+
       <link rel="alternate" type="application/rss+xml" href={`${basePath}/feed.xml`} />
       <body
         className={clsx([
