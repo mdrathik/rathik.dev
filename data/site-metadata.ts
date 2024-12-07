@@ -25,8 +25,8 @@ export const SITE_METADATA = {
   imdbRatingsList: 'https://www.imdb.com/user/ur154483197/ratings/?view=grid',
   analytics: {
     umamiAnalytics: {
-      websiteId: 'e390f4d5-d20c-474a-87a7-4318fa7ba907',
-      shareUrl: 'https://cloud.umami.is/share/sXQJNKJVlZnPk6NA/rathik.dev',
+      websiteId: '3e4c5370-7ba7-4ae7-863d-77d3bafb17d2',
+      shareUrl: 'https://cloud.umami.is/share/qdxTQ1RIIRUMswxe/rathik.dev',
     },
   },
   newsletter: {
