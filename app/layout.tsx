@@ -7,6 +7,8 @@ import clsx from 'clsx'
 import type { Metadata } from 'next'
 import { JetBrains_Mono, Nunito, Playpen_Sans } from 'next/font/google'
 import { UmamiAnalytics } from '~/components/analytics/umami'
+import { Analytics } from '@vercel/analytics/react'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 import { Footer } from '~/components/footer'
 import { Header } from '~/components/header'
 import { KBarSearchProvider } from '~/components/search/kbar-provider'
@@ -80,8 +82,6 @@ export let metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   let basePath = process.env.BASE_PATH || ''
 
-  const websiteId = '3e4c5370-7ba7-4ae7-863d-77d3bafb17d2' // Your Website ID
-  const src = 'https://cloud.umami.is/script.js' // Your Umami script URL
   return (
     <html
       lang={SITE_METADATA.language}
@@ -93,7 +93,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       )}
       suppressHydrationWarning
     >
-      <script async defer data-website-id={websiteId} src={src}></script>
       <link rel="apple-touch-icon" sizes="76x76" href={`${basePath}/static/favicons/favicon.ico`} />
       <link
         rel="icon"
@@ -129,7 +128,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       >
         <TiltedGridBackground className="inset-x-0 top-0 z-[-1] h-[50vh]" />
         <ThemeProviders>
-          <UmamiAnalytics websiteId={SITE_METADATA.analytics.umamiAnalytics.websiteId} />
+          {/* <UmamiAnalytics websiteId={SITE_METADATA.analytics.umamiAnalytics.websiteId} /> */}
+          <SpeedInsights />
+          <Analytics />
           <KBarSearchProvider configs={SITE_METADATA.search.kbarConfigs}>
             <Header />
             <main className="mb-auto grow">{children}</main>
