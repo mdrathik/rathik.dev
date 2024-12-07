@@ -122,6 +122,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           'bg-white text-neutral-900',
           'dark:bg-dark dark:text-gray-100',
         ])}
+        style={{
+          backgroundImage: "url('/static/images/bg.svg')",
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+          backgroundAttachment: 'fixed',
+          height: '100vh',
+        }}
       >
         <TiltedGridBackground className="inset-x-0 top-0 z-[-1] h-[50vh]" />
         <ThemeProviders>
