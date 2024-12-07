@@ -83,47 +83,7 @@ export function AuthorLayout({ children }: Props) {
               </div>
               <CareerTimeline />
             </div>
-            <div>
-              <h2>This Blog Tech stack</h2>
-              <p>
-                Hosted on{' '}
-                <a href="https://vercel.com/" target="_blank">
-                  Vercel
-                </a>
-                , built with{' '}
-                <a href="https://nextjs.org/" target="_blank">
-                  Next.js
-                </a>{' '}
-                and{' '}
-                <a href="https://tailwindcss.com/" target="_blank">
-                  Tailwind CSS
-                </a>{' '}
-                using <strong>Tailwind Nextjs Starter Blog</strong>.
-              </p>
 
-              <p>
-                This Website Template is built by{' '}
-                <a href="https://x.com/hta218_" target="_blank">
-                  Leo Huynh 🇻🇳
-                </a>
-              </p>
-
-              <p>
-                A huge thanks to{' '}
-                <a href="https://twitter.com/timlrxx" target="_blank">
-                  Timothy Lin
-                </a>{' '}
-                for the minimal, lightweight, and super easy-to-customize blog starter.
-              </p>
-              <p>A few major over-engineering-changes from the original repo:</p>
-              <p>
-                See my{' '}
-                <a href="https://github.com/hta218/leohuynh.dev" target="_blank">
-                  Github repository
-                </a>{' '}
-                for this blog.
-              </p>
-            </div>
             <div>
               <h2>Assets</h2>
               <p>
