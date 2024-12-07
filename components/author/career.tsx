@@ -18,8 +18,18 @@ const EXPERIENCES = [
     details: () => {
       return (
         <ul className="[&>li]:my-2 [&>li]:pl-0">
-          <li>Specializing in web and mobile application development.</li>
-          <li>Focused on creating innovative solutions to meet clients' needs in the IT sector.</li>
+          <li>
+            Leading the development and implementation of cutting-edge technology solutions for
+            clients in various industries.
+          </li>
+          <li>
+            Overseeing the technical direction and strategy, ensuring the successful delivery of
+            projects.
+          </li>
+          <li>
+            Managing a team of developers, ensuring that all projects meet quality standards and are
+            completed on time.
+          </li>
         </ul>
       )
     },
@@ -37,14 +47,13 @@ const EXPERIENCES = [
       return (
         <ul className="[&>li]:my-2 [&>li]:pl-0">
           <li>
-            Managing technology strategy and projects for a visual content editing and retouching
-            company.
+            Managing the company’s technology strategy and leading large-scale IT projects for
+            visual content editing and retouching services.
           </li>
           <li>
-            Overseeing services including photo retouching, video editing, and high-volume
-            post-production for e-commerce and brands.
+            Ensuring that the company's technology stack supports the evolving needs of clients in
+            the creative and e-commerce industries.
           </li>
-          <li>Leading a team of 250+ experts to deliver scalable solutions globally.</li>
         </ul>
       )
     },
@@ -63,10 +72,7 @@ const EXPERIENCES = [
       return (
         <ul className="[&>li]:my-2 [&>li]:pl-0">
           <li>Performed requirement analysis and application design.</li>
-          <li>
-            Developed and optimized programs using Laravel and Android, supporting education
-            technology.
-          </li>
+          <li>Developed and optimized programs using PHP and Laravel Applications.</li>
         </ul>
       )
     },
@@ -83,8 +89,8 @@ const EXPERIENCES = [
     details: () => {
       return (
         <ul className="[&>li]:my-2 [&>li]:pl-0">
-          <li>Customized applications and performed development tasks for telecom solutions.</li>
-          <li>Worked with C, C++, and other technologies to meet client needs.</li>
+          <li>Developed & Customized applications, mostly had HTML, CSS -Frontend Related Work</li>
+          <li>Developed some small PHP script.</li>
         </ul>
       )
     },

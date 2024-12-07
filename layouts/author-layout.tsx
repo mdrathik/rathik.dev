@@ -102,7 +102,7 @@ export function AuthorLayout({ children }: Props) {
               </p>
 
               <p>
-                This Website is built by{' '}
+                This Website Template is built by{' '}
                 <a href="https://x.com/hta218_" target="_blank">
                   Leo Huynh 🇻🇳
                 </a>

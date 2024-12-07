@@ -3,6 +3,39 @@ import type { Project } from '~/types/data'
 export const PROJECTS: Project[] = [
   {
     type: 'work',
+    title: 'BZM HRM',
+    description:
+      'This software streamlines our workforce management, enhancing productivity and simplifying complex HR processes environment.',
+    imgSrc: '/static/images/bzm.png',
+    url: '#',
+    builtWith: ['Laravel', 'jQuery', 'MySQL'],
+    links: [{ title: 'Website', url: '#' }],
+  },
+
+  {
+    type: 'work',
+    title: 'maskbg.ai',
+    description:
+      'Mask.bg (or Maskbg.ai) is an AI-powered photo editing tool specialized in background removal. Collaborated with ML Developers to make the app for production workflow.',
+    imgSrc: '/static/images/hero-image.webp',
+    url: 'https://maskbg.ai',
+    builtWith: ['Python', 'ReactJS', 'NextJS', 'MongoDB'],
+    links: [{ title: 'Website', url: 'https://maskbg.ai' }],
+  },
+
+  {
+    type: 'work',
+    title: 'BZM Graphics Website',
+    description:
+      'Collaborated project, working closely with UI/UX developers to enhance design sophistication and implement iterative improvements. ',
+    imgSrc: '/static/images/bzm.png',
+    url: 'https://bzmgraphics.com',
+    builtWith: ['ReactJS', 'NextJS', 'MongoDB'],
+    links: [{ title: 'Website', url: 'https://bzmgraphics.com' }],
+  },
+
+  {
+    type: 'work',
     title: 'A Shop of Gift Card and More',
     description: `GamersNab sell game tools and gift card, its built on Laravel, jQuery, Bootstrap & Mysql. `,
     imgSrc: '/static/images/gamersnab.png',
