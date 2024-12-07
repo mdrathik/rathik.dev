@@ -26,5 +26,5 @@ export const FOOTER_PERSONAL_STUFF = [
   { href: '/static/resume.pdf', title: 'Resume' },
   // { href: '/books', title: 'Books' },
   // { href: '/movies', title: 'Movies' },
-  // { href: SITE_METADATA.analytics.umamiAnalytics.shareUrl, title: 'Analytics' },
+  { href: SITE_METADATA.analytics.umamiAnalytics.shareUrl, title: 'Analytics' },
 ]
