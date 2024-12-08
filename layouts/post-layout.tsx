@@ -66,7 +66,7 @@ export function PostLayout({ content, next, prev, children }: LayoutProps) {
               {/* <BackToPosts label="Back to posts" /> */}
               <TableOfContents toc={toc} />
               <Reactions className="pt-6" type={type.toLowerCase() as StatsType} slug={slug} />
-              <div className="w-ful h-[300px]">
+              <div className="w-ful h-auto">
                 <AdUnit
                   adClient="ca-pub-9583661339866748"
                   adSlot="4551714058"
