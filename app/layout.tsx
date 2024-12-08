@@ -8,6 +8,7 @@ import type { Metadata } from 'next'
 import { JetBrains_Mono, Nunito, Playpen_Sans } from 'next/font/google'
 import { UmamiAnalytics } from '~/components/analytics/umami'
 import AdScript from '~/components/adsense/AdScript'
+
 import { Footer } from '~/components/footer'
 import { Header } from '~/components/header'
 import { KBarSearchProvider } from '~/components/search/kbar-provider'
