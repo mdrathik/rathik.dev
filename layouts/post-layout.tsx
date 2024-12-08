@@ -61,22 +61,17 @@ export function PostLayout({ content, next, prev, children }: LayoutProps) {
           <div className="divide-y divide-gray-200 dark:divide-gray-700 lg:col-span-8 xl:col-span-9">
             <div className="prose max-w-none dark:prose-invert lg:prose-lg lg:pb-8">{children}</div>
           </div>
+
           <div className="lg:col-span-4 lg:block xl:col-span-3">
-            <div className="hidden space-y-4 divide-y divide-gray-200 dark:divide-gray-700 lg:sticky lg:top-24">
-              {/* <BackToPosts label="Back to posts" /> */}
-              <TableOfContents toc={toc} />
-              <Reactions className="pt-6" type={type.toLowerCase() as StatsType} slug={slug} />
-            </div>
-            <div className="w-ful h-auto">
-              <AdUnit
-                adClient="ca-pub-9583661339866748"
-                adSlot="4551714058"
-                adFormat="auto"
-                fullWidthResponsive={true}
-              />
-              <div className="hidden">
-                {/* <script src="//servedby.eleavers.com/ads/ads.php?t=MzA5NzQ7MjEwNjA7c3F1YXJlLnNxdWFyZV9ib3g=&index=1"></script> */}
-                {/* <script
+            <div className="mt-4 hidden w-full lg:block">
+              <div className="space-y-4 divide-y divide-gray-200 dark:divide-gray-700 lg:sticky lg:top-24">
+                {/* <BackToPosts label="Back to posts" /> */}
+                <TableOfContents toc={toc} />
+                <Reactions className="pt-6" type={type.toLowerCase() as StatsType} slug={slug} />
+
+                <div className="hidden">
+                  {/* <script src="//servedby.eleavers.com/ads/ads.php?t=MzA5NzQ7MjEwNjA7c3F1YXJlLnNxdWFyZV9ib3g=&index=1"></script> */}
+                  {/* <script
                   type="text/javascript"
                   dangerouslySetInnerHTML={{
                     __html: `
@@ -93,7 +88,18 @@ export function PostLayout({ content, next, prev, children }: LayoutProps) {
                   type="text/javascript"
                   src="//www.topcpmcreativeformat.com/1a0dbe126a158e715cd3377a597850d8/invoke.js"
                 /> */}
+                </div>
               </div>
+            </div>
+
+            {/* Google Ads */}
+            <div className="mt-4 h-[200px] w-full md:h-auto">
+              <AdUnit
+                adClient="ca-pub-9583661339866748"
+                adSlot="4551714058"
+                adFormat="auto"
+                fullWidthResponsive={true}
+              />
             </div>
           </div>
         </div>
