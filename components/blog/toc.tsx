@@ -1,6 +1,7 @@
 import { clsx } from 'clsx'
 import { ChevronRight } from 'lucide-react'
 import { Link } from '~/components/ui/link'
+import AdUnit from '~/components/adsense/AdUnit'
 
 type TocItem = {
   value: string
@@ -17,6 +18,7 @@ export function TableOfContents({ toc, className }: { toc: TocItem[]; className?
           size={20}
           className="chevron-right rotate-0 transition-transform"
         />
+        <AdUnit adClient="ca-pub-9583661339866748" adSlot="4551714058" />
         <span className="text-lg font-medium">On this page</span>
       </summary>
       <ul className="flex flex-col space-y-2">
