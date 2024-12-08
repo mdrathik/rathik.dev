@@ -16,6 +16,7 @@ import { GradientDivider } from '~/components/ui/gradient-divider'
 import { SITE_METADATA } from '~/data/site-metadata'
 import type { StatsType } from '~/db/schema'
 import type { CoreContent } from '~/types/data'
+import AdUnit from '~/components/adsense/AdUnit'
 
 interface LayoutProps {
   content: CoreContent<Blog>
@@ -65,6 +66,14 @@ export function PostLayout({ content, next, prev, children }: LayoutProps) {
               {/* <BackToPosts label="Back to posts" /> */}
               <TableOfContents toc={toc} />
               <Reactions className="pt-6" type={type.toLowerCase() as StatsType} slug={slug} />
+              <div className="w-ful h-[300px]">
+                <AdUnit
+                  adClient="ca-pub-9583661339866748"
+                  adSlot="4551714058"
+                  adFormat="auto"
+                  fullWidthResponsive={true}
+                />
+              </div>
               <div className="hidden">
                 {/* <script src="//servedby.eleavers.com/ads/ads.php?t=MzA5NzQ7MjEwNjA7c3F1YXJlLnNxdWFyZV9ib3g=&index=1"></script> */}
                 {/* <script

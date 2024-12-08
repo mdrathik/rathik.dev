@@ -1,4 +1,3 @@
-// components/adsense/AdUnit.tsx
 'use client' // Marking this as a Client Component
 
 import React, { useEffect, useRef } from 'react'
@@ -19,9 +18,16 @@ const AdUnit: React.FC<AdUnitProps> = ({
   const adRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    // Only push ad once the component is mounted
-    if (window.adsbygoogle) {
-      ;(window.adsbygoogle = window.adsbygoogle || []).push({})
+    const adElement = adRef.current
+
+    if (adElement && !adElement.hasAttribute('data-ad-pushed')) {
+      // Mark this ad element as processed
+      adElement.setAttribute('data-ad-pushed', 'true')
+
+      // Push the ad to the Google Ads system
+      if (window.adsbygoogle) {
+        ;(window.adsbygoogle = window.adsbygoogle || []).push({})
+      }
     }
   }, [])
 

@@ -8,7 +8,6 @@ import { Intro } from './intro'
 import { LatestPosts } from './latest-posts'
 import { BlogLinks } from './links'
 import { TypedBios } from './typed-bios'
-import AdUnit from '~/components/adsense/AdUnit'
 
 export function Home({
   posts,
@@ -47,7 +46,6 @@ export function Home({
               <span className="mr-2">Happy reading</span>
               <Twemoji emoji="clinking-beer-mugs" />
             </p>
-            <AdUnit adClient="ca-pub-9583661339866748" adSlot="4551714058" />
           </div>
         </div>
         <div className="hidden pl-4 pt-8 xl:block">
