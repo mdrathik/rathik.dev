@@ -63,7 +63,7 @@ export function PostLayout({ content, next, prev, children }: LayoutProps) {
           </div>
 
           <div className="lg:col-span-4 lg:block xl:col-span-3">
-            <div className="mt-4 hidden w-full lg:block">
+            <div className="mb-4 hidden w-full lg:block">
               <div className="space-y-4 divide-y divide-gray-200 dark:divide-gray-700 lg:sticky lg:top-24">
                 {/* <BackToPosts label="Back to posts" /> */}
                 <TableOfContents toc={toc} />
