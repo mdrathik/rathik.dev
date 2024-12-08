@@ -7,7 +7,7 @@ import clsx from 'clsx'
 import type { Metadata } from 'next'
 import { JetBrains_Mono, Nunito, Playpen_Sans } from 'next/font/google'
 import { UmamiAnalytics } from '~/components/analytics/umami'
-import { AdSenseScript } from '~/components/adsense/adsense-script'
+import Script from 'next/script'
 import { Footer } from '~/components/footer'
 import { Header } from '~/components/header'
 import { KBarSearchProvider } from '~/components/search/kbar-provider'
@@ -111,10 +111,19 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         href={`${basePath}/static/favicons/safari-pinned-tab.svg`}
         color="#5bbad5"
       />
+
+      <Script
+        async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9583661339866748"
+        crossOrigin="anonymous"
+        strategy="afterInteractive"
+      />
+
       <meta name="msapplication-TileColor" content="#000000" />
       <meta name="theme-color" media="(prefers-color-scheme: light)" content="#fff" />
       <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000" />
       <link rel="alternate" type="application/rss+xml" href={`${basePath}/feed.xml`} />
+
       <body
         className={clsx([
           'antialiased',
@@ -135,7 +144,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <TiltedGridBackground className="inset-x-0 top-0 z-[-1] h-[50vh]" />
         <ThemeProviders>
           <UmamiAnalytics websiteId={SITE_METADATA.analytics.umamiAnalytics.websiteId} />
-          <AdSenseScript />
           <KBarSearchProvider configs={SITE_METADATA.search.kbarConfigs}>
             <Header />
             <main className="mb-auto grow">{children}</main>

@@ -1,5 +1,6 @@
 import clsx from 'clsx'
 import { Twemoji } from '~/components/ui/twemoji'
+import AdUnit from '~/components/adsense/AdUnit'
 
 export function Greeting() {
   return (
@@ -13,6 +14,7 @@ export function Greeting() {
       )}
     >
       Howdy, fellow! <Twemoji emoji="waving-hand" size="base" />
+      <AdUnit adClient="ca-pub-9583661339866748" adSlot="4551714058" />
     </div>
   )
 }
