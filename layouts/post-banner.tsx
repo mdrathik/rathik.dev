@@ -14,6 +14,7 @@ import { Container } from '~/components/ui/container'
 import { SITE_METADATA } from '~/data/site-metadata'
 import type { StatsType } from '~/db/schema'
 import type { CoreContent } from '~/types/data'
+import AdUnit from '~/components/adsense/AdUnit'
 
 interface LayoutProps {
   content: CoreContent<Blog>
@@ -62,6 +63,7 @@ export function PostBanner({ content, children }: LayoutProps) {
             </div>
             {/* <SocialShare postUrl={postUrl} title={title} /> */}
           </div>
+          <AdUnit adClient="ca-pub-9583661339866748" adSlot="4551714058" />
           <Comments />
         </div>
       </article>

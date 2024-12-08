@@ -6,30 +6,36 @@ import React, { useEffect, useRef } from 'react'
 interface AdUnitProps {
   adClient: string
   adSlot: string
+  adFormat?: string
+  fullWidthResponsive?: boolean
 }
 
-const AdUnit: React.FC<AdUnitProps> = ({ adClient, adSlot }) => {
-  const hasRun = useRef(false)
+const AdUnit: React.FC<AdUnitProps> = ({
+  adClient,
+  adSlot,
+  adFormat = 'auto', // Default to auto ad format
+  fullWidthResponsive = true, // Default to full-width responsive
+}) => {
+  const adRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    if (!hasRun.current) {
-      // Make sure window.adsbygoogle exists before pushing to it
-      if (typeof window !== 'undefined' && window.adsbygoogle) {
-        ;(window.adsbygoogle = window.adsbygoogle || []).push({})
-      }
-      hasRun.current = true
+    // Only push ad once the component is mounted
+    if (window.adsbygoogle) {
+      ;(window.adsbygoogle = window.adsbygoogle || []).push({})
     }
   }, [])
 
   return (
-    <ins
-      className="adsbygoogle"
-      style={{ display: 'block' }}
-      data-ad-client={adClient}
-      data-ad-slot={adSlot}
-      data-ad-format="auto"
-      data-full-width-responsive="true"
-    ></ins>
+    <div ref={adRef}>
+      <ins
+        className="adsbygoogle"
+        style={{ display: 'block' }}
+        data-ad-client={adClient}
+        data-ad-slot={adSlot}
+        data-ad-format={adFormat}
+        data-full-width-responsive={fullWidthResponsive ? 'true' : 'false'}
+      ></ins>
+    </div>
   )
 }
 
