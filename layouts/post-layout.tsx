@@ -93,14 +93,13 @@ export function PostLayout({ content, next, prev, children }: LayoutProps) {
             </div>
 
             {/* Google Ads */}
-            <div className="mt-4 h-[200px] w-full md:h-auto">
-              <AdUnit
-                adClient="ca-pub-9583661339866748"
-                adSlot="4551714058"
-                adFormat="auto"
-                fullWidthResponsive={true}
-              />
-            </div>
+
+            <AdUnit
+              adClient="ca-pub-9583661339866748"
+              adSlot="4551714058"
+              adFormat="auto"
+              fullWidthResponsive={true}
+            />
           </div>
         </div>
         <GradientDivider />
