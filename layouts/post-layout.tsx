@@ -16,6 +16,7 @@ import { GradientDivider } from '~/components/ui/gradient-divider'
 import { SITE_METADATA } from '~/data/site-metadata'
 import type { StatsType } from '~/db/schema'
 import type { CoreContent } from '~/types/data'
+import AdUnit from '~/components/adsense/AdUnit'
 
 interface LayoutProps {
   content: CoreContent<Blog>
@@ -59,6 +60,7 @@ export function PostLayout({ content, next, prev, children }: LayoutProps) {
         <div className="grid grid-cols-1 gap-12 pb-10 pt-8 lg:grid-cols-12 lg:pt-10">
           <div className="divide-y divide-gray-200 dark:divide-gray-700 lg:col-span-8 xl:col-span-9">
             <div className="prose max-w-none dark:prose-invert lg:prose-lg lg:pb-8">{children}</div>
+            <AdUnit adClient="ca-pub-9583661339866748" adSlot="4551714058" />
           </div>
           <div className="hidden lg:col-span-4 lg:block xl:col-span-3">
             <div className="space-y-4 divide-y divide-gray-200 dark:divide-gray-700 lg:sticky lg:top-24">
