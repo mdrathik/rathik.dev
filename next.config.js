@@ -89,6 +89,101 @@ module.exports = () => {
     async redirects() {
       return [
         {
+          source: '/category/aws', //tags added
+          destination: '/tags/aws',
+          permanent: true,
+        },
+        {
+          source: '/category/bash',
+          destination: '/tags/bash',
+          permanent: true,
+        },
+        {
+          source: '/category/blog',
+          destination: '/tags/blog',
+          permanent: true,
+        },
+        {
+          source: '/category/career',
+          destination: '/tags/career',
+          permanent: true,
+        },
+        {
+          source: '/category/devops',
+          destination: '/tags/devops',
+          permanent: true,
+        },
+        {
+          source: '/category/ufw',
+          destination: '/tags/ufw',
+          permanent: true,
+        },
+        {
+          source: '/category/javascript',
+          destination: '/tags/javascript',
+          permanent: true,
+        },
+        {
+          source: '/category/laravel',
+          destination: '/tags/laravel',
+          permanent: true,
+        },
+        {
+          source: '/category/linux',
+          destination: '/tags/linux',
+          permanent: true,
+        },
+        {
+          source: '/category/yearinreview',
+          destination: '/tags/yearinreview',
+          permanent: true,
+        },
+        {
+          source: '/category/mysql',
+          destination: '/tags/mysql',
+          permanent: true,
+        },
+        {
+          source: '/category/php',
+          destination: '/tags/php',
+          permanent: true,
+        },
+        {
+          source: '/category/security',
+          destination: '/tags/security',
+          permanent: true,
+        },
+        {
+          source: '/category/slack',
+          destination: '/tags/slack',
+          permanent: true,
+        },
+        {
+          source: '/category/tech',
+          destination: '/tags/tech',
+          permanent: true,
+        },
+        {
+          source: '/category/docker',
+          destination: '/tags/docker',
+          permanent: true,
+        },
+        {
+          source: '/category/firewall',
+          destination: '/tags/firewall',
+          permanent: true,
+        },
+        {
+          source: '/category/github',
+          destination: '/tags/github',
+          permanent: true,
+        },
+        {
+          source: '/category/ubuntu',
+          destination: '/tags/ubuntu',
+          permanent: true,
+        },
+        {
           source: '/add-free-cloudflare-ssl-in-aws-ec2-instance',
           destination: '/blog/add-free-ssl-in-ec2-instaces', // Matching last slug
           permanent: true,
