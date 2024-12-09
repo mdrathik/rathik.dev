@@ -89,93 +89,23 @@ module.exports = () => {
     async redirects() {
       return [
         {
-          source: '/What-I-achieved-in-2021',
-          destination: '/blog/What-I-achieved-in-2021',
+          source: '/add-free-cloudflare-ssl-in-aws-ec2-instance',
+          destination: '/blog/add-free-ssl-in-ec2-instaces', // Matching last slug
           permanent: true,
         },
         {
-          source: '/add-free-ssl-in-ec2-instaces',
-          destination: '/blog/add-free-ssl-in-ec2-instaces',
+          source: '/best-vps-hosting-in-2024',
+          destination: '/',
           permanent: true,
         },
         {
-          source: '/add-ssh-key-in-github-from-linux-windows',
-          destination: '/blog/add-ssh-key-in-github-from-linux-windows',
+          source: '/best-ways-to-use-clear-cache-command-in-laravel',
+          destination: '/blog/laravel/best-ways-to-use-clear-cache-command-in-laravel',
           permanent: true,
         },
         {
-          source: '/cant-use-ssh-after-enable-ufu-in-aws-ec2',
+          source: '/can-not-access-ssh-in-aws-after-enable-ufw-firewall',
           destination: '/blog/cant-use-ssh-after-enable-ufu-in-aws-ec2',
-          permanent: true,
-        },
-        {
-          source: '/composer-install-or-update-on-ubuntu-linux',
-          destination: '/blog/composer-install-or-update-on-ubuntu-linux',
-          permanent: true,
-        },
-        {
-          source: '/how-to-auto-mount-ebs-drive-into-ec2',
-          destination: '/blog/how-to-auto-mount-ebs-drive-into-ec2',
-          permanent: true,
-        },
-        {
-          source: '/how-to-destroy-dev-career-in-a-short',
-          destination: '/blog/how-to-destroy-dev-career-in-a-short',
-          permanent: true,
-        },
-        {
-          source: '/how-to-fin-hcf-and-lcm-in-javascript-with-example',
-          destination: '/blog/how-to-fin-hcf-and-lcm-in-javascript-with-example',
-          permanent: true,
-        },
-        {
-          source: '/how-to-install-ubuntu-firewall-for-spacifi-ip',
-          destination: '/blog/how-to-install-ubuntu-firewall-for-spacifi-ip',
-          permanent: true,
-        },
-        {
-          source: '/laravel-commad-not-found',
-          destination: '/blog/laravel-commad-not-found',
-          permanent: true,
-        },
-        {
-          source: '/mongodb-backup-locally-with-telegram-notification',
-          destination: '/blog/mongodb-backup-locally-with-telegram-notification',
-          permanent: true,
-        },
-        {
-          source: '/playing-with-laravel-array-and-collection',
-          destination: '/blog/playing-with-laravel-array-and-collection',
-          permanent: true,
-        },
-        {
-          source: '/send-laravel-logs-to-slack-channel',
-          destination: '/blog/send-laravel-logs-to-slack-channel',
-          permanent: true,
-        },
-        {
-          source: '/set-usa-or-america-timezone-in-laravel',
-          destination: '/blog/set-usa-or-america-timezone-in-laravel',
-          permanent: true,
-        },
-        {
-          source: '/some-es6-features-example-compare-to-es5',
-          destination: '/blog/some-es6-features-example-compare-to-es5',
-          permanent: true,
-        },
-        {
-          source: '/some-popular-subdomain-finder-tools-in-linux',
-          destination: '/blog/some-popular-subdomain-finder-tools-in-linux',
-          permanent: true,
-        },
-        {
-          source: '/sqlstate-hy000-1698-access-denied-for-root-user',
-          destination: '/blog/sqlstate-hy000-1698-access-denied-for-root-user',
-          permanent: true,
-        },
-        {
-          source: '/sqlstate-hy000-2002-no-such-file-or-directory',
-          destination: '/blog/sqlstate-hy000-2002-no-such-file-or-directory',
           permanent: true,
         },
         {
@@ -184,38 +114,13 @@ module.exports = () => {
           permanent: true,
         },
         {
-          source: '/vuejs-syllabus-roadmap-for-beginners-to-quick-start',
-          destination: '/blog/vuejs-syllabus-roadmap-for-beginners-to-quick-start',
+          source: '/configuring-different-or-america-time-zone-in-laravel',
+          destination: '/blog/set-usa-or-america-timezone-in-laravel',
           permanent: true,
         },
         {
-          source: '/Pure-function-in-javascript',
-          destination: '/blog/javascript-fundamentals/Pure-function-in-javascript',
-          permanent: true,
-        },
-        {
-          source: '/what-is-callback-function-in-javascript',
-          destination: '/blog/javascript-fundamentals/what-is-callback-function-in-javascript',
-          permanent: true,
-        },
-        {
-          source: '/what-is-javascript-closure',
-          destination: '/blog/javascript-fundamentals/what-is-javascript-closure',
-          permanent: true,
-        },
-        {
-          source: '/what-is-javascript-hoisting',
-          destination: '/blog/javascript-fundamentals/what-is-javascript-hoisting',
-          permanent: true,
-        },
-        {
-          source: '/what-is-this-keyword-javascript',
-          destination: '/blog/javascript-fundamentals/what-is-this-keyword-javascript',
-          permanent: true,
-        },
-        {
-          source: '/best-ways-to-use-clear-cache-command-in-laravel',
-          destination: '/blog/laravel/best-ways-to-use-clear-cache-command-in-laravel',
+          source: '/create-local-backup-of-mongodb-and-send-telegram-notification',
+          destination: '/blog/mongodb-backup-locally-with-telegram-notification',
           permanent: true,
         },
         {
@@ -229,12 +134,47 @@ module.exports = () => {
           permanent: true,
         },
         {
+          source: '/how-to-add-an-ssh-key-in-github-from-your-linux-and-windows',
+          destination: '/blog/add-ssh-key-in-github-from-linux-windows',
+          permanent: true,
+        },
+        {
+          source: '/how-to-add-auto-mount-ebs-drive-into-ec2',
+          destination: '/blog/how-to-auto-mount-ebs-drive-into-ec2',
+          permanent: true,
+        },
+        {
+          source: '/how-to-destroy-dev-career-in-a-short',
+          destination: '/blog/how-to-destroy-dev-career-in-a-short',
+          permanent: true,
+        },
+        {
+          source: '/how-to-find-hcf-lcm-in-javascript-with-example-code',
+          destination: '/blog/how-to-fin-hcf-and-lcm-in-javascript-with-example',
+          permanent: true,
+        },
+        {
+          source: '/how-to-generate-and-read-sitemap-xml-file-in-laravel-11',
+          destination: '/',
+          permanent: true,
+        },
+        {
           source: '/how-to-get-json-data-from-url-in-laravel',
           destination: '/blog/laravel/how-to-get-json-data-from-url-in-laravel',
           permanent: true,
         },
         {
-          source: '/laravel-10-simple-sms-integration-with-twilio',
+          source: '/how-to-get-laravel-logs-in-instantly-in-slack-channel',
+          destination: '/blog/laravel/send-laravel-logs-to-slack-channel',
+          permanent: true,
+        },
+        {
+          source: '/how-to-manage-ubuntu-users',
+          destination: '/blog/linux/mongodb-backup-locally-with-telegram-notification',
+          permanent: true,
+        },
+        {
+          source: '/laravel-10-send-sms-with-twilio-integration',
           destination: '/blog/laravel/laravel-10-simple-sms-integration-with-twilio',
           permanent: true,
         },
@@ -249,25 +189,29 @@ module.exports = () => {
           permanent: true,
         },
         {
-          source: '/laravel-fortify-login-url-change',
-          destination: '/blog/laravel/laravel-fortify-login-url-change',
-          permanent: true,
-        },
-        {
-          source: '/laravel-hashing-encryption-explained-copy',
+          source: '/laravel-hashing-encryption-and-how-its-works',
           destination: '/blog/laravel/laravel-hashing-encryption-explained-copy',
           permanent: true,
         },
         {
-          source: '/laravel-zip-file-creating-and-dowload',
+          source: '/laravel-login-url-change-via-fortify',
+          destination: '/blog/laravel/laravel-fortify-login-url-change',
+          permanent: true,
+        },
+        {
+          source: '/laravel-sail-sqlstatehy000-2002-no-such-file-or-directory-in-docker',
+          destination:
+            '/blog/laravel/laravel-sail-sqlstatehy000-2002-no-such-file-or-directory-in-docker',
+          permanent: true,
+        },
+        {
+          source: '/laravel-zip-file-creating-and-dowload-example',
           destination: '/blog/laravel/laravel-zip-file-creating-and-dowload',
           permanent: true,
         },
         {
-          source:
-            '/mastering-laravel-eloquent-comprehensive-guide-withcount-withsum-withavg-withexists-methods',
-          destination:
-            '/blog/laravel/mastering-laravel-eloquent-comprehensive-guide-withcount-withsum-withavg-withexists-methods',
+          source: '/pure-function-in-javascript',
+          destination: '/blog/javascript-fundamentals/Pure-function-in-javascript',
           permanent: true,
         },
         {
@@ -276,24 +220,79 @@ module.exports = () => {
           permanent: true,
         },
         {
-          source: '/solving-meme-type-issues-in-laravel-livewire-filament-with-nginx-server',
+          source: '/secure-your-ubuntu-server-with-ufw-and-allow-specific-ip-access',
+          destination: '/blog/ubuntu/install-ubuntu-firewall-for-specific-ip',
+          permanent: true,
+        },
+        {
+          source:
+            '/solving-mime-type-issues-in-laravel-livewire-filament-with-nginx-vhost-configuration-2',
           destination:
             '/blog/laravel/solving-meme-type-issues-in-laravel-livewire-filament-with-nginx-server',
           permanent: true,
         },
         {
-          source: '/understanding-the-use-of-laravels-optional-helper-function',
+          source:
+            '/solving-mime-type-issues-in-laravel-livewire-filament-with-nginx-vhost-configuration',
+          destination:
+            '/blog/laravel/solving-mime-type-issues-in-laravel-livewire-filament-with-nginx-server',
+          permanent: true,
+        },
+        {
+          source: '/some-es6-features-example-compare-to-es5',
+          destination: '/blog/some-es6-features-example-compare-to-es5',
+          permanent: true,
+        },
+        {
+          source:
+            '/sqlstatehy000-1698-access-denied-for-user-rootlocalhost-cant-log-into-phpmyadmin',
+          destination: '/blog/sqlstate-hy000-1698-access-denied-for-root-user',
+          permanent: true,
+        },
+        {
+          source: '/understand-javascript-closure-with-example',
+          destination: '/blog/javascript-fundamentals/what-is-javascript-closure',
+          permanent: true,
+        },
+        {
+          source: '/understanding-the-use-of-laravel-optional-helper-function',
           destination: '/blog/laravel/understanding-the-use-of-laravels-optional-helper-function',
           permanent: true,
         },
         {
-          source: '/mongodb-backup-locally-with-telegram-notification',
-          destination: '/blog/linux/mongodb-backup-locally-with-telegram-notification',
+          source: '/use-laravel-withcount-withsum-withavg-and-withexists-methods-in-eloquent',
+          destination:
+            '/blog/laravel/mastering-laravel-eloquent-comprehensive-guide-withcount-withsum-withavg-withexists-methods',
           permanent: true,
         },
         {
-          source: '/nested-route/introducing-multi-part-posts-with-nested-routing',
-          destination: '/blog/nested-route/introducing-multi-part-posts-with-nested-routing',
+          source: '/use-of-this-keyword-in-javascript',
+          destination: '/blog/javascript-fundamentals/what-is-this-keyword-javascript',
+          permanent: true,
+        },
+        {
+          source: '/vuejs-syllabus-for-beginners-to-quick-start',
+          destination: '/blog/vuejs-syllabus-roadmap-for-beginners-to-quick-start',
+          permanent: true,
+        },
+        {
+          source: '/what-i-achieved-in-2021',
+          destination: '/blog/what-i-achieved-in-2021',
+          permanent: true,
+        },
+        {
+          source: '/what-is-javascript-callback-function-and-how-it-works',
+          destination: '/blog/javascript-fundamentals/what-is-callback-function-in-javascript',
+          permanent: true,
+        },
+        {
+          source: '/what-is-javascript-hoisting',
+          destination: '/blog/javascript-fundamentals/what-is-javascript-hoisting',
+          permanent: true,
+        },
+        {
+          source: '/zsh-command-not-found-laravel',
+          destination: '/blog/laravel/laravel-commad-not-found',
           permanent: true,
         },
       ]
