@@ -1,0 +1,74 @@
+---
+title: 'Building Tiny fole Cleaner: First Electron Vibe APP'
+date: '2025-04-24'
+tags: ['electron', 'javascript', 'desktop-app', 'open-source']
+summary: 'How I solved a real-world problem for our operations team by building an Electron app to clean up system metadata files, saving hours of manual work daily.'
+images: ['/static/images/vibe-coding-unsplash.jpg']
+authors: ['default']
+---
+
+## Building SysFile Cleaner: My First Electron App
+
+I am not soexcited to share the story of how I built my first desktop application using Electron.js - [SysFile Cleaner](https://github.com/mdrathik/SysFile-Cleaner). This project wasn't just a technical exercise, it was fun to solve that stupid problem.
+
+## The Real Problem
+
+Our operations team faced a daily challenge: they needed to deliver more than 5000+ files across 100-300 different folders to our cloud storage. The major pain point? These folders were cluttered with system metadata files like `thumbs.db` and `.DS_Store`. The team had two options, both equally frustrating:
+
+1. Manually enter each folder and delete these files one by one
+2. Use Windows Explorer's search function to find and delete them
+
+Both methods were incredibly time-consuming and error-prone. This manual cleanup process was eating up hours of their valuable time every single day. That's when I decided to take action.
+
+## Why I Built It
+
+I thought to myself: "Why not use Cursor to solve this problem once and for all?" I wanted to create a solution that would:
+
+- Automate the tedious cleanup process(Only for our internal use)
+- Save the operations team countless minutes.
+- Ensure only actual files are moved to the cloud
+- Make the process hassle-free and reliable
+
+The goal was simple: create a tool that would let the team focus on their actual work rather than spending time on file cleanup.
+
+## Tech Stack
+
+The application is built using:
+
+- Electron.js for cross-platform desktop application
+- HTML/CSS for the user interface
+- JavaScript for the core functionality
+
+## Key Features
+
+- 🔍 Scans directories recursivlys for system metadata files
+- 🧹 Clean and simple interface for easy file cleanup
+- 📊 Real-time progress tracking
+- 💻 Cross-platform support
+- 📈 Shows total files found and cleaned
+
+## Development Experience
+
+Building this app was a great learning experience. Some key takeaways:
+
+1. **Electron's Architecture**: Understanding the main process and renderer process was crucial. The main process handles file system operations, while the renderer process manages the UI.
+
+2. **Cross-Platform Considerations**: Ensuring the app works seamlessly across Windows and macOS required careful handling of file paths and system-specific behaviors.
+
+## Getting Started
+
+The app is open-source and available on GitHub. You can:
+
+- Download the latest release for your platform
+- Clone the repository and run it locally
+- Contribute to the project
+
+## Future Plans
+
+I'm planning to add more features like:
+
+- Currently i havent any future plan. Cause its very tiny app for tiny problem that makes crazy.
+
+Building vibe is amazing !
+
+Check out the [GitHub repository](https://github.com/mdrathik/SysFile-Cleaner) to learn more and contribute to the project!
