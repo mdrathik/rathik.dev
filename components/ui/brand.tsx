@@ -50,6 +50,7 @@ import Bootstrap from '~/icons/bootstrap.svg'
 import Wix from '~/icons/wix.svg'
 import NuxtJS from '~/icons/nuxt.svg'
 import VueJs from '~/icons/vue.svg'
+import Electron from '~/icons/electron.svg'
 
 export let BrandsMap: Record<
   string,
@@ -257,22 +258,18 @@ export let BrandsMap: Record<
     Icon: Laravel,
     url: 'https://laravel.com/',
   },
-
   jQuery: {
     Icon: jQuery,
     url: 'https://jquery.com/',
   },
-
   Bootstrap: {
     Icon: Bootstrap,
     url: 'https://getbootstrap.com/',
   },
-
   Wix: {
     Icon: Wix,
     url: 'https://wix.com/',
   },
-
   NuxtJS: {
     Icon: NuxtJS,
     url: 'https://nuxt.com/',
@@ -280,6 +277,10 @@ export let BrandsMap: Record<
   VueJS: {
     Icon: VueJs,
     url: 'https://vue.com/',
+  },
+  Electron: {
+    Icon: Electron,
+    url: 'https://www.electronjs.org/',
   },
 }
 
