@@ -106,4 +106,16 @@ export const PROJECTS: Project[] = [
       { title: 'GitHub Org', url: '#' },
     ],
   },
+  {
+    type: 'self',
+    title: 'SysFile Cleaner',
+    description: `A complete vibe app built on electronjs, its optimized my operation time for a stupid task`,
+    imgSrc: '/static/images/sysfile-icon.png',
+    url: '#',
+    builtWith: ['electronjs'],
+    links: [
+      { title: 'Website', url: '#' },
+      { title: 'GitHub Org', url: 'https://github.com/mdrathik/SysFile-Cleaner' },
+    ],
+  },
 ]
