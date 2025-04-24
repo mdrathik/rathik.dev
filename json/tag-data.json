@@ -1,5 +1,4 @@
 {
-  "yearinreview": 1,
   "aws": 3,
   "devops": 6,
   "linux": 7,
@@ -24,6 +23,7 @@
   "mysql": 2,
   "docker": 1,
   "vuejs": 1,
+  "yearinreview": 1,
   "life": 1,
   "multi-author": 1,
   "next-js": 1,
