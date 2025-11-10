@@ -18,6 +18,10 @@ Building and writing things down is a great way for me to solidify my understand
 
 I would be highly appreciated if you could leave your comments and thoughts on what I have written 🍻
 
+## What's New
+
+📝 Continuously improving blog content, enhancing performance, and adding new features to provide better reading experience.
+
 ## Tech stack
 
 This blog is hosted on [Vercel](https://vercel.com/), built with [Next.js](https://nextjs.org/) and [Tailwind CSS](https://tailwindcss.com/) using **Tailwind Nextjs Starter Blog**.
