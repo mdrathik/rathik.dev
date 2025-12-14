@@ -248,7 +248,7 @@ export function Terminal() {
 
       // Wait before next command
       await new Promise((resolve) => {
-        timeoutRef.current = setTimeout(resolve, 2000)
+        timeoutRef.current = setTimeout(resolve, 5000)
       })
 
       if (isDemoRef.current) {
