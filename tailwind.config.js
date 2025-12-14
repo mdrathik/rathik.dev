@@ -44,6 +44,11 @@ module.exports = {
           '50%': { transform: 'scale(1.18)' },
           '100%': { transform: 'scale(1)' },
         },
+        'wave-pulse': {
+          '0%': { backgroundPosition: '0% 50%' },
+          '50%': { backgroundPosition: '100% 50%' },
+          '100%': { backgroundPosition: '0% 50%' },
+        },
       },
       animation: {
         wiggle: 'wiggle 7s linear infinite',
@@ -52,6 +57,7 @@ module.exports = {
         'music-bar-3': 'music-bar-3 .8s linear infinite',
         'music-bar-4': 'music-bar-4 .8s linear infinite',
         'scale-up': 'scale-up 150ms ease-in-out forwards',
+        'wave-pulse': 'wave-pulse 2s ease-in-out infinite',
       },
       boxShadow: {
         demure: 'rgba(0, 0, 0, 0.3) 0 35px 60px -15px',

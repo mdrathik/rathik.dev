@@ -57,7 +57,12 @@ export function ProfileCardInfo() {
       <h3 className="text-xl font-semibold text-gray-800 dark:text-white">
         Md Solaiman Hosasin (Rathik)
       </h3>
-      <h5 className="py-2 text-gray-500 dark:text-gray-400">Learner | Builder</h5>
+      <h5 className="py-2 text-gray-500 dark:text-gray-400">
+        Learner | Builder |{' '}
+        <span className="animate-wave-pulse bg-gradient-to-r from-emerald-500 via-blue-500 via-purple-500 to-pink-500 bg-[length:400%_auto] bg-clip-text font-bold text-transparent">
+          Vibe Coder
+        </span>
+      </h5>
       <div className="mb-2 mt-4 space-y-4">
         <div className="flex items-center text-gray-700 dark:text-gray-200">
           <BriefcaseBusiness strokeWidth={1.5} size={20} />

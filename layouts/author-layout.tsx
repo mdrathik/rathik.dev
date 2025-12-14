@@ -35,7 +35,7 @@ export function AuthorLayout({ children }: Props) {
               </h2>
               <p>
                 I'm <strong>Md Solaiman Hossain</strong> (alias <strong>Rathik</strong> at work), a
-                software developer with over 7+ years of experience in full-stack and web
+                software developer with over 8+ years of experience in full-stack and web
                 development. I love solving problems, building innovative solutions, and staying
                 updated with the latest technologies.
               </p>
@@ -49,13 +49,25 @@ export function AuthorLayout({ children }: Props) {
               <p>I use a wide range of tools depending on the problem 🚀:</p>
               <ul>
                 <li>
-                  <strong>Frontend:</strong> Vue.js, Alpine.js, Tailwind CSS
+                  <strong>Frontend:</strong> React, Next.js, Vue.js, Alpine.js, Tailwind CSS, HTML5,
+                  CSS3, JavaScript (ES6+), TypeScript
                 </li>
                 <li>
-                  <strong>Backend:</strong> Laravel
+                  <strong>Backend:</strong> PHP, Laravel, Python
                 </li>
                 <li>
-                  <strong>Others:</strong> LAMP, Git
+                  <strong>Database:</strong> MySQL, PostgreSQL, SQLite, MongoDB
+                </li>
+                <li>
+                  <strong>DevOps & Tools:</strong> Git, Docker, AWS (EC2, S3), Linux, Apache, Nginx
+                </li>
+                <li>
+                  <strong>Leadership & Architecture:</strong> System Design, Monolith Architecture,
+                  Team Leading, Agile/Scrum, Product Roadmap, Tech Strategy
+                </li>
+                <li>
+                  <strong>Philosophy:</strong> Vibe Coding 🎵, Pragmatic Programmer, User-Centric
+                  Design
                 </li>
               </ul>
               <h3>Pet Skills 🐾</h3>
