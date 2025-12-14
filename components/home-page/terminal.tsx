@@ -9,6 +9,7 @@ const COMMANDS = {
   whoami: 'Display current user',
   ls: 'List directory contents',
   cd: 'Change directory',
+  theme: 'Change theme (try "theme dracula")',
   clear: 'Clear terminal screen',
   about: 'Display information about me',
 }
@@ -32,17 +33,75 @@ const DIRECTORIES = ['blog', 'snippets', 'projects', 'about', 'tags']
 
 const DEMO_COMMANDS = ['cat intro.txt', 'whoami', 'ls', 'help']
 
+const THEMES = {
+  classic: {
+    bg: 'bg-[#1e1e1e]',
+    headerBg: 'bg-[#2d2d2d]',
+    text: 'text-gray-300',
+    muted: 'text-gray-500',
+    user: 'text-green-400',
+    path: 'text-blue-400',
+    input: 'text-gray-300',
+    dots: ['bg-red-500', 'bg-yellow-500', 'bg-green-500'],
+  },
+  tokyo: {
+    bg: 'bg-[#1a1b26]',
+    headerBg: 'bg-[#16161e]',
+    text: 'text-[#a9b1d6]',
+    muted: 'text-[#565f89]',
+    user: 'text-[#bb9af7]',
+    path: 'text-[#7aa2f7]',
+    input: 'text-[#c0caf5]',
+    dots: ['bg-[#f7768e]', 'bg-[#e0af68]', 'bg-[#9ece6a]'],
+  },
+  dracula: {
+    bg: 'bg-[#282a36]',
+    headerBg: 'bg-[#21222c]',
+    text: 'text-[#f8f8f2]',
+    muted: 'text-[#6272a4]',
+    user: 'text-[#ff79c6]',
+    path: 'text-[#8be9fd]',
+    input: 'text-[#f8f8f2]',
+    dots: ['bg-[#ff5555]', 'bg-[#f1fa8c]', 'bg-[#50fa7b]'],
+  },
+  matrix: {
+    bg: 'bg-black',
+    headerBg: 'bg-green-900',
+    text: 'text-green-500',
+    muted: 'text-green-800',
+    user: 'text-green-400',
+    path: 'text-green-600',
+    input: 'text-green-300',
+    dots: ['bg-green-600', 'bg-green-500', 'bg-green-400'],
+  },
+  onedark: {
+    bg: 'bg-[#282c34]',
+    headerBg: 'bg-[#21252b]',
+    text: 'text-[#abb2bf]',
+    muted: 'text-[#5c6370]',
+    user: 'text-[#61afef]',
+    path: 'text-[#98c379]',
+    input: 'text-[#abb2bf]',
+    dots: ['bg-[#e06c75]', 'bg-[#d19a66]', 'bg-[#98c379]'],
+  },
+}
+
+type ThemeKey = keyof typeof THEMES
+
 export function Terminal() {
   const router = useRouter()
   const [history, setHistory] = useState<Array<{ command: string; output: React.ReactNode }>>([])
   const [input, setInput] = useState('')
   const [isDemoMode, setIsDemoMode] = useState(true)
+  const [currentTheme, setCurrentTheme] = useState<ThemeKey>('onedark')
   const scrollRef = useRef<HTMLDivElement>(null)
   const inputRef = useRef<HTMLInputElement>(null)
 
   // Ref to track demo mode status across async operations
   const isDemoRef = useRef(true)
   const timeoutRef = useRef<NodeJS.Timeout | null>(null)
+
+  const theme = THEMES[currentTheme]
 
   const processCommand = (cmd: string) => {
     const trimmedCmd = cmd.trim().toLowerCase()
@@ -60,9 +119,22 @@ export function Terminal() {
               <span>{desc}</span>
             </div>
           ))}
-          <p className="mt-2 text-gray-400">Try running: 'cat intro.txt' or 'cd blog'</p>
+          <p className="mt-2 text-gray-400">Try running: 'cat intro.txt' or 'theme dracula'</p>
         </div>
       )
+    } else if (trimmedCmd.startsWith('theme')) {
+      const args = trimmedCmd.split(' ')
+      if (args.length === 1) {
+        output = `Current theme: ${currentTheme}. Available themes: ${Object.keys(THEMES).join(', ')}`
+      } else {
+        const newTheme = args[1] as ThemeKey
+        if (THEMES[newTheme]) {
+          setCurrentTheme(newTheme)
+          output = `Theme switched to ${newTheme}`
+        } else {
+          output = `Theme '${newTheme}' not found. Available: ${Object.keys(THEMES).join(', ')}`
+        }
+      }
     } else if (trimmedCmd === 'clear') {
       setHistory([])
       return
@@ -261,15 +333,15 @@ export function Terminal() {
 
   return (
     <div
-      className="mt-8 overflow-hidden rounded-lg border border-gray-800 bg-[#1e1e1e] shadow-2xl dark:border-gray-700"
+      className={`mt-8 overflow-hidden rounded-lg border border-gray-800 shadow-2xl dark:border-gray-700 ${theme.bg}`}
       onClick={handleTerminalClick}
     >
-      <div className="border-b border-gray-800 bg-[#2d2d2d] px-4 py-2">
+      <div className={`border-b border-gray-800 px-4 py-2 ${theme.headerBg}`}>
         <div className="flex items-center gap-2">
           <div className="flex gap-2">
-            <div className="h-3 w-3 rounded-full bg-red-500"></div>
-            <div className="h-3 w-3 rounded-full bg-yellow-500"></div>
-            <div className="h-3 w-3 rounded-full bg-green-500"></div>
+            <div className={`h-3 w-3 rounded-full ${theme.dots[0]}`}></div>
+            <div className={`h-3 w-3 rounded-full ${theme.dots[1]}`}></div>
+            <div className={`h-3 w-3 rounded-full ${theme.dots[2]}`}></div>
           </div>
           <div className="flex-1 text-center text-sm font-medium text-gray-400">
             A passionate{' '}
@@ -283,26 +355,27 @@ export function Terminal() {
 
       <div
         ref={scrollRef}
-        className="scrollbar-thin scrollbar-track-transparent scrollbar-thumb-gray-700 h-[550px] overflow-y-auto p-4 font-mono text-xs text-gray-300 md:text-sm"
+        className={`scrollbar-thin scrollbar-track-transparent scrollbar-thumb-gray-700 h-[550px] overflow-y-auto p-4 font-mono text-xs md:text-sm ${theme.text}`}
       >
-        <div className="mb-4 text-gray-500">
+        <div className={`mb-4 ${theme.muted}`}>
           Welcome to Rathik's interactive terminal v1.0.0
           <br />
           Type 'help' to see available commands.
         </div>
+
         {history.map((entry, i) => (
-          <div key={i} className="mb-4 text-gray-300 antialiased">
+          <div key={i} className={`mb-4 antialiased ${theme.text}`}>
             <div className="mb-1">
-              <span className="text-green-400">guest@rathik.dev</span>:
-              <span className="text-blue-400">~</span>$ {entry.command}
+              <span className={theme.user}>guest@rathik.dev</span>:
+              <span className={theme.path}>~</span>$ {entry.command}
             </div>
             <div className="whitespace-pre-wrap">{entry.output}</div>
           </div>
         ))}
 
         <div className="flex items-center">
-          <span className="text-green-400">guest@rathik.dev</span>:
-          <span className="text-blue-400">~</span>$
+          <span className={theme.user}>guest@rathik.dev</span>:<span className={theme.path}>~</span>
+          $
           <input
             ref={inputRef}
             type="text"
@@ -312,7 +385,7 @@ export function Terminal() {
               setInput(e.target.value)
             }}
             onKeyDown={handleKeyDown}
-            className="ml-2 flex-1 border-none bg-transparent p-0 text-gray-300 outline-none focus:ring-0"
+            className={`ml-2 flex-1 border-none bg-transparent p-0 outline-none focus:ring-0 ${theme.input} placeholder-transparent`}
             autoFocus
             spellCheck={false}
             autoComplete="off"
@@ -320,8 +393,8 @@ export function Terminal() {
         </div>
       </div>
 
-      <div className="border-t border-gray-800 bg-[#2d2d2d] px-4 py-2">
-        <SpotifyNowPlaying className="text-xs text-gray-400" />
+      <div className={`border-t border-gray-800 px-4 py-2 ${theme.headerBg}`}>
+        <SpotifyNowPlaying className={`text-xs ${theme.muted}`} />
       </div>
     </div>
   )
