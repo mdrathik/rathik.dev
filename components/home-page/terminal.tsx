@@ -247,8 +247,9 @@ export function Terminal() {
       cmdIndex++
 
       // Wait before next command
+      const delay = cmdIndex >= 2 ? 10000 : 5000
       await new Promise((resolve) => {
-        timeoutRef.current = setTimeout(resolve, 5000)
+        timeoutRef.current = setTimeout(resolve, delay)
       })
 
       if (isDemoRef.current) {
