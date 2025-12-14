@@ -7,7 +7,7 @@ export const SITE_METADATA = {
   theme: 'system', // system, dark or light
   siteUrl: 'https://www.rathik.dev',
   siteRepo: 'https://github.com/mdrathik/rathik.dev',
-  siteLogo: `${process.env.BASE_PATH || ''}/static/images/logo.png`,
+  siteLogo: `${process.env.BASE_PATH || ''}/static/images/logo.jpeg`,
   profilePicture: `${process.env.BASE_PATH || ''}/static/images/profile-picture.jpg`,
   socialBanner: `${process.env.BASE_PATH || ''}/static/images/twitter-card.jpeg`,
   email: 'hello@rathik.dev',
