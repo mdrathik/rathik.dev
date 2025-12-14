@@ -358,7 +358,7 @@ export function Terminal() {
         className={`scrollbar-thin scrollbar-track-transparent scrollbar-thumb-gray-700 h-[60vh] overflow-y-auto p-4 font-mono text-xs md:h-[550px] md:text-sm ${theme.text}`}
       >
         <div className={`mb-4 ${theme.muted}`}>
-          Welcome to Rathik's interactive terminal v1.0.0
+          Welcome to RT's Terminal v1.0.0
           <br />
           Type 'help' to see available commands.
         </div>
