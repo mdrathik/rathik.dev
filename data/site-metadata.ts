@@ -14,6 +14,7 @@ export const SITE_METADATA = {
   github: 'https://github.com/mdrathik',
   x: 'https://twitter.com/mdrathik',
   whatsapp: 'https://wa.me/8801766256001',
+  facebook: 'https://facebook.com/mdrathik',
   youtube: 'https://www.youtube.com/mdrathik',
   linkedin: 'https://www.linkedin.com/in/mdrathik',
   threads: 'https://www.threads.net/mdrathik',
