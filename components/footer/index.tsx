@@ -1,4 +1,5 @@
 import { clsx } from 'clsx'
+import { Facebook, Github, Instagram, Linkedin, MessageCircle } from 'lucide-react'
 import { Container } from '~/components/ui/container'
 import { SITE_METADATA } from '~/data/site-metadata'
 import { FooterMeta } from './footer-meta'
@@ -21,8 +22,44 @@ export function Footer() {
           <div className="italic text-gray-500 dark:text-gray-400">{SITE_METADATA.description}</div>
           <div className="pt-4">
             <div className="flex gap-8 py-1.5 md:gap-20">
-              <div className="flex items-center">
-                <Signature className="h-20 w-32 md:w-40" />
+              <div className="flex flex-col gap-4">
+                <div className="flex items-center">
+                  <Signature className="h-20 w-32 md:w-40" />
+                </div>
+                <div className="flex gap-4 text-gray-700 dark:text-gray-200">
+                  <a
+                    target="_blank"
+                    href={SITE_METADATA.github}
+                    rel="noreferrer"
+                    className="hover:text-primary-500 dark:hover:text-primary-400"
+                  >
+                    <Github size={20} strokeWidth={1.5} />
+                  </a>
+                  <a
+                    target="_blank"
+                    href={SITE_METADATA.linkedin}
+                    rel="noreferrer"
+                    className="hover:text-primary-500 dark:hover:text-primary-400"
+                  >
+                    <Linkedin size={20} strokeWidth={1.5} />
+                  </a>
+                  <a
+                    target="_blank"
+                    href={SITE_METADATA.whatsapp}
+                    rel="noreferrer"
+                    className="hover:text-primary-500 dark:hover:text-primary-400"
+                  >
+                    <MessageCircle size={20} strokeWidth={1.5} />
+                  </a>
+                  <a
+                    target="_blank"
+                    href={SITE_METADATA.instagram}
+                    rel="noreferrer"
+                    className="hover:text-primary-500 dark:hover:text-primary-400"
+                  >
+                    <Instagram size={20} strokeWidth={1.5} />
+                  </a>
+                </div>
               </div>
               <FooterMeta />
             </div>

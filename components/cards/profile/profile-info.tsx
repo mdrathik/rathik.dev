@@ -1,5 +1,13 @@
 import { SITE_METADATA } from '~/data/site-metadata'
-import { BriefcaseBusiness, Github, Linkedin, Mail, MapPin } from 'lucide-react'
+import {
+  BriefcaseBusiness,
+  Github,
+  Instagram,
+  Linkedin,
+  Mail,
+  MapPin,
+  MessageCircle,
+} from 'lucide-react'
 import { Fragment } from 'react'
 import XIcon from '~/icons/x.svg'
 import { Twemoji } from '~/components/ui/twemoji'
@@ -26,6 +34,20 @@ const SOCIALS = [
     href: SITE_METADATA.linkedin,
     Icon: () => <Linkedin size={20} strokeWidth={1.5} />,
     umamiEvent: 'profile-card-linkedin',
+  },
+  {
+    platform: 'whatsapp',
+    handle: 'Whatsapp',
+    href: SITE_METADATA.whatsapp,
+    Icon: () => <MessageCircle size={20} strokeWidth={1.5} />,
+    umamiEvent: 'profile-card-whatsapp',
+  },
+  {
+    platform: 'instagram',
+    handle: getAccountHandle(SITE_METADATA.instagram),
+    href: SITE_METADATA.instagram,
+    Icon: () => <Instagram size={20} strokeWidth={1.5} />,
+    umamiEvent: 'profile-card-instagram',
   },
 ]
 
@@ -66,7 +88,7 @@ export function ProfileCardInfo() {
             {SITE_METADATA.email}
           </a>
         </div>
-        <div className="flex items-center gap-2.5 text-gray-700 dark:text-gray-200">
+        <div className="grid grid-cols-2 gap-x-4 gap-y-2 text-gray-700 dark:text-gray-200">
           {SOCIALS.map(({ platform, handle, href, Icon, umamiEvent }, idx) => (
             <Fragment key={platform}>
               <a
@@ -80,9 +102,6 @@ export function ProfileCardInfo() {
                 <span className="ml-px text-gray-500">/</span>
                 <span className="ml-0.5">{handle}</span>
               </a>
-              {idx !== SOCIALS.length - 1 && (
-                <span className="text-gray-400 dark:text-gray-500">|</span>
-              )}
             </Fragment>
           ))}
         </div>

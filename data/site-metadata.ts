@@ -13,7 +13,7 @@ export const SITE_METADATA = {
   email: 'hello@rathik.dev',
   github: 'https://github.com/mdrathik',
   x: 'https://twitter.com/mdrathik',
-  facebook: 'https://facebook.com/md.rathik',
+  whatsapp: 'https://wa.me/8801766256001',
   youtube: 'https://www.youtube.com/mdrathik',
   linkedin: 'https://www.linkedin.com/in/mdrathik',
   threads: 'https://www.threads.net/mdrathik',
