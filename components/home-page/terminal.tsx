@@ -93,7 +93,7 @@ export function Terminal() {
   const [history, setHistory] = useState<Array<{ command: string; output: React.ReactNode }>>([])
   const [input, setInput] = useState('')
   const [isDemoMode, setIsDemoMode] = useState(true)
-  const [currentTheme, setCurrentTheme] = useState<ThemeKey>('onedark')
+  const [currentTheme, setCurrentTheme] = useState<ThemeKey>('classic')
   const scrollRef = useRef<HTMLDivElement>(null)
   const inputRef = useRef<HTMLInputElement>(null)
 
@@ -333,7 +333,7 @@ export function Terminal() {
 
   return (
     <div
-      className={`mt-8 overflow-hidden rounded-lg border border-gray-800 shadow-2xl dark:border-gray-700 ${theme.bg}`}
+      className={`mt-2 overflow-hidden rounded-lg border border-gray-800 shadow-2xl dark:border-gray-700 md:mt-8 ${theme.bg}`}
       onClick={handleTerminalClick}
     >
       <div className={`border-b border-gray-800 px-4 py-2 ${theme.headerBg}`}>
@@ -355,7 +355,7 @@ export function Terminal() {
 
       <div
         ref={scrollRef}
-        className={`scrollbar-thin scrollbar-track-transparent scrollbar-thumb-gray-700 h-[550px] overflow-y-auto p-4 font-mono text-xs md:text-sm ${theme.text}`}
+        className={`scrollbar-thin scrollbar-track-transparent scrollbar-thumb-gray-700 h-[60vh] overflow-y-auto p-4 font-mono text-xs md:h-[550px] md:text-sm ${theme.text}`}
       >
         <div className={`mb-4 ${theme.muted}`}>
           Welcome to Rathik's interactive terminal v1.0.0
