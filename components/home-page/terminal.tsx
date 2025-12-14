@@ -364,18 +364,24 @@ export function Terminal() {
         </div>
 
         {history.map((entry, i) => (
-          <div key={i} className={`mb-4 antialiased ${theme.text}`}>
-            <div className="mb-1">
-              <span className={theme.user}>guest@rathik.dev</span>:
-              <span className={theme.path}>~</span>$ {entry.command}
+          <div key={i} className={`mb-4 break-words antialiased ${theme.text}`}>
+            <div className="mb-1 break-all md:break-words">
+              <span className={theme.user}>
+                <span className="md:hidden">guest</span>
+                <span className="hidden md:inline">guest@rathik.dev</span>
+              </span>
+              :<span className={theme.path}>~</span>$ {entry.command}
             </div>
-            <div className="whitespace-pre-wrap">{entry.output}</div>
+            <div className="whitespace-pre-wrap break-words">{entry.output}</div>
           </div>
         ))}
 
         <div className="flex items-center">
-          <span className={theme.user}>guest@rathik.dev</span>:<span className={theme.path}>~</span>
-          $
+          <span className={theme.user}>
+            <span className="md:hidden">guest</span>
+            <span className="hidden md:inline">guest@rathik.dev</span>
+          </span>
+          :<span className={theme.path}>~</span>$
           <input
             ref={inputRef}
             type="text"
@@ -385,7 +391,7 @@ export function Terminal() {
               setInput(e.target.value)
             }}
             onKeyDown={handleKeyDown}
-            className={`ml-2 flex-1 border-none bg-transparent p-0 outline-none focus:ring-0 ${theme.input} placeholder-transparent`}
+            className={`ml-2 min-w-0 flex-1 border-none bg-transparent p-0 outline-none focus:ring-0 ${theme.input} placeholder-transparent`}
             autoFocus
             spellCheck={false}
             autoComplete="off"
