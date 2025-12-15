@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { SpotifyNowPlaying } from '~/components/ui/now-playing'
+import { SITE_METADATA } from '~/data/site-metadata'
 
 const COMMANDS = {
   help: 'Show available commands',
@@ -12,18 +13,20 @@ const COMMANDS = {
   theme: 'Change theme (try "theme dracula")',
   clear: 'Clear terminal screen',
   about: 'Display information about me',
+  contact: 'List contact information',
 }
 
 const FILES = {
   'intro.txt': (
     <div className="space-y-4">
-      <p>I started learning to code in 2016, and it has been an exciting journey ever since.</p>
       <p>
-        I landed my first role in tech as a PHP developer, where I discovered my love for
-        problem-solving & Many others stuff.
+        I'm Md Solaiman Hossain (alias Rathik at work), a software developer with over 8+ years of
+        experience in full-stack and web development.
       </p>
-      <p>I have a passion for web development, Laravel, and exploring secure software solutions.</p>
-      <p>I started this platform to document and share my knowledge, experiences, and insights.</p>
+      <p>
+        I love solving problems, building innovative solutions, and staying updated with the latest
+        technologies.
+      </p>
     </div>
   ),
   'contact.txt': 'Email: hello@rathik.dev\nGithub: @mdrathik',
@@ -31,7 +34,7 @@ const FILES = {
 
 const DIRECTORIES = ['blog', 'snippets', 'projects', 'about', 'tags']
 
-const DEMO_COMMANDS = ['cat intro.txt', 'whoami', 'ls', 'help']
+const DEMO_COMMANDS = ['cat intro.txt', 'contact', 'whoami', 'ls', 'help']
 
 const THEMES = {
   classic: {
@@ -196,6 +199,47 @@ export function Terminal() {
       output = '☕ Brewing some virtual java...'
     } else if (trimmedCmd === 'love') {
       output = '❤️ Made with love by Rathik'
+    } else if (trimmedCmd === 'contact') {
+      output = (
+        <div className="space-y-2">
+          <div className="grid grid-cols-[100px_1fr] gap-1">
+            <span className="text-gray-400">Email:</span>
+            <a href={`mailto:${SITE_METADATA.email}`} className="text-blue-400 hover:underline">
+              {SITE_METADATA.email}
+            </a>
+
+            <span className="text-gray-400">GitHub:</span>
+            <a
+              href={SITE_METADATA.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-400 hover:underline"
+            >
+              @mdrathik
+            </a>
+
+            <span className="text-gray-400">LinkedIn:</span>
+            <a
+              href={SITE_METADATA.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-400 hover:underline"
+            >
+              Md Rathik
+            </a>
+
+            <span className="text-gray-400">Twitter:</span>
+            <a
+              href={SITE_METADATA.x}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-400 hover:underline"
+            >
+              @mdrathik
+            </a>
+          </div>
+        </div>
+      )
     } else {
       output = `Command not found: ${trimmedCmd}. Type 'help' for available commands.`
     }
@@ -348,7 +392,7 @@ export function Terminal() {
             A passionate{' '}
             <span className="line-through decoration-red-500 decoration-2">Software Dev</span>{' '}
             <span className="animate-wave-pulse bg-gradient-to-r from-emerald-500 via-blue-500 via-purple-500 to-pink-500 bg-[length:400%_auto] bg-clip-text font-bold text-transparent">
-              Viber Coder
+              Vibe Coder
             </span>
           </div>
         </div>
