@@ -1,5 +1,5 @@
 import { clsx } from 'clsx'
-import { Facebook, Github, Instagram, Linkedin, MessageCircle } from 'lucide-react'
+import { Github, Instagram, Linkedin, MessageCircle } from 'lucide-react'
 import { Container } from '~/components/ui/container'
 import { SITE_METADATA } from '~/data/site-metadata'
 import { FooterMeta } from './footer-meta'

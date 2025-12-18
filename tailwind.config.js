@@ -49,6 +49,18 @@ module.exports = {
           '50%': { backgroundPosition: '100% 50%' },
           '100%': { backgroundPosition: '0% 50%' },
         },
+        marquee: {
+          '0%': { transform: 'translateX(0%)' },
+          '100%': { transform: 'translateX(-50%)' },
+        },
+        'marquee-slow': {
+          '0%': { transform: 'translateX(0%)' },
+          '100%': { transform: 'translateX(-33.33%)' },
+        },
+        balloon: {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-10px)' },
+        },
       },
       animation: {
         wiggle: 'wiggle 7s linear infinite',
@@ -58,6 +70,9 @@ module.exports = {
         'music-bar-4': 'music-bar-4 .8s linear infinite',
         'scale-up': 'scale-up 150ms ease-in-out forwards',
         'wave-pulse': 'wave-pulse 2s ease-in-out infinite',
+        marquee: 'marquee 25s linear infinite',
+        'marquee-slow': 'marquee-slow 20s linear infinite',
+        balloon: 'balloon 2s ease-in-out infinite',
       },
       boxShadow: {
         demure: 'rgba(0, 0, 0, 0.3) 0 35px 60px -15px',

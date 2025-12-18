@@ -51,6 +51,8 @@ import Wix from '~/icons/wix.svg'
 import NuxtJS from '~/icons/nuxt.svg'
 import VueJs from '~/icons/vue.svg'
 import Electron from '~/icons/electron.svg'
+import Docker from '~/icons/docker.svg'
+import Linux from '~/icons/linux.svg'
 
 export let BrandsMap: Record<
   string,
@@ -281,6 +283,14 @@ export let BrandsMap: Record<
   Electron: {
     Icon: Electron,
     url: 'https://www.electronjs.org/',
+  },
+  Docker: {
+    Icon: Docker,
+    url: 'https://www.docker.com/',
+  },
+  Linux: {
+    Icon: Linux,
+    url: 'https://www.linux.org/',
   },
 }
 

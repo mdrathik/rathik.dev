@@ -5,7 +5,7 @@
   "linux": 7,
   "github": 1,
   "electron": 1,
-  "javascript": 9,
+  "javascript": 8,
   "desktop-app": 1,
   "open-source": 1,
   "php": 5,
@@ -18,7 +18,7 @@
   "security": 3,
   "ufw": 1,
   "firewall": 1,
-  "laravel": 21,
+  "laravel": 22,
   "bash": 2,
   "slack": 1,
   "mysql": 2,
@@ -30,8 +30,8 @@
   "multi-author": 1,
   "next-js": 1,
   "feature": 1,
-  "typescript": 1,
-  "string": 1,
-  "casing": 1,
-  "utilities": 1
+  "hostinger": 1,
+  "storage": 1,
+  "symlink": 1,
+  "shared-hosting": 1
 }
