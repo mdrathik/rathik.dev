@@ -1,0 +1,41 @@
+---
+heading: 'Laravel Storage Link Not Working in Hostinger'
+title: 'Laravel Storage Link Not Working in Hostinger Shared Hosting'
+date: '2025-12-18'
+icon: 'Laravel'
+draft: false
+summary: 'Fix Laravel storage:link command that fails to work properly on Hostinger shared hosting'
+tags: ['laravel', 'hostinger', 'storage', 'symlink', 'shared-hosting']
+---
+
+## Understanding Laravel Storage Link
+
+Laravel's storage link command creates a symbolic link from the `public/storage` directory to the `storage/app/public` directory:
+
+```bash
+php artisan storage:link
+```
+
+This allows publicly accessible files (like user uploads) to be stored in the `storage/app/public` directory while being accessible through the `public/storage` URL path. If the link already exists, the command will notify you.
+
+## The Issue on Hostinger Shared Hosting
+
+Everything seems fine when you run the command on Hostinger - no errors appear. However, there's a problem: **the command doesn't actually create a working symbolic link to `public/storage`**.
+
+Your files remain inaccessible even though Laravel says the link was created successfully.
+
+## The Solution
+
+To properly create the storage link on Hostinger shared hosting, run this command instead:
+
+```bash
+ln -s $(pwd)/storage/app/public $(pwd)/public/storage
+```
+
+This command will solve the storage link issue and your files will be accessible immediately.
+
+### Why This Works
+
+- Uses absolute paths via `$(pwd)` instead of relative paths
+- Creates a proper symbolic link that Hostinger's file system actually recognizes
+- Bypasses the compatibility issues between Laravel's artisan command and Hostinger's environment
