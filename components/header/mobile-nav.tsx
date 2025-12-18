@@ -3,7 +3,7 @@
 import { Dialog, DialogPanel, Transition, TransitionChild } from '@headlessui/react'
 import { clearAllBodyScrollLocks, disableBodyScroll, enableBodyScroll } from 'body-scroll-lock'
 import { clsx } from 'clsx'
-import { Menu, X } from 'lucide-react'
+import { Github, Instagram, Linkedin, Mail, Menu, MessageCircle, X } from 'lucide-react'
 import { Fragment, useEffect, useRef, useState } from 'react'
 import { Link } from '~/components/ui/link'
 import { Twemoji } from '~/components/ui/twemoji'
@@ -68,33 +68,89 @@ export function MobileNav() {
             leaveTo="translate-x-full opacity-0"
             unmount={false}
           >
-            <DialogPanel className="fixed left-0 top-0 z-70 h-full w-full bg-white opacity-95 duration-300 dark:bg-gray-950 dark:opacity-[0.98]">
-              <div className="flex items-center gap-3 pl-10 pt-8">
-                <Logo />
-                <span className="font-medium">{SITE_METADATA.headerTitle}</span>
-              </div>
-              <nav
-                ref={navRef}
-                className="mt-4 flex h-full basis-0 flex-col items-start gap-4 overflow-y-auto pl-10 pt-2"
-              >
-                {[...HEADER_NAV_LINKS, ...MORE_NAV_LINKS].map((link) => (
-                  <Link
-                    key={link.title}
-                    href={link.href}
-                    className="py-1 text-xl font-bold tracking-widest text-gray-900 outline outline-0 hover:text-primary-500 dark:text-gray-100 dark:hover:text-primary-400"
-                    onClick={onToggleNav}
+            <DialogPanel className="fixed left-0 top-0 z-70 h-full w-full bg-white duration-300 dark:bg-gray-950">
+              <div className="flex h-full flex-col">
+                {/* Header */}
+                <div className="flex items-center gap-3 border-b border-gray-200 px-6 py-6 dark:border-gray-800">
+                  <Logo />
+                  <span className="font-semibold text-gray-900 dark:text-gray-100">
+                    {SITE_METADATA.headerTitle}
+                  </span>
+                </div>
+
+                {/* Navigation Links */}
+                <nav ref={navRef} className="flex-1 overflow-y-auto px-6 py-6">
+                  <div className="space-y-1">
+                    {[...HEADER_NAV_LINKS, ...MORE_NAV_LINKS].map((link) => (
+                      <Link
+                        key={link.title}
+                        href={link.href}
+                        className="flex items-center gap-3 rounded-lg px-3 py-3 text-lg font-semibold text-gray-700 transition-colors hover:bg-gray-100 hover:text-primary-600 dark:text-gray-200 dark:hover:bg-gray-800 dark:hover:text-primary-400"
+                        onClick={onToggleNav}
+                      >
+                        <Twemoji emoji={link.emoji} />
+                        <span>{link.title}</span>
+                      </Link>
+                    ))}
+                  </div>
+                </nav>
+
+                {/* Contact Section */}
+                <div className="border-t border-gray-200 px-6 py-6 dark:border-gray-800">
+                  <p className="mb-4 text-sm font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400">
+                    Get in Touch
+                  </p>
+                  <a
+                    href={`mailto:${SITE_METADATA.email}`}
+                    className="mb-4 flex items-center gap-3 text-gray-700 transition-colors hover:text-primary-600 dark:text-gray-300 dark:hover:text-primary-400"
                   >
-                    <Twemoji emoji={link.emoji} />
-                    <span className="ml-2">{link.title}</span>
-                  </Link>
-                ))}
-              </nav>
+                    <Mail size={18} strokeWidth={1.5} />
+                    <span className="text-sm">{SITE_METADATA.email}</span>
+                  </a>
+                  <div className="flex items-center gap-4">
+                    <a
+                      target="_blank"
+                      href={SITE_METADATA.github}
+                      rel="noreferrer"
+                      className="rounded-full bg-gray-100 p-2.5 text-gray-700 transition-colors hover:bg-primary-100 hover:text-primary-600 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-primary-900/30 dark:hover:text-primary-400"
+                    >
+                      <Github size={20} strokeWidth={1.5} />
+                    </a>
+                    <a
+                      target="_blank"
+                      href={SITE_METADATA.linkedin}
+                      rel="noreferrer"
+                      className="rounded-full bg-gray-100 p-2.5 text-gray-700 transition-colors hover:bg-primary-100 hover:text-primary-600 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-primary-900/30 dark:hover:text-primary-400"
+                    >
+                      <Linkedin size={20} strokeWidth={1.5} />
+                    </a>
+                    <a
+                      target="_blank"
+                      href={SITE_METADATA.whatsapp}
+                      rel="noreferrer"
+                      className="rounded-full bg-gray-100 p-2.5 text-gray-700 transition-colors hover:bg-primary-100 hover:text-primary-600 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-primary-900/30 dark:hover:text-primary-400"
+                    >
+                      <MessageCircle size={20} strokeWidth={1.5} />
+                    </a>
+                    <a
+                      target="_blank"
+                      href={SITE_METADATA.instagram}
+                      rel="noreferrer"
+                      className="rounded-full bg-gray-100 p-2.5 text-gray-700 transition-colors hover:bg-primary-100 hover:text-primary-600 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-primary-900/30 dark:hover:text-primary-400"
+                    >
+                      <Instagram size={20} strokeWidth={1.5} />
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              {/* Close Button */}
               <button
-                className="fixed right-4 top-5 z-80 h-16 w-16 p-4 text-gray-900 hover:text-primary-500 dark:text-gray-100 dark:hover:text-primary-400"
+                className="fixed right-4 top-4 z-80 rounded-full bg-gray-100 p-3 text-gray-700 transition-colors hover:bg-gray-200 hover:text-primary-600 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-primary-400"
                 aria-label="Toggle Menu"
                 onClick={onToggleNav}
               >
-                <X className="h-7 w-7" strokeWidth={1.5} />
+                <X className="h-6 w-6" strokeWidth={1.5} />
               </button>
             </DialogPanel>
           </TransitionChild>

@@ -31,19 +31,27 @@ export function Header() {
     <Container
       as="header"
       className={clsx(
-        'bg-white/75 py-2 backdrop-blur dark:bg-dark/75',
-        'shadow-sm saturate-100 md:rounded-2xl',
+        'bg-white/80 py-2.5 backdrop-blur-md dark:bg-dark/80',
+        'shadow-lg shadow-gray-200/50 saturate-100 dark:shadow-gray-900/50 md:rounded-2xl',
+        'border border-gray-100 dark:border-gray-800',
         SITE_METADATA.stickyNav && 'sticky top-2 z-50 lg:top-3'
       )}
     >
       <div className="flex items-center justify-between gap-3">
         <Logo />
         <div className="flex items-center gap-4">
-          <div className="hidden gap-1.5 sm:flex">
+          <nav className="hidden gap-1 sm:flex">
             {HEADER_NAV_LINKS.map(({ title, href }) => {
               let isActive = pathname.startsWith(href)
               return (
-                <Link key={title} href={href} className="px-3 py-1 font-medium">
+                <Link
+                  key={title}
+                  href={href}
+                  className={clsx(
+                    'relative px-3 py-1.5 font-medium transition-colors',
+                    isActive && 'text-primary-600 dark:text-primary-400'
+                  )}
+                >
                   <GrowingUnderline
                     className={clsx(isActive && 'bg-[length:100%_50%]')}
                     data-umami-event={`nav-${href.replace('/', '')}`}
@@ -54,13 +62,13 @@ export function Header() {
               )
             })}
             <MoreLinks />
-          </div>
+          </nav>
           <div
             data-orientation="vertical"
             role="separator"
-            className="hidden h-4 w-px shrink-0 bg-gray-200 dark:bg-gray-600 md:block"
+            className="hidden h-5 w-px shrink-0 bg-gray-300 dark:bg-gray-600 md:block"
           />
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-1.5">
             <ThemeSwitcher />
             <KbarSearchTrigger />
             <MobileNav />
