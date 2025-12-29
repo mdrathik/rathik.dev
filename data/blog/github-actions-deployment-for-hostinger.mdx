@@ -1,0 +1,279 @@
+---
+title: 'How to Make Simple Quick GitHub Actions Deployment for Hostinger'
+date: '2025-12-29'
+tags:
+  - github
+  - devops
+  - deployment
+  - hostinger
+  - laravel
+  - ci-cd
+summary: 'Learn how to automate your Laravel deployment to Hostinger using GitHub Actions. No more manual uploads - just push your code and let the magic happen!'
+images:
+  - /static/images/github-actions-hostinger-deployment.png
+authors:
+  - default
+---
+
+## Stop Uploading Files Manually Like It's 2010! 🚀
+
+So you've been deploying to Hostinger by manually uploading files via FTP? Or worse, SSHing in and running git pull every single time you make a change? Yeah, I've been there too. It's 2025, and we deserve better!
+
+Let me show you how I set up automatic deployment for my Laravel projects on Hostinger using GitHub Actions. It's actually way simpler than you think!
+
+## What We're Building
+
+Every time you push to your `main` branch, GitHub Actions will automatically:
+
+- SSH into your Hostinger server
+- Pull the latest code
+- Install dependencies
+- Run migrations
+- Clear and optimize caches
+- Fix those annoying symlink issues on shared hosting
+
+Basically, it does everything you'd do manually, but without you lifting a finger. Sweet, right?
+
+## Prerequisites
+
+Before we dive in, make sure you have:
+
+- A Laravel project on GitHub
+- Hostinger hosting with SSH access
+- Your deployment credentials ready
+
+That's it! No fancy tools or complicated setups needed.
+
+## Step 1: Set Up Your GitHub Secrets
+
+First things first - we need to store your server credentials securely. Head over to your GitHub repo and go to:
+
+**Settings → Secrets and variables → Actions → New repository secret**
+
+Add these secrets:
+
+- `HOST` - Your server IP or domain
+- `USERNAME` - Your SSH username
+- `PASSWORD` - Your SSH password (yeah, I know SSH keys are better, but passwords work fine for quick setups)
+- `PORT` - Usually 22, but check your Hostinger docs
+- `LOCATION` - The full path to your project on the server (like `/home/username/public_html`)
+
+Pro tip: Don't share these with anyone. They're called secrets for a reason! 😉
+
+## Step 2: Create the GitHub Actions Workflow
+
+Now for the fun part! Create a new file in your repo:
+
+`.github/workflows/deploy.yml`
+
+Here's the complete workflow:
+
+```yaml
+name: Deploy to Server
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Deploy via SSH
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          port: ${{ secrets.PORT }}
+          script: |
+            cd ${{ secrets.LOCATION }}
+            git pull origin main
+
+            # Install PHP dependencies
+            composer install --optimize-autoloader
+
+            # Run migrations and seeders
+            php artisan migrate --force
+
+            # Shared Hosting Symlink Fix
+            rm -rf public/storage
+            ln -s $(pwd)/storage/app/public $(pwd)/public/storage
+
+            # Optimize Laravel
+            php artisan optimize
+            php artisan view:cache
+            php artisan config:cache
+```
+
+## Breaking It Down (So It Actually Makes Sense)
+
+Let me explain what each part does:
+
+### The Trigger
+
+```yaml
+on:
+  push:
+    branches:
+      - main
+```
+
+This tells GitHub: "Hey, whenever someone pushes to the main branch, run this workflow." You can change `main` to whatever branch you use for production.
+
+### Checkout Code
+
+```yaml
+- name: Checkout Code
+  uses: actions/checkout@v4
+```
+
+This just grabs your latest code. Nothing crazy here.
+
+### The SSH Magic
+
+```yaml
+- name: Deploy via SSH
+  uses: appleboy/ssh-action@v1.0.3
+```
+
+This is where the magic happens! We're using this awesome action that handles SSH connections for us. Much easier than writing custom scripts.
+
+### The Deployment Script
+
+The script section is literally the commands you'd run manually. Let's break them down:
+
+**1. Navigate and Pull**
+
+```bash
+cd ${{ secrets.LOCATION }}
+git pull origin main
+```
+
+Goes to your project folder and pulls the latest code.
+
+**2. Install Dependencies**
+
+```bash
+composer install --optimize-autoloader
+```
+
+Installs all your PHP packages. The `--optimize-autoloader` flag makes it faster!
+
+**3. Run Migrations**
+
+```bash
+php artisan migrate --force
+```
+
+Updates your database. The `--force` flag is needed for production environments.
+
+**4. Fix Symlinks**
+
+```bash
+rm -rf public/storage
+ln -s $(pwd)/storage/app/public $(pwd)/public/storage
+```
+
+This is super important for shared hosting! It recreates the storage symlink because shared hosting can be weird about this.
+
+**5. Optimize Everything**
+
+```bash
+php artisan optimize
+php artisan view:cache
+php artisan config:cache
+```
+
+Makes your app run faster by caching configs and views.
+
+## Step 3: Test It Out!
+
+Commit this workflow file and push it to GitHub:
+
+```bash
+git add .github/workflows/deploy.yml
+git commit -m "Add deployment workflow"
+git push origin main
+```
+
+Now head over to your GitHub repo and click on the **Actions** tab. You should see your workflow running!
+
+If everything goes green ✅, congrats! Your deployment is automated.
+
+If it fails ❌, don't panic. Check the logs - they're usually pretty clear about what went wrong. Common issues:
+
+- Wrong credentials in secrets
+- Wrong server path
+- SSH not enabled on your Hostinger account
+- File permission issues
+
+## Pro Tips & Things I Learned The Hard Way
+
+### 1. Test on a Staging Branch First
+
+Before automating production, create a `staging` branch and test there. Future you will thank present you!
+
+### 2. Watch Out for .env Files
+
+Your `.env` file isn't in Git (and shouldn't be!), so make sure it exists on your server. The workflow won't create it for you.
+
+### 3. Add Slack/Discord Notifications
+
+You can extend this workflow to send you notifications when deployments succeed or fail. Super useful!
+
+### 4. Database Backups
+
+Always, ALWAYS back up your database before running migrations in production. I learned this the hard way 😅
+
+### 5. Composer Memory Issues?
+
+If you hit memory limits, you can add this before composer install:
+
+```bash
+export COMPOSER_MEMORY_LIMIT=-1
+```
+
+## What About SSH Keys Instead of Passwords?
+
+Yeah, SSH keys are more secure. If you want to use them instead:
+
+1. Generate a key pair on your local machine
+2. Add the public key to your Hostinger server
+3. Add the private key as a GitHub secret called `SSH_PRIVATE_KEY`
+4. Update your workflow to use `key` instead of `password`
+
+But honestly, for most small projects, passwords work just fine.
+
+## Wrapping Up
+
+That's it! You now have a fully automated deployment pipeline for your Laravel app on Hostinger. Every time you push to main, your changes go live automatically.
+
+No more:
+
+- ❌ Manual file uploads
+- ❌ Forgetting to run migrations
+- ❌ Cache issues in production
+- ❌ "Works on my machine" problems
+
+Just:
+
+- ✅ Push your code
+- ✅ Watch the magic happen
+- ✅ Grab a coffee while it deploys
+
+This setup has saved me hours of deployment time and countless headaches. Hope it does the same for you!
+
+## Questions? Issues?
+
+If you run into any problems or have questions, feel free to drop a comment below or shoot me an email at hello@rathik.dev. I'm always happy to help!
+
+Happy deploying! 🚀
+
+---
+
+_P.S. - This workflow works for most Laravel apps, but you might need to tweak it based on your specific setup. Don't be afraid to customize it to fit your needs!_
