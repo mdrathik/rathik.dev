@@ -3,6 +3,16 @@ import type { Project } from '~/types/data'
 export const PROJECTS: Project[] = [
   {
     type: 'work',
+    title: 'Service Station BD',
+    description:
+      'A comprehensive service marketplace connecting users with professional providers for home and business services in Dhaka, Bangladesh.',
+    imgSrc: '/static/images/service-station-bd.png',
+    url: 'https://www.servicestationbd.com/',
+    builtWith: ['Laravel', 'Alpine.js', 'TailwindCSS'],
+    links: [{ title: 'Website', url: 'https://www.servicestationbd.com/' }],
+  },
+  {
+    type: 'work',
     title: 'BZM HRM',
     description:
       'This software streamlines our workforce management, enhancing productivity and simplifying complex HR processes environment.',
@@ -60,6 +70,16 @@ export const PROJECTS: Project[] = [
     url: 'https://www.kumon.com/',
     builtWith: ['Wix'],
     links: [{ title: 'Website', url: 'https://www.kumon.com/' }],
+  },
+  {
+    type: 'self',
+    title: 'Personal Growth Manager',
+    description:
+      'A productivity and financial management dashboard for tracking expenses, managing habits, and monitoring personal growth.',
+    imgSrc: '/static/images/personal-growth.png',
+    url: 'https://growth.rathik.dev/',
+    builtWith: ['Laravel', 'Vue', 'TailwindCSS', 'Supabase', 'Shadcn/UI'],
+    links: [{ title: 'Website', url: 'https://growth.rathik.dev/' }],
   },
   {
     type: 'self',

@@ -20,16 +20,29 @@ export function ProjectCard({ project }: { project: (typeof PROJECTS)[0] }) {
   return (
     <GradientBorder
       offset={28}
-      className="flex flex-col rounded-[40px] p-6 [box-shadow:0_8px_32px_rgba(194,194,218,.3)] dark:bg-white/5 dark:shadow-none md:p-8"
+      className="group flex flex-col rounded-[32px] p-5 transition-all duration-300 ease-out [box-shadow:0_8px_32px_rgba(194,194,218,.3)] hover:scale-[1.01] hover:[box-shadow:0_12px_48px_rgba(194,194,218,.4)] dark:bg-white/5 dark:shadow-none dark:hover:[box-shadow:0_12px_48px_rgba(255,255,255,.05)] md:p-6"
     >
-      <TiltedGridBackground className="inset-0 z-[-1] rounded-[40px]" />
-      <div className="mb-6 flex items-center gap-4">
-        <Image src={imgSrc} alt={title} width={100} height={100} className="h-15 w-15 shrink-0" />
+      <TiltedGridBackground className="inset-0 z-[-1] rounded-[32px]" />
+      <div className="mb-4 flex items-center gap-3">
+        <div className="relative shrink-0 overflow-hidden rounded-xl bg-white p-1.5 shadow-sm ring-1 ring-gray-200/50 transition-transform duration-300 group-hover:scale-105 dark:bg-gray-800 dark:ring-gray-700/50">
+          <Image
+            src={imgSrc}
+            alt={title}
+            width={64}
+            height={64}
+            className="h-16 w-16 object-contain"
+          />
+        </div>
         <div className="flex flex-col items-start gap-1 pt-1">
-          <h2 className="text-[22px] font-bold leading-[30px]">
+          <h2 className="text-xl font-bold leading-7 transition-colors duration-200">
             {href ? (
               <Link href={href} aria-label={`Link to ${title}`}>
-                <GrowingUnderline data-umami-event="project-title-link">{title}</GrowingUnderline>
+                <GrowingUnderline
+                  className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text transition-all duration-200 group-hover:text-transparent dark:from-blue-400 dark:to-purple-400"
+                  data-umami-event="project-title-link"
+                >
+                  {title}
+                </GrowingUnderline>
               </Link>
             ) : (
               title
@@ -37,7 +50,9 @@ export function ProjectCard({ project }: { project: (typeof PROJECTS)[0] }) {
           </h2>
         </div>
       </div>
-      <p className="mb-16 line-clamp-3 grow text-lg">{repository?.description || description}</p>
+      <p className="mb-8 line-clamp-2 grow text-base leading-relaxed text-gray-700 dark:text-gray-300">
+        {repository?.description || description}
+      </p>
       <div
         className={clsx(
           'mt-auto flex gap-6 sm:gap-9 md:grid md:gap-0',
@@ -46,25 +61,30 @@ export function ProjectCard({ project }: { project: (typeof PROJECTS)[0] }) {
       >
         {repository ? (
           <div className="space-y-1.5">
-            <div className="text-xs text-gray-600 dark:text-gray-400">
+            <div className="text-xs font-medium uppercase tracking-wide text-gray-500 dark:text-gray-400">
               <span className="hidden sm:inline">Github stars</span>
               <span className="sm:hidden">Stars</span>
             </div>
             <div className="flex items-center gap-2">
               <div className="flex items-center space-x-1.5">
-                <Github size={16} strokeWidth={1.5} />
-                <span className="font-medium">{repository?.stargazerCount}</span>
+                <Github size={18} strokeWidth={1.5} className="text-gray-600 dark:text-gray-400" />
+                <span className="text-lg font-semibold">{repository?.stargazerCount}</span>
               </div>
             </div>
           </div>
         ) : (
           <div className="space-y-1.5">
-            <div className="text-xs text-gray-600 dark:text-gray-400">Links</div>
+            <div className="text-xs font-medium uppercase tracking-wide text-gray-500 dark:text-gray-400">
+              Links
+            </div>
             <div className="flex flex-col items-start gap-0.5 sm:flex-row sm:items-center sm:gap-1.5">
               {links?.map(({ title, url }, idx) => (
                 <Fragment key={url}>
                   <Link href={url} className="flex items-center gap-1.5">
-                    <GrowingUnderline className="font-medium" data-umami-event="project-link">
+                    <GrowingUnderline
+                      className="font-medium text-gray-700 transition-colors hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400"
+                      data-umami-event="project-link"
+                    >
                       {title}
                     </GrowingUnderline>
                   </Link>
@@ -77,25 +97,34 @@ export function ProjectCard({ project }: { project: (typeof PROJECTS)[0] }) {
           </div>
         )}
         <div className="space-y-1.5">
-          <div className="text-xs text-gray-600 dark:text-gray-400">Stack</div>
+          <div className="text-xs font-medium uppercase tracking-wide text-gray-500 dark:text-gray-400">
+            Stack
+          </div>
           <div className="flex h-6 flex-wrap items-center gap-1.5">
             {builtWith?.map((tool) => {
               return (
-                <Brand
+                <div
                   key={tool}
-                  name={tool as keyof typeof BrandsMap}
-                  iconClassName={clsx(tool === 'Pygame' ? 'h-6' : 'h-6 w-6')}
-                />
+                  className="transition-transform duration-200 hover:scale-110"
+                  title={tool}
+                >
+                  <Brand
+                    name={tool as keyof typeof BrandsMap}
+                    iconClassName={clsx(tool === 'Pygame' ? 'h-6' : 'h-6 w-6')}
+                  />
+                </div>
               )
             })}
           </div>
         </div>
         {lang && (
           <div className="space-y-1.5">
-            <div className="text-xs text-gray-600 dark:text-gray-400">Language</div>
+            <div className="text-xs font-medium uppercase tracking-wide text-gray-500 dark:text-gray-400">
+              Language
+            </div>
             <div className="flex items-center gap-1.5">
-              <Brand name={lang.name as keyof typeof BrandsMap} as="icon" className="h-4 w-4" />
-              <span className="font-medium">{lang.name}</span>
+              <Brand name={lang.name as keyof typeof BrandsMap} as="icon" className="h-5 w-5" />
+              <span className="font-semibold">{lang.name}</span>
             </div>
           </div>
         )}
