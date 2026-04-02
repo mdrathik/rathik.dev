@@ -8,7 +8,7 @@ export const PROJECTS: Project[] = [
       'A fast and secure file transfer platform built for creatives and production teams. Share raw footage, design files, and project deliverables with ease — supporting files up to 5 GB with encrypted transfers.',
     imgSrc: '/static/images/send-graphics-icon.png',
     url: 'https://send.graphics/',
-    builtWith: ['Laravel', 'ReactJS', 'TailwindCSS'],
+    builtWith: ['Laravel', 'React', 'TailwindCSS'],
     links: [{ title: 'Website', url: 'https://send.graphics/' }],
   },
   {
