@@ -38,7 +38,7 @@ export function ProjectCard({ project }: { project: (typeof PROJECTS)[0] }) {
             {href ? (
               <Link href={href} aria-label={`Link to ${title}`}>
                 <GrowingUnderline
-                  className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text transition-all duration-200 group-hover:text-transparent dark:from-blue-400 dark:to-purple-400"
+                  className="transition-all duration-200 group-hover:text-blue-600 dark:group-hover:text-blue-400"
                   data-umami-event="project-title-link"
                 >
                   {title}
