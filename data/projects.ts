@@ -3,6 +3,16 @@ import type { Project } from '~/types/data'
 export const PROJECTS: Project[] = [
   {
     type: 'work',
+    title: 'Send.Graphics',
+    description:
+      'A fast and secure file transfer platform built for creatives and production teams. Share raw footage, design files, and project deliverables with ease — supporting files up to 5 GB with encrypted transfers.',
+    imgSrc: '/static/images/send-graphics.png',
+    url: 'https://send.graphics/',
+    builtWith: ['Laravel', 'ReactJS', 'TailwindCSS'],
+    links: [{ title: 'Website', url: 'https://send.graphics/' }],
+  },
+  {
+    type: 'work',
     title: 'Service Station BD',
     description:
       'A comprehensive service marketplace connecting users with professional providers for home and business services in Dhaka, Bangladesh.',
