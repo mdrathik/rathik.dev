@@ -1,3 +1,5 @@
+import { Link } from '~/components/ui/link'
+
 const AREAS = [
   {
     index: '01',
@@ -8,8 +10,19 @@ const AREAS = [
   {
     index: '02',
     title: 'Architecture & Teams',
-    description:
-      'Leading engineering at CODECONY: designing systems that scale with the roadmap, and growing the people who run them.',
+    description: (
+      <>
+        Leading engineering at{' '}
+        <Link
+          href="https://www.codecony.com"
+          className="underline decoration-rose-400/50 underline-offset-2 transition-colors hover:text-rose-600 dark:hover:text-rose-400"
+          data-umami-event="focus-codecony"
+        >
+          CODECONY
+        </Link>
+        : designing systems that scale with the roadmap, and growing the people who run them.
+      </>
+    ),
   },
   {
     index: '03',

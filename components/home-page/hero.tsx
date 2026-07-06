@@ -31,9 +31,17 @@ export function Hero() {
       <div className="mt-6 grid grid-cols-1 items-center gap-8 lg:grid-cols-[1.2fr,0.8fr] lg:gap-14">
         <div>
           <p className="max-w-2xl text-sm leading-6 text-gray-500 dark:text-gray-400 md:text-base md:leading-7">
-            I'm Rathik — I run engineering at CODECONY, which means half my job is building products
-            and the other half is convincing developers that naming things matters. I ship fast,
-            delete code with joy, and treat every "quick little fix" as the lie it is.
+            I'm Rathik — I run engineering at{' '}
+            <Link
+              href="https://www.codecony.com"
+              className="font-medium text-gray-700 underline decoration-rose-400/50 underline-offset-2 transition-colors hover:text-rose-600 dark:text-gray-300 dark:hover:text-rose-400"
+              data-umami-event="hero-codecony"
+            >
+              CODECONY
+            </Link>
+            , which means half my job is building products and the other half is convincing
+            developers that naming things matters. I ship fast, delete code with joy, and treat
+            every "quick little fix" as the lie it is.
           </p>
 
           <div className="mt-7 flex flex-wrap items-center gap-3">

@@ -37,7 +37,7 @@ export default function BooksPage() {
     <Container className="pt-4 lg:pt-12">
       <PageHeader
         title="Books"
-        description="Not reviews — just how each one felt. Heavy on Humayun Ahmed, and I make no apologies for that."
+        description="রিভিউ-টিভিউ না, শুধু কোন বইটা পড়ে কেমন লেগেছিল সেটুকুই। কিছু বই মন ভালো করে দিয়েছে, কিছু বই রাতের ঘুম কেড়ে নিয়েছে, আর দু-একটা পড়ে মনে হয়েছে এই টাকায় চা-সিঙ্গাড়া খেলেই বেশি লাভ হতো। লিস্টে হুমায়ূন আহমেদই বেশি, আর সেটা নিয়ে আমি একটুও sorry না। 📚"
         className="border-b border-gray-200 dark:border-gray-700"
       />
 
