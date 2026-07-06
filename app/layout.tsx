@@ -12,6 +12,7 @@ import AdScript from '~/components/adsense/AdScript'
 import { Footer } from '~/components/footer'
 import { Header } from '~/components/header'
 import { KBarSearchProvider } from '~/components/search/kbar-provider'
+import { FooterReveal } from '~/components/ui/footer-reveal'
 import { GlowBackground } from '~/components/ui/glow-background'
 import { TiltedGridBackground } from '~/components/ui/tilted-grid-background'
 import { SITE_METADATA } from '~/data/site-metadata'
@@ -139,6 +140,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <main className="mb-auto grow">{children}</main>
           </KBarSearchProvider>
           <Footer />
+          <FooterReveal />
         </ThemeProviders>
       </body>
     </html>

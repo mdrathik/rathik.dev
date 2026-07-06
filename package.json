@@ -46,6 +46,7 @@
     "probe-image-size": "^7.2.3",
     "react": "18.3.1",
     "react-dom": "18.3.1",
+    "react-github-calendar": "^5.0.6",
     "react-medium-image-zoom": "^5.2.10",
     "react-share": "^5.1.0",
     "reading-time": "1.5.0",

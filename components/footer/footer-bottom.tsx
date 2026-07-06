@@ -3,6 +3,7 @@ import { AreaChart, Rss } from 'lucide-react'
 import { Link } from '~/components/ui/link'
 import { SpotifyNowPlaying } from '~/components/ui/now-playing'
 import { SITE_METADATA } from '~/data/site-metadata'
+import Claude from '~/icons/claude.svg'
 import MadeInVietNam from '~/icons/miv.svg'
 
 export function FooterBottom() {
@@ -19,8 +20,12 @@ export function FooterBottom() {
         songEffect="underline"
       />
       <div className="flex items-center">
-        <a href="https://x.com/hta218_" target="_blank">
-          Built by Leo Huynh
+        <a href={SITE_METADATA.github} target="_blank" className="flex items-center gap-1.5">
+          Built by RT +{' '}
+          <span className="flex items-center gap-1 text-[#D97757]">
+            <Claude className="h-4 w-4" />
+            Fable 5
+          </span>
         </a>
 
         {/* <Link href={SITE_METADATA.siteRepo}>

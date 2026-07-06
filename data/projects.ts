@@ -34,13 +34,13 @@ export const PROJECTS: Project[] = [
 
   {
     type: 'work',
-    title: 'maskbg.ai',
+    title: 'bzm.ai',
     description:
-      'Mask.bg (or Maskbg.ai) is an AI-powered photo editing tool specialized in background removal. Collaborated with ML Developers to make the app for production workflow.',
+      'Bzm.ai (formerly Maskbg.ai) is an AI-powered photo editing tool specialized in background removal. Collaborated with ML Developers to make the app for production workflow.',
     imgSrc: '/static/images/hero-image.webp',
-    url: 'https://maskbg.ai',
+    url: 'https://bzm.ai',
     builtWith: ['Python', 'ReactJS', 'NextJS', 'MongoDB'],
-    links: [{ title: 'Website', url: 'https://maskbg.ai' }],
+    links: [{ title: 'Website', url: 'https://bzm.ai' }],
   },
 
   {
