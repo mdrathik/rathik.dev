@@ -98,8 +98,8 @@ module.exports = {
         mono: ['var(--font-jetbrains-mono)', ...fontFamily.mono],
       },
       colors: {
-        primary: colors.indigo,
-        dark: '#1f1f1f',
+        primary: colors.rose,
+        dark: '#120b0d',
         spotify: '#1DB954',
         goodreads: '#372213',
         facebook: '#1877f2',
@@ -220,7 +220,7 @@ module.exports = {
               borderBottom: '2px solid theme(colors.gray.800)',
             },
             code: {
-              color: theme('colors.indigo.500'),
+              color: theme('colors.primary.500'),
               fontWeight: '500',
             },
             '.image-container': {

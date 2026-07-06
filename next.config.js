@@ -80,6 +80,10 @@ module.exports = () => {
         },
         {
           protocol: 'https',
+          hostname: 'lastfm.freetls.fastly.net', // Last.fm album covers
+        },
+        {
+          protocol: 'https',
           hostname: 'm.media-amazon.com', // IMDB movie posters
         },
       ],

@@ -22,7 +22,7 @@ export function GrowingUnderline({
         'bg-gradient-to-r bg-left-bottom bg-no-repeat',
         'transition-[background-size] duration-[var(--duration,300ms)]',
         'from-red-200 to-red-100',
-        'dark:from-emerald-800 dark:to-emerald-900',
+        'dark:from-rose-800 dark:to-rose-900',
         active
           ? 'bg-[length:100%_50%] hover:bg-[length:100%_100%]'
           : 'bg-[length:0px_50%] hover:bg-[length:100%_50%]',

@@ -41,28 +41,20 @@ export function TypedBios() {
       ])}
     >
       <ul id="bios" className="hidden">
+        <li>I turn caffeine into software. The teams part came free.</li>
+        <li>Full-stack means the bug can be anywhere. I find it.</li>
+        <li>I've deleted more code than I've written. Proudly.</li>
+        <li>"Temporary fix" — the funniest joke in software.</li>
+        <li>I don't deploy on Fridays. I'm not a monster.</li>
+        <li>My first language was "C". My first love was Ctrl+Z.</li>
+        <li>I make "impossible" sound like a sprint task.</li>
+        <li>Dhaka-based, globally deployed.</li>
         <li>
-          I'm aliased as <span className="font-medium">Rathik</span> at work, but my full name is Md
-          Solaiman Hossain.
+          I debug best with music on. <Twemoji emoji="musical-note" />
         </li>
-        <li>I'm a learner, builder, and visionary thinker.</li>
-        <li>I live in Dhaka, Bangladesh.</li>
-        <li>I was born in the beautiful city of Tangail.</li>
-        <li>My first programming language I learned was "C".</li>
-        <li>I love web development and DevOps technologies.</li>
-        <li>I'm focusing on building software and ensuring security.</li>
-        <li>I work mostly with Laravel, Tailwind, and Alpine.js.</li>
-        <li>I enjoy spending time on Reddit and exploring computer games.</li>
-        <li>
-          I love listening to songs. <Twemoji emoji="musical-note" />
-        </li>
-        <li>
-          I'm not into outdoor games, but I enjoy staying engaged with technology and creativity.
-        </li>
-        <li>Love to Redditing a Lot !</li>
-        <li>I'm the CTO of CODECONY, driving innovation and growth.</li>
-        <li>I aim to accelerate the impact of Industry 4.0</li>
-        <li>My vision is to make CODECONY a top outsourcing brand in South Asia.</li>
+        <li>Half my job is code. The other half is asking "but does it scale?"</li>
+        <li>My git blame history is a personal growth documentary.</li>
+        <li>Yes, I still write code. No, you can't see my 2017 commits.</li>
       </ul>
 
       <span ref={el} className="text-neutral-900 dark:text-neutral-200" />

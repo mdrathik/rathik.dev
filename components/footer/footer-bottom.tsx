@@ -17,7 +17,6 @@ export function FooterBottom() {
       <SpotifyNowPlaying
         className="w-full justify-center truncate [--artist-color:theme(colors.gray.500)] md:max-w-[50%] md:justify-start"
         songEffect="underline"
-        showCover
       />
       <div className="flex items-center">
         <a href="https://x.com/hta218_" target="_blank">
