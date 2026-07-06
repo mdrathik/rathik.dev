@@ -41,6 +41,21 @@ export const BOOKS: Book[] = [
     image: '/static/images/books/rupa.gif',
   },
   {
+    title: 'দেয়াল',
+    subtitle: 'Deyal',
+    author: 'Humayun Ahmed',
+    feeling:
+      'দেয়ালের গল্পটা বেশ ভালো লেগেছে, সাথে কিছু political history ফ্রিতে পাওয়া। আমার ধারণা হুমায়ূন আহমেদ ইচ্ছে করেই ওটুকু ঢুকিয়েছেন। আবার মাঝে মাঝে সন্দেহও হয়, বইটা উনি নিজে শেষ করে যেতে পারেননি, শেষটা করেছে অন্য কেউ।',
+    image: '/static/images/books/deyal.png',
+  },
+  {
+    title: 'The Metamorphosis',
+    author: 'Franz Kafka',
+    feeling:
+      'সকালে উঠে দেখি পোকা হয়ে গেছি। ভাবলাম, সোমবার সকালগুলোর সাথে পার্থক্যটা আসলে কোথায়? বইটা এত ভালো লেগেছে যে ঠিক করে রেখেছি, নিউ মার্কেটে next যেদিন যাবো, বেটার সবগুলো বই কিনে আনবো।',
+    image: '/static/images/books/metamorphosis.jpg',
+  },
+  {
     title: 'ময়ূরাক্ষী',
     subtitle: 'Moyurakkhi',
     author: 'Humayun Ahmed',
@@ -88,12 +103,6 @@ export const BOOKS: Book[] = [
     image: '/static/images/books/paradoxical-sajid.jpg',
   },
   {
-    title: 'The Metamorphosis',
-    author: 'Franz Kafka',
-    feeling: 'সকালে উঠে দেখি পোকা হয়ে গেছি। ভাবলাম, সোমবার সকালগুলোর সাথে পার্থক্যটা আসলে কোথায়?',
-    image: '/static/images/books/metamorphosis.jpg',
-  },
-  {
     title: 'Tuesdays with Morrie',
     author: 'Mitch Albom',
     feeling: 'সবাই বলে life-changing বই। আমি পড়ে আহামরি কিছুই পাইনি। হয়তো আমিই উপযুক্ত পাঠক না।',
@@ -103,7 +112,7 @@ export const BOOKS: Book[] = [
     title: 'Atomic Habits',
     author: 'James Clear',
     feeling:
-      'প্রতিদিন ১% better। পড়ার পর জীবনে ১%-ও কাজে লাগাতে পারিনি, কিন্তু আমি জানি কথাটা সত্যি।',
+      'প্রতিদিন ১% better। পড়ার পর জীবনে ১%-ও কাজে লাগাতে পারিনি। ইচ্ছে অবশ্য অনেকবার হয়েছে ভালো অভ্যাস গড়ে তুলি, কিন্তু problem একটাই, আমি কম খেতে পারি না।',
     image: '/static/images/books/atomic-habits.jpg',
   },
   {
