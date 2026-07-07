@@ -103,6 +103,14 @@ export const BOOKS: Book[] = [
     image: '/static/images/books/paradoxical-sajid.jpg',
   },
   {
+    title: 'যুক্তিফাঁদে ফড়িং',
+    subtitle: 'Juktifade Foring',
+    author: 'Chamok Hasan',
+    feeling:
+      'logic নিয়ে এত মজার বই বাংলায় আর পড়িনি। পড়ার পর থেকে মানুষের কথায় ফাঁকফোকর খোঁজা একটা বদভ্যাস হয়ে গেছে, আশেপাশের মানুষজন খুব একটা খুশি না।',
+    image: '/static/images/books/juktifade-foring.jpg',
+  },
+  {
     title: 'Tuesdays with Morrie',
     author: 'Mitch Albom',
     feeling: 'সবাই বলে life-changing বই। আমি পড়ে আহামরি কিছুই পাইনি। হয়তো আমিই উপযুক্ত পাঠক না।',
