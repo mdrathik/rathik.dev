@@ -1,17 +1,18 @@
+import { BookOpen, Code2, FolderKanban, Newspaper, Tag, TerminalSquare, User } from 'lucide-react'
 import { SITE_METADATA } from './site-metadata'
 
 export const HEADER_NAV_LINKS = [
-  { href: '/blog', title: 'Blog', emoji: 'writing-hand' },
-  { href: '/projects', title: 'Projects', emoji: 'man-technologist' },
-  { href: '/about', title: 'About', emoji: 'billed-cap' },
-  { href: '/books', title: 'Books', emoji: 'books' },
+  { href: '/blog', title: 'Blog', icon: Newspaper },
+  { href: '/projects', title: 'Projects', icon: FolderKanban },
+  { href: '/about', title: 'About', icon: User },
+  { href: '/books', title: 'Books', icon: BookOpen },
 ]
 
 export const MORE_NAV_LINKS = [
-  { href: '/snippets', title: 'Snippets', emoji: 'dna' },
-  { href: '/terminal', title: 'Terminal', emoji: 'desktop-computer' },
+  { href: '/snippets', title: 'Snippets', icon: Code2 },
+  { href: '/terminal', title: 'Terminal', icon: TerminalSquare },
   // { href: '/movies', title: 'Movies', emoji: 'film-frames' },
-  { href: '/tags', title: 'Tags', emoji: 'label' },
+  { href: '/tags', title: 'Tags', icon: Tag },
 ]
 
 export const FOOTER_NAV_LINKS = [
