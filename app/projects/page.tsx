@@ -1,5 +1,5 @@
 import { genPageMetadata } from 'app/seo'
-import { ProjectCard } from '~/components/cards/project'
+import { ProjectCardList as ProjectCard } from '~/components/cards/project/variant-list'
 import { Container } from '~/components/ui/container'
 import { PageHeader } from '~/components/ui/page-header'
 import { PROJECTS } from '~/data/projects'
@@ -27,12 +27,12 @@ export default async function Projects() {
       />
       <div className="py-6 md:py-10">
         <div className="mb-6 flex items-center gap-3">
-          <div className="h-1 w-10 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400" />
+          <div className="h-1 w-10 rounded-full bg-gradient-to-r from-rose-600 via-red-500 to-orange-500 dark:from-rose-400 dark:via-red-400 dark:to-orange-400" />
           <h3 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-gray-100 md:text-3xl">
             Work
           </h3>
         </div>
-        <div className="grid grid-cols-1 gap-6 lg:grid-cols-2 lg:gap-8">
+        <div className="flex flex-col gap-3">
           {workProjects.map((pro) => (
             <ProjectCard key={pro.title} project={pro} />
           ))}
@@ -40,7 +40,7 @@ export default async function Projects() {
       </div>
       <div className="border-t border-gray-200 py-6 dark:border-gray-700 md:py-10">
         <div className="mb-6 flex items-center gap-3">
-          <div className="h-1 w-10 rounded-full bg-gradient-to-r from-green-600 to-teal-600 dark:from-green-400 dark:to-teal-400" />
+          <div className="h-1 w-10 rounded-full bg-gradient-to-r from-rose-600 via-red-500 to-orange-500 dark:from-rose-400 dark:via-red-400 dark:to-orange-400" />
           <h3 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-gray-100 md:text-3xl">
             Side projects
           </h3>

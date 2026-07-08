@@ -65,21 +65,25 @@ export function ProfileCardInfo() {
       </h5>
       <div className="mb-2 mt-4 space-y-4">
         <div className="flex items-center text-gray-700 dark:text-gray-200">
-          <BriefcaseBusiness strokeWidth={1.5} size={20} />
+          <BriefcaseBusiness
+            strokeWidth={1.5}
+            size={20}
+            className="text-rose-500 dark:text-rose-400"
+          />
           <p className="flex items-center px-2">
             CTO @{' '}
             <a
               target="_blank"
               href="https://codecony.com"
               rel="noreferrer"
-              className="underline-offset-4 hover:underline"
+              className="underline-offset-4 transition-colors hover:text-rose-600 hover:underline dark:hover:text-rose-400"
             >
               Codecony
             </a>
           </p>
         </div>
         <div className="flex items-center text-gray-700 dark:text-gray-200">
-          <MapPin strokeWidth={1.5} size={20} />
+          <MapPin strokeWidth={1.5} size={20} className="text-rose-500 dark:text-rose-400" />
           <p className="px-2">
             Dhaka,
             <span className="absolute ml-1 inline-flex pt-px">
@@ -88,8 +92,11 @@ export function ProfileCardInfo() {
           </p>
         </div>
         <div className="flex items-center text-gray-700 dark:text-gray-200">
-          <Mail strokeWidth={1.5} size={20} />
-          <a className="px-2" href={`mailto:${SITE_METADATA.email}`}>
+          <Mail strokeWidth={1.5} size={20} className="text-rose-500 dark:text-rose-400" />
+          <a
+            className="px-2 underline-offset-4 transition-colors hover:text-rose-600 hover:underline dark:hover:text-rose-400"
+            href={`mailto:${SITE_METADATA.email}`}
+          >
             {SITE_METADATA.email}
           </a>
         </div>
@@ -100,7 +107,7 @@ export function ProfileCardInfo() {
                 target="_blank"
                 href={href}
                 rel="noreferrer"
-                className="flex items-center underline-offset-4 hover:underline"
+                className="flex items-center underline-offset-4 transition-colors hover:text-rose-600 hover:underline dark:hover:text-rose-400"
                 data-umami-event={umamiEvent}
               >
                 <Icon />

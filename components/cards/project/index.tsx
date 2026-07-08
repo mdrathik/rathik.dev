@@ -20,7 +20,7 @@ export function ProjectCard({ project }: { project: (typeof PROJECTS)[0] }) {
   return (
     <GradientBorder
       offset={28}
-      className="group flex flex-col rounded-[32px] p-5 transition-all duration-300 ease-out [box-shadow:0_8px_32px_rgba(194,194,218,.3)] hover:scale-[1.01] hover:[box-shadow:0_12px_48px_rgba(194,194,218,.4)] dark:bg-white/5 dark:shadow-none dark:hover:[box-shadow:0_12px_48px_rgba(255,255,255,.05)] md:p-6"
+      className="group flex flex-col rounded-[32px] p-5 transition-all duration-300 ease-out [box-shadow:0_8px_32px_rgba(194,194,218,.3)] hover:scale-[1.01] hover:border-rose-400/50 hover:[box-shadow:0_12px_48px_-8px_rgba(244,63,94,.35)] dark:bg-white/5 dark:shadow-none dark:hover:border-rose-500/40 dark:hover:[box-shadow:0_12px_48px_-8px_rgba(244,63,94,.2)] md:p-6"
     >
       <TiltedGridBackground className="inset-0 z-[-1] rounded-[32px]" />
       <div className="mb-4 flex items-center gap-3">
@@ -38,7 +38,7 @@ export function ProjectCard({ project }: { project: (typeof PROJECTS)[0] }) {
             {href ? (
               <Link href={href} aria-label={`Link to ${title}`}>
                 <GrowingUnderline
-                  className="transition-all duration-200 group-hover:text-blue-600 dark:group-hover:text-blue-400"
+                  className="transition-all duration-200 group-hover:text-rose-600 dark:group-hover:text-rose-400"
                   data-umami-event="project-title-link"
                 >
                   {title}
@@ -82,7 +82,7 @@ export function ProjectCard({ project }: { project: (typeof PROJECTS)[0] }) {
                 <Fragment key={url}>
                   <Link href={url} className="flex items-center gap-1.5">
                     <GrowingUnderline
-                      className="font-medium text-gray-700 transition-colors hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400"
+                      className="font-medium text-gray-700 transition-colors hover:text-rose-600 dark:text-gray-300 dark:hover:text-rose-400"
                       data-umami-event="project-link"
                     >
                       {title}

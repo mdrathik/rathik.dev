@@ -24,7 +24,7 @@ export function AuthorLayout({ children }: Props) {
         className="border-b border-gray-200 dark:border-gray-700"
       />
       <div className="py-8 md:grid md:grid-cols-3">
-        <div className="pr-4">
+        <div className="pr-4 md:sticky md:top-24 md:self-start">
           <ProfileCard />
         </div>
         <div className="md:col-span-2 md:pl-12 xl:pl-16">

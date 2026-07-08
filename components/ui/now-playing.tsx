@@ -30,9 +30,9 @@ export function SpotifyNowPlaying({
           <Image
             src={albumImageUrl}
             alt={title!}
-            width={80}
-            height={80}
-            className="h-14 w-14 shrink-0 rounded-lg border border-gray-300 shadow-md dark:border-gray-700"
+            width={96}
+            height={96}
+            className="h-20 w-20 shrink-0 rounded-lg border border-gray-300 shadow-md dark:border-gray-700"
           />
         ) : showFallbackIcon ? (
           <Brand as="icon" name="Spotify" className="h-14 w-14 shrink-0" />

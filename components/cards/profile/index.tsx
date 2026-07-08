@@ -9,12 +9,12 @@ import { ProfileCardInfo } from './profile-info'
 
 export function ProfileCard() {
   return (
-    <div className="z-10 mb-8 scale-100 transition-all duration-200 ease-out hover:z-50 hover:scale-[1.02] md:mb-0">
+    <div className="z-10 mb-8 scale-100 transition-all duration-300 ease-out hover:z-50 hover:scale-[1.02] md:mb-0">
       <div
         className={clsx(
-          'flex flex-col overflow-hidden transition-all duration-200 ease-out md:rounded-lg',
-          'bg-white shadow-demure dark:bg-dark dark:shadow-mondegreen',
-          'outline outline-1 outline-gray-100 dark:outline-gray-600'
+          'flex flex-col overflow-hidden rounded-2xl transition-all duration-300 ease-out',
+          'border border-gray-200/70 bg-white/70 backdrop-blur-sm dark:border-gray-800 dark:bg-white/[0.03]',
+          'shadow-[0_0_25px_-10px] shadow-rose-500/20 hover:border-rose-400/50 hover:shadow-[0_0_30px_-8px] hover:shadow-rose-500/30 dark:hover:border-rose-500/40'
         )}
       >
         <Image
@@ -36,7 +36,7 @@ export function ProfileCard() {
           ])}
         />
         <ProfileCardInfo />
-        <span className="h-1.5 bg-gradient-to-r from-green-300 via-blue-500 to-purple-600" />
+        <span className="h-1.5 bg-gradient-to-r from-rose-600 via-red-500 to-orange-500 dark:from-rose-400 dark:via-red-400 dark:to-orange-400" />
       </div>
     </div>
   )
