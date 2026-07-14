@@ -10,7 +10,6 @@ const ROW_ONE = [
   { name: 'Node.js', key: 'Node' },
   { name: 'Laravel', key: 'Laravel' },
   { name: 'Python', key: 'Python' },
-  { name: 'Java', key: 'Java' },
   { name: 'Electron', key: 'Electron' },
   { name: 'Prisma', key: 'Prisma' },
 ] as const
