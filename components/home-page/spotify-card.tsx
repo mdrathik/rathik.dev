@@ -14,7 +14,7 @@ const PLAYING_CAPTIONS = [
 
 const OFFLINE_CAPTIONS = [
   '# probably trapped in a meeting',
-  '# silence means the CTO tab is open',
+  '# silence means another tab won',
   '# productivity status remains unknown',
   '# briefly away from glowing rectangles',
 ] as const

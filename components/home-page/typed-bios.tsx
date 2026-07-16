@@ -52,7 +52,7 @@ export function TypedBios() {
         <li>
           I debug with music because silence makes the bugs louder. <Twemoji emoji="musical-note" />
         </li>
-        <li>CTO means meetings about the code I would rather be writing.</li>
+        <li>Some meetings are about the code I would rather be writing.</li>
         <li>Technical debt is just a future sprint asking for revenge.</li>
         <li>My old code taught me humility. Your old code teaches me patience.</li>
       </ul>
