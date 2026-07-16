@@ -1,9 +1,9 @@
 export const SITE_METADATA = {
-  title: `Md Rathik | CTO and Full Stack Developer`,
+  title: `Md Rathik | I Build Things That Somehow Work`,
   author: 'Md Rathik',
   headerTitle: `Rathik's dev blog`,
   description:
-    'CTO and hands on full stack developer building products, engineering teams, and software that somehow works.',
+    'CTO and full stack developer turning vague ideas, suspicious deadlines, and too much coffee into software that somehow works.',
   language: 'en-us',
   theme: 'system', // system, dark or light
   siteUrl: 'https://www.rathik.dev',

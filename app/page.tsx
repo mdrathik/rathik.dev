@@ -17,7 +17,7 @@ export let metadata: Metadata = {
         url: SITE_METADATA.socialBanner,
         width: 1200,
         height: 630,
-        alt: 'Md Rathik, CTO and full stack developer',
+        alt: 'Md Rathik with the words I build #SHIT that somehow works',
       },
     ],
   },
@@ -25,7 +25,14 @@ export let metadata: Metadata = {
     title: SITE_METADATA.title,
     description: SITE_METADATA.description,
     card: 'summary_large_image',
-    images: [SITE_METADATA.socialBanner],
+    images: [
+      {
+        url: SITE_METADATA.socialBanner,
+        width: 1200,
+        height: 630,
+        alt: 'Md Rathik with the words I build #SHIT that somehow works',
+      },
+    ],
   },
 }
 
