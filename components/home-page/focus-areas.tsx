@@ -3,16 +3,16 @@ import { Link } from '~/components/ui/link'
 const AREAS = [
   {
     index: '01',
-    title: 'Product Engineering',
+    title: 'Making Things Work',
     description:
-      'Full-stack builds with Laravel, Next.js, and Node — taking ideas from a whiteboard sketch to production traffic.',
+      'Laravel, Next.js, Node, and whatever else keeps the nice mockup from becoming an expensive JPEG.',
   },
   {
     index: '02',
-    title: 'Architecture & Teams',
+    title: 'Preventing Future Regret',
     description: (
       <>
-        Leading engineering at{' '}
+        Leading engineering and still shipping code at{' '}
         <Link
           href="https://www.codecony.com"
           className="underline decoration-rose-400/50 underline-offset-2 transition-colors hover:text-rose-600 dark:hover:text-rose-400"
@@ -20,15 +20,16 @@ const AREAS = [
         >
           CODECONY
         </Link>
-        : designing systems that scale with the roadmap, and growing the people who run them.
+        : making technical decisions that survive changing requirements, production traffic, and my
+        own questionable shortcuts from six months ago.
       </>
     ),
   },
   {
     index: '03',
-    title: 'DevOps & Security',
+    title: 'Keeping Fires Small',
     description:
-      'CI/CD pipelines, Docker, Linux. Shipping fast without breaking trust — reliability and security as defaults, not afterthoughts.',
+      'CI/CD, Docker, Linux, security, and backups. “It worked locally” is not an incident response plan.',
   },
 ] as const
 

@@ -16,15 +16,15 @@ export function Contact() {
       </p>
 
       <h2 className="mx-auto mt-4 max-w-2xl text-3xl font-extrabold tracking-tight sm:text-4xl md:text-5xl">
-        Bring me the idea everyone else called{' '}
+        Got an idea that sounds slightly{' '}
         <span className="bg-gradient-to-r from-rose-600 via-red-500 to-orange-500 bg-clip-text text-transparent dark:from-rose-400 dark:via-red-400 dark:to-orange-400">
-          impossible
+          unhinged
         </span>
-        .
+        ?
       </h2>
 
       <p className="mt-4 text-gray-600 dark:text-gray-400 md:text-lg">
-        Or that "tiny 5-minute fix" — sure, I've heard that one before. Inbox is open either way.
+        Perfect. The normal ideas are already being ruined by committees. Let’s build yours.
       </p>
 
       <Link

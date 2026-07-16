@@ -2,10 +2,14 @@ import 'css/tailwind.css'
 import 'css/twemoji.css'
 import 'react-medium-image-zoom/dist/styles.css'
 import 'remark-github-blockquote-alert/alert.css'
+import '@fontsource-variable/jetbrains-mono'
+import '@fontsource-variable/jetbrains-mono/wght-italic.css'
+import '@fontsource-variable/nunito'
+import '@fontsource-variable/nunito/wght-italic.css'
+import '@fontsource-variable/playpen-sans'
 
 import clsx from 'clsx'
 import type { Metadata } from 'next'
-import { JetBrains_Mono, Nunito, Playpen_Sans } from 'next/font/google'
 import { UmamiAnalytics } from '~/components/analytics/umami'
 import AdScript from '~/components/adsense/AdScript'
 
@@ -18,29 +22,6 @@ import { TiltedGridBackground } from '~/components/ui/tilted-grid-background'
 import { SITE_METADATA } from '~/data/site-metadata'
 import { ThemeProviders } from './theme-providers'
 
-const FONT_PLAYPEN_SANS = Playpen_Sans({
-  subsets: ['latin'],
-  display: 'swap',
-  weight: ['800'],
-  variable: '--font-playpen-sans',
-})
-
-const FONT_NUNITO = Nunito({
-  subsets: ['latin'],
-  display: 'swap',
-  style: ['normal', 'italic'],
-  weight: ['400', '500', '600', '700', '800'],
-  variable: '--font-nunito',
-})
-
-const FONT_JETBRAINS_MONO = JetBrains_Mono({
-  weight: ['400', '500', '600'],
-  subsets: ['latin'],
-  style: ['normal', 'italic'],
-  display: 'swap',
-  variable: '--font-jetbrains-mono',
-})
-
 export let metadata: Metadata = {
   metadataBase: new URL(SITE_METADATA.siteUrl),
   title: {
@@ -48,12 +29,30 @@ export let metadata: Metadata = {
     template: `%s | ${SITE_METADATA.title}`,
   },
   description: SITE_METADATA.description,
+  authors: [{ name: SITE_METADATA.author, url: SITE_METADATA.siteUrl }],
+  creator: SITE_METADATA.author,
+  keywords: [
+    'Md Rathik',
+    'CTO',
+    'full stack developer',
+    'software engineering',
+    'Laravel',
+    'Next.js',
+    'Node.js',
+  ],
   openGraph: {
     title: SITE_METADATA.title,
     description: SITE_METADATA.description,
     url: './',
     siteName: SITE_METADATA.title,
-    images: [SITE_METADATA.socialBanner],
+    images: [
+      {
+        url: SITE_METADATA.socialBanner,
+        width: 1200,
+        height: 630,
+        alt: 'Md Rathik, CTO and full stack developer',
+      },
+    ],
     locale: 'en_US',
     type: 'website',
   },
@@ -76,8 +75,16 @@ export let metadata: Metadata = {
   },
   twitter: {
     title: SITE_METADATA.title,
+    description: SITE_METADATA.description,
     card: 'summary_large_image',
-    images: [SITE_METADATA.socialBanner],
+    images: [
+      {
+        url: SITE_METADATA.socialBanner,
+        width: 1200,
+        height: 630,
+        alt: 'Md Rathik, CTO and full stack developer',
+      },
+    ],
   },
 }
 
@@ -85,16 +92,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   let basePath = process.env.BASE_PATH || ''
 
   return (
-    <html
-      lang={SITE_METADATA.language}
-      className={clsx(
-        'scroll-smooth',
-        FONT_NUNITO.variable,
-        FONT_JETBRAINS_MONO.variable,
-        FONT_PLAYPEN_SANS.variable
-      )}
-      suppressHydrationWarning
-    >
+    <html lang={SITE_METADATA.language} className="scroll-smooth" suppressHydrationWarning>
       <link rel="apple-touch-icon" sizes="76x76" href={`${basePath}/static/favicons/favicon.ico`} />
       <link
         rel="icon"

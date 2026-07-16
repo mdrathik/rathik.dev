@@ -1,15 +1,16 @@
 export const SITE_METADATA = {
-  title: `Md Rathik | Tech Autodidact`,
+  title: `Md Rathik | CTO and Full Stack Developer`,
   author: 'Md Rathik',
   headerTitle: `Rathik's dev blog`,
-  description: 'A tech enthusiast & self taught learner. Love to talk the way of tech.',
+  description:
+    'CTO and hands on full stack developer building products, engineering teams, and software that somehow works.',
   language: 'en-us',
   theme: 'system', // system, dark or light
   siteUrl: 'https://www.rathik.dev',
   siteRepo: 'https://github.com/mdrathik/rathik.dev',
   siteLogo: `${process.env.BASE_PATH || ''}/static/images/logo.jpeg`,
   profilePicture: `${process.env.BASE_PATH || ''}/static/images/profile-picture.jpg`,
-  socialBanner: `${process.env.BASE_PATH || ''}/static/images/twitter-card.jpeg`,
+  socialBanner: `${process.env.BASE_PATH || ''}/static/images/home-og.png`,
   email: 'hello@rathik.dev',
   github: 'https://github.com/mdrathik',
   x: 'https://twitter.com/mdrathik',

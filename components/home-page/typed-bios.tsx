@@ -41,20 +41,20 @@ export function TypedBios() {
       ])}
     >
       <ul id="bios" className="hidden">
-        <li>I turn caffeine into software. The teams part came free.</li>
-        <li>Full-stack means the bug can be anywhere. I find it.</li>
-        <li>I've deleted more code than I've written. Proudly.</li>
-        <li>"Temporary fix" — the funniest joke in software.</li>
-        <li>I don't deploy on Fridays. I'm not a monster.</li>
-        <li>My first language was "C". My first love was Ctrl+Z.</li>
-        <li>I make "impossible" sound like a sprint task.</li>
-        <li>Dhaka-based, globally deployed.</li>
+        <li>I write clean code. Then the requirements change.</li>
+        <li>Frontend bugs. Backend bugs. All lovingly handcrafted.</li>
+        <li>Most “simple changes” are three Jira tickets in a trench coat.</li>
+        <li>Temporary fixes are permanent fixes with commitment issues.</li>
+        <li>I avoid Friday deploys because weekends deserve boundaries.</li>
+        <li>Documentation is like cardio. Everyone agrees it is important.</li>
+        <li>“Works on my machine” remains a powerful legal defense.</li>
+        <li>Based in Dhaka. Available in every inconvenient timezone.</li>
         <li>
-          I debug best with music on. <Twemoji emoji="musical-note" />
+          I debug with music because silence makes the bugs louder. <Twemoji emoji="musical-note" />
         </li>
-        <li>Half my job is code. The other half is asking "but does it scale?"</li>
-        <li>My git blame history is a personal growth documentary.</li>
-        <li>Yes, I still write code. No, you can't see my 2017 commits.</li>
+        <li>CTO means meetings about the code I would rather be writing.</li>
+        <li>Technical debt is just a future sprint asking for revenge.</li>
+        <li>My old code taught me humility. Your old code teaches me patience.</li>
       </ul>
 
       <span ref={el} className="text-neutral-900 dark:text-neutral-200" />

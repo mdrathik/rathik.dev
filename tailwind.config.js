@@ -61,6 +61,10 @@ module.exports = {
           '0%, 100%': { transform: 'translateY(0)' },
           '50%': { transform: 'translateY(-10px)' },
         },
+        'status-caption': {
+          '0%': { opacity: '0', transform: 'translateX(8px)' },
+          '100%': { opacity: '1', transform: 'translateX(0)' },
+        },
       },
       animation: {
         wiggle: 'wiggle 7s linear infinite',
@@ -73,6 +77,7 @@ module.exports = {
         marquee: 'marquee 25s linear infinite',
         'marquee-slow': 'marquee-slow 20s linear infinite',
         balloon: 'balloon 2s ease-in-out infinite',
+        'status-caption': 'status-caption 400ms ease-out both',
       },
       boxShadow: {
         demure: 'rgba(0, 0, 0, 0.3) 0 35px 60px -15px',
