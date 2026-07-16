@@ -34,7 +34,8 @@ export function Hero() {
               strokeLinecap="round"
             />
           </svg>
-        </span>{' '}
+        </span>
+        ,{' '}
         <span className="text-black dark:text-white">
           that somehow <span className="text-orange-500 dark:text-orange-400">works.</span>
         </span>
@@ -60,16 +61,16 @@ export function Hero() {
             PowerPoint fails to compile. This happens more often than you would think.
           </p>
 
-          <div className="mt-7 flex flex-wrap items-center gap-3">
+          <div className="mt-7 flex flex-nowrap items-center gap-2 sm:gap-3">
             <Link
               href="/projects"
-              className="inline-flex items-center gap-1.5 rounded-lg bg-gradient-to-r from-rose-600 to-red-500 px-5 py-2.5 text-sm font-semibold text-white no-underline shadow-[0_0_30px_-6px] shadow-rose-600/60 transition-all duration-200 hover:shadow-[0_0_35px_-4px] hover:shadow-rose-500/70 hover:brightness-110"
+              className="inline-flex shrink-0 items-center gap-1.5 rounded-lg bg-gradient-to-r from-rose-600 to-red-500 px-3 py-2 text-xs font-semibold text-white no-underline shadow-[0_0_30px_-6px] shadow-rose-600/60 transition-all duration-200 hover:shadow-[0_0_35px_-4px] hover:shadow-rose-500/70 hover:brightness-110 sm:px-5 sm:py-2.5 sm:text-sm"
             >
               See the evidence &rarr;
             </Link>
             <Link
               href={`mailto:${SITE_METADATA.email}`}
-              className="inline-flex items-center gap-1.5 rounded-lg border border-gray-300/70 bg-white/50 px-5 py-2.5 font-mono text-sm text-gray-800 no-underline backdrop-blur-sm transition-colors duration-200 hover:border-rose-400/60 hover:text-rose-600 dark:border-gray-700 dark:bg-white/5 dark:text-gray-200 dark:hover:border-rose-500/50 dark:hover:text-rose-400"
+              className="inline-flex min-w-0 items-center gap-1.5 rounded-lg border border-gray-300/70 bg-white/50 px-3 py-2 font-mono text-xs text-gray-800 no-underline backdrop-blur-sm transition-colors duration-200 hover:border-rose-400/60 hover:text-rose-600 dark:border-gray-700 dark:bg-white/5 dark:text-gray-200 dark:hover:border-rose-500/50 dark:hover:text-rose-400 sm:px-5 sm:py-2.5 sm:text-sm"
             >
               {SITE_METADATA.email}
             </Link>

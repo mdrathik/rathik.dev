@@ -48,7 +48,7 @@ try {
   $titleY = 168
   $graphics.DrawString('I build', $fontTitle, $whiteBrush, 68, $titleY)
   $firstWidth = $graphics.MeasureString('I build', $fontTitle).Width
-  $graphics.DrawString('#SHIT', $fontTitle, $roseBrush, 68 + $firstWidth - 3, $titleY)
+  $graphics.DrawString('#SHIT,', $fontTitle, $roseBrush, 68 + $firstWidth - 3, $titleY)
 
   $secondY = 250
   $graphics.DrawString('that somehow', $fontTitle, $whiteBrush, 68, $secondY)
