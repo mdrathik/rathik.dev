@@ -1,7 +1,7 @@
 'use client'
 
 import { clsx } from 'clsx'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Brand } from '~/components/ui/brand'
 import { GrowingUnderline } from '~/components/ui/growing-underline'
 import { Link } from '~/components/ui/link'
@@ -27,13 +27,19 @@ export function SpotifyNowPlaying({
   let { songUrl, title, artist, albumImageUrl } = useNowPlaying()
   let [artFailed, setArtFailed] = useState(false)
 
+  useEffect(() => {
+    setArtFailed(false)
+  }, [albumImageUrl])
+
+  let albumArt = albumImageUrl && !artFailed ? albumImageUrl : FALLBACK_ART
+
   if (variant === 'stacked') {
     return (
       <div className={clsx(['flex items-center gap-3', className])}>
-        {showCover && albumImageUrl ? (
+        {showCover ? (
           <Image
-            src={artFailed ? FALLBACK_ART : albumImageUrl}
-            alt={title!}
+            src={albumArt}
+            alt={title || 'Default album artwork'}
             width={96}
             height={96}
             onError={() => setArtFailed(true)}
@@ -73,10 +79,10 @@ export function SpotifyNowPlaying({
 
   return (
     <div className={clsx(['flex items-center', className])}>
-      {showCover && albumImageUrl ? (
+      {showCover ? (
         <Image
-          src={artFailed ? FALLBACK_ART : albumImageUrl}
-          alt={title!}
+          src={albumArt}
+          alt={title || 'Default album artwork'}
           width={40}
           height={40}
           onError={() => setArtFailed(true)}
